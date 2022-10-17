@@ -38,7 +38,7 @@ const Navbar = () => {
 			</li>
 
 			<li>
-				<NavLink to={"overview"}>
+				<NavLink to={"overview/projects"}>
 					<FaToolbox />
 				</NavLink>
 			</li>

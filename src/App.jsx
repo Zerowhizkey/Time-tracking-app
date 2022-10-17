@@ -39,6 +39,7 @@ const router = createBrowserRouter([
 					{
 						path: "projects",
 						element: <Projects />,
+						loader: getProducts,
 					},
 					{
 						path: "tasks",

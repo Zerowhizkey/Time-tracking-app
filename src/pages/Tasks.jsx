@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 const Container = styled.div`
 	display: grid;
-	padding-top: 10em;
 	justify-content: center;
+	height: 100vh;
+	margin-top: 2em;
 `;
 const Tasks = () => {
 	return <Container>Tasks</Container>;

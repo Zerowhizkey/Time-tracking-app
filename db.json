@@ -1,32 +1,41 @@
 {
-	"projects": [
-		{ "id": 1, "name": "Projekt nr 1", "color": "#4E0E9F" }
-	],
-	"tasks": [
-		{
-			"id": 11,
-			"projectId": 1,
-			"title": "Läsa genom Reacts nya dokumentation"
-		}
-	],
-	"timelogs": [
-		{
-			"id": 111,
-			"taskId": 11,
-			"start": "2022-10-12T10:49:33.081Z",
-			"end": "2022-10-12T10:49:33.081Z"
-		},
-		{
-			"id": 112,
-			"taskId": 12,
-			"start": "2022-10-12T10:49:33.081Z",
-			"end": "2022-10-12T10:49:33.081Z"
-		},
-		{
-			"id": 113,
-			"taskId": 13,
-			"start": "2022-10-12T10:49:33.081Z",
-			"end": "2022-10-12T10:49:33.081Z"
-		}
-	]
+  "projects": [
+    {
+      "id": 1,
+      "name": "Projekt nr 1",
+      "color": "#4E0E9F"
+    },
+    {
+      "id": "d16f4fd0-d03a-4b66-b0ec-924cdf9668b1",
+      "name": "hej",
+      "color": "#5e72e4"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 11,
+      "projectId": 1,
+      "title": "Läsa genom Reacts nya dokumentation"
+    }
+  ],
+  "timelogs": [
+    {
+      "id": 111,
+      "taskId": 11,
+      "start": "2022-10-12T10:49:33.081Z",
+      "end": "2022-10-12T10:49:33.081Z"
+    },
+    {
+      "id": 112,
+      "taskId": 12,
+      "start": "2022-10-12T10:49:33.081Z",
+      "end": "2022-10-12T10:49:33.081Z"
+    },
+    {
+      "id": 113,
+      "taskId": 13,
+      "start": "2022-10-12T10:49:33.081Z",
+      "end": "2022-10-12T10:49:33.081Z"
+    }
+  ]
 }

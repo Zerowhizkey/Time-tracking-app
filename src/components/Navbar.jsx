@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { RiTimerFill, RiCalendarFill } from "react-icons/ri";
 import { FaToolbox } from "react-icons/fa";
+
 const NavContainer = styled.ul`
 	list-style: none;
 	padding: 0;
@@ -13,31 +14,32 @@ const NavContainer = styled.ul`
 	width: 100vw;
 	bottom: 0;
 	left: 0;
+	background-color: lightgray;
 `;
 
 const NavLink = styled(Link)`
 	text-decoration: none;
 	color: inherit;
-	padding: 1em;
+	padding: 0.5em;
 	font-size: x-large;
 `;
 
 const Navbar = () => {
 	return (
 		<NavContainer>
-			<li>
+			<li style={{ display: "flex" }}>
 				<NavLink to={"/"}>
 					<RiTimerFill />
 				</NavLink>
 			</li>
 
-			<li>
+			<li style={{ display: "flex" }}>
 				<NavLink to={"calendar"}>
 					<RiCalendarFill />
 				</NavLink>
 			</li>
 
-			<li>
+			<li style={{ display: "flex" }}>
 				<NavLink to={"overview/projects"}>
 					<FaToolbox />
 				</NavLink>

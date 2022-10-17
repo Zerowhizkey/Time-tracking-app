@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { getProducts, getTasks, getTimes } from "./api/api";
 import "./App.css";
 import Calendar from "./pages/Calendar";
 import Home from "./pages/Home";
@@ -13,6 +14,13 @@ const router = createBrowserRouter([
 			{
 				index: "/",
 				element: <Home />,
+				loader: async () => {
+					const products = await getProducts();
+					const tasks = await getTasks();
+					const times = await getTimes();
+					return { products, tasks, times };
+				},
+				// loader: getProducts,
 			},
 			{
 				path: "calendar",

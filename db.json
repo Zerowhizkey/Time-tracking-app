@@ -1,19 +1,32 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+	"projects": [
+		{ "id": "<random id>", "name": "Projekt nr 1", "color": "#4E0E9F" }
+	],
+	"tasks": [
+		{
+			"id": "<random id>",
+			"projectId": "<project id>",
+			"title": "Läsa genom Reacts nya dokumentation"
+		}
+	],
+	"timelogs": [
+		{
+			"id": "<random id>",
+			"taskId": "<task id>",
+			"start": "2022-10-12T10:49:33.081Z",
+			"end": "2022-10-12T10:49:33.081Z"
+		},
+		{
+			"id": "<random id>",
+			"taskId": "<task id>",
+			"start": "2022-10-12T10:49:33.081Z",
+			"end": "2022-10-12T10:49:33.081Z"
+		},
+		{
+			"id": "<random id>",
+			"taskId": "<task id>",
+			"start": "2022-10-12T10:49:33.081Z",
+			"end": "2022-10-12T10:49:33.081Z"
+		}
+	]
 }

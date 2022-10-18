@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import InputColor from "react-input-color";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
+import { useProjects } from "../context/ProjectContext";
+// import { getProducts } from "../api/api";
 
 const Container = styled.div`
 	display: grid;
@@ -17,50 +19,43 @@ const ProjectContainer = styled.div`
 `;
 
 const Projects = () => {
-	const projecto = useLoaderData();
 	const [color, setColor] = useState({});
-	const [project, setProject] = useState({});
+	const [input, setInput] = useState("");
+	const { project } = useProjects();
 	const unique_id = uuid();
-	// const handleClick = () => {};
-	useEffect(() => {
-		async function getProject() {
-			const { data } = await axios.request({
-				method: "get",
-				url: `http://192.168.1.86:3000/projects`,
-			});
-			setProject(data);
-		}
-		getProject();
-	}, []);
-	async function addProject(e) {
-		e.preventDefault();
 
+	async function addProject() {
 		const response = await axios.request({
 			method: "post",
-			url: `http://192.168.1.86:3000/projects`,
-			data: { id: unique_id, name: project, color: color.hex },
+			url: `http://localhost:3000/projects`,
+			data: { id: unique_id, name: input, color: color.hex },
 		});
+
 		return response.data;
 	}
-	const projectos = projecto.map((item) => {
-		return item.name;
-	});
-	// console.log(projecto);
+
+	// const handleClick = async () => {
+	// 	await addProject();
+	// 	await getProducts();
+	// };
+
+	const handleInput = (e) => {
+		setInput(e.target.value);
+	};
+	console.log(project);
 	return (
 		<Container>
 			Projects
 			<ProjectContainer>
-				<span style={{ marginTop: "1em" }}>{projectos}</span>
-				{/* <span style={{ marginTop: "1em" }}>Project 2</span> */}
-				{/* <span style={{ marginTop: "1em" }}>Project 3</span> */}
+				{project &&
+					project.map((proj) => (
+						<span key={proj.id} style={{ marginTop: "1em", display: "flex" }}>
+							{proj.name}
+						</span>
+					))}
 			</ProjectContainer>
 			<div style={{ marginTop: "2em", display: "grid" }}>
-				<input
-					required
-					type="text"
-					value={project.name}
-					onChange={(e) => setProject(e.target.value)}
-				/>
+				<input required type="text" value={input} onChange={handleInput} />
 				<div style={{ display: "flex" }}>
 					<InputColor
 						initialValue="#5e72e4"
@@ -75,3 +70,27 @@ const Projects = () => {
 };
 
 export default Projects;
+// const projecto = useLoaderData();
+// const [project, setProject] = useState({});
+// const handleClick = () => {};
+
+// const projectos = project.map((item) => {
+// 	return item.name;
+// });
+// console.log(projecto);
+{
+	/* <span style={{ marginTop: "1em" }}>Project 2</span> */
+}
+{
+	/* <span style={{ marginTop: "1em" }}>Project 3</span> */
+}
+// useEffect(() => {
+// 	async function getProject() {
+// 		const { data } = await axios.request({
+// 			method: "get",
+// 			url: `http://localhost:3000/projects`,
+// 		});
+// 		setProject(data);
+// 	}
+// 	getProject();
+// }, []);

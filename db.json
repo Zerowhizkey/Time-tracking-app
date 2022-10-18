@@ -1,21 +1,46 @@
 {
   "projects": [
     {
-      "id": 1,
+      "id": "9d6eda63-a6ca-4ddd-975f-bddaba0a31b3",
       "name": "Projekt nr 1",
       "color": "#4E0E9F"
     },
     {
-      "id": "d16f4fd0-d03a-4b66-b0ec-924cdf9668b1",
-      "name": "hej",
+      "id": "19507d66-74c1-41dc-94c5-92d82d653ea0",
+      "name": "lol",
+      "color": "#1e1f21ff"
+    },
+    {
+      "id": "cfb2331a-7672-4680-baec-d88183b3baab",
+      "name": "hejsan",
+      "color": "#5e72e4"
+    },
+    {
+      "id": "27b5102f-52f6-4c5e-8b05-531fb0c54369",
+      "name": "gegeg",
       "color": "#5e72e4"
     }
   ],
   "tasks": [
     {
       "id": 11,
-      "projectId": 1,
+      "projectId": "9d6eda63-a6ca-4ddd-975f-bddaba0a31b3",
       "title": "Läsa genom Reacts nya dokumentation"
+    },
+    {
+      "id": 22,
+      "projectId": "19507d66-74c1-41dc-94c5-92d82d653ea0",
+      "title": "Det funkar ?"
+    },
+    {
+      "id": "ead7f0e9-fe57-4562-abb1-3ff7e93cc846",
+      "projectId": "9d6eda63-a6ca-4ddd-975f-bddaba0a31b3",
+      "title": "Hej kanske funkar ?"
+    },
+    {
+      "id": "a2ad03f1-b9d2-40ee-9580-2128548653c8",
+      "projectId": "27b5102f-52f6-4c5e-8b05-531fb0c54369",
+      "title": "hehehehe"
     }
   ],
   "timelogs": [

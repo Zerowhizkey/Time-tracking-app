@@ -1,15 +1,15 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 import styled from "styled-components";
+import { useProjects } from "../context/ProjectContext";
 
 const Container = styled.div`
 	display: grid;
 `;
 
-const ItemContainer = styled.div `
-display: grid;
-
-`
+const ItemContainer = styled.div`
+	display: grid;
+`;
 
 const Header = styled.div`
 	background-color: lightgray;
@@ -17,13 +17,14 @@ const Header = styled.div`
 `;
 
 const Home = () => {
-	const { products, tasks, times } = useLoaderData();
+	const { project } = useProjects();
+	// const { products, tasks, times } = useLoaderData();
 
-	const product = products.map((product) => {
-		return product.name;
-	});
-	console.log(product)
-
+	// const product = products.map((product) => {
+	// 	return product.name;
+	// });
+	// console.log(product)
+	console.log(project);
 	return (
 		<Container>
 			<Header>
@@ -42,14 +43,20 @@ const Home = () => {
 					</div>
 				</div>
 			</Header>
+			{project &&
+				project.map((proj) => (
+					<span key={proj.id} style={{ marginTop: "1em", display: "flex" }}>
+						{proj.name}
+					</span>
+				))}
 			<ItemContainer>
-				<p>{product}</p>
+				{/* <p>{product}</p> */}
 				{/* {products.map((product) => (
 					<div key={product.id} style={{ backgroundColor: product.color }}>
 						<p>{product.name}</p>
 					</div>
 				))} */}
-				{tasks.map((task) => (
+				{/* {tasks.map((task) => (
 					<div key={task.projectId}>
 						<p>{task.title}</p>
 					</div>
@@ -58,9 +65,9 @@ const Home = () => {
 					<div key={time.taskId}>
 						<p>
 							start: {time.start} end: {time.end}
-						</p>
-					</div>
-				))}
+						</p> */}
+				{/* </div> */}
+				{/* ))} */}
 			</ItemContainer>
 		</Container>
 	);

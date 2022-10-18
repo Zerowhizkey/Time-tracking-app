@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const URL = "http://192.168.1.86:3000";
+const URL = "http://localhost:3000";
 
 export const getProducts = async () => {
 	const { data } = await axios.request({
 		method: "get",
 		url: `${URL}/projects`,
 	});
-	// console.log(data);
+	console.log(data);
 	return data;
 };
 

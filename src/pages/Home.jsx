@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { addTime } from "../api/api";
+import { addTime, deleteTime } from "../api/api";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
 import styled from "styled-components";
@@ -19,19 +19,27 @@ const Header = styled.div`
 
 const Home = () => {
 	const [currentTask, setCurrentTask] = useState(null);
+	const [currentTime, setCurrentTime] = useState(null);
 	const { tasks, getTime } = useProjects();
 	const unique_id = uuid();
+
+	const theChoosenOne = tasks.find((task) => task.id === currentTask);
+
+	const handleClickAdd = async (timeData) => {
+		await addTime(timeData);
+		setCurrentTime(timeData);
+		getTime();
+	};
+
+	const handleClickDelete = async () => {
+		if (!currentTime.id) return;
+		await deleteTime(currentTime.id);
+		setCurrentTime(null);
+	};
 
 	const handleCurrentTask = (e) => {
 		setCurrentTask(e.target.value);
 	};
-
-	const handleTime = async (timeData) => {
-		await addTime(timeData);
-		getTime();
-	};
-
-	const theChoosenOne = tasks.find((task) => task.id === currentTask);
 
 	return (
 		<Container>
@@ -41,28 +49,33 @@ const Home = () => {
 				{theChoosenOne && (
 					<>
 						<p style={{ marginTop: "0" }}>{theChoosenOne.title}</p>
-						<button
-							onClick={() =>
-								handleTime({
-									id: unique_id,
-									taskId: currentTask,
-									start: "bajs",
-									stop: "korv",
-								})
-							}
-						>
-							Start
-						</button>
+
+						{currentTime ? (
+							<button onClick={handleClickDelete}>Delete</button>
+						) : (
+							<button
+								onClick={() =>
+									handleClickAdd({
+										id: unique_id,
+										taskId: currentTask,
+										start: "00:01",
+										stop: "20:00",
+									})
+								}
+							>
+								Start
+							</button>
+						)}
 					</>
 				)}
 				<div style={{ display: "flex", justifyContent: "space-around" }}>
 					<div>
 						<p>total</p>
-						<p>00:52:14</p>
+						{currentTime && <p>{currentTime.start}</p>}
 					</div>
 					<div>
 						<p>today</p>
-						<p>00:12:34</p>
+						{currentTime && <p>{currentTime.stop}</p>}
 					</div>
 				</div>
 			</Header>

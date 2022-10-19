@@ -24,13 +24,13 @@ export const ProjectProvider = ({ children }) => {
 	};
 
 	useEffect(() => {
-		const worki = () => {
+		const getAll = () => {
 			getProject();
 			getTask();
 			getTimes();
 		};
-		worki();
-	}, [getTask]);
+		getAll();
+	}, []);
 
 	return (
 		<ProjectContex.Provider

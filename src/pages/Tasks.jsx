@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import { useState } from "react";
+import { addTask, deleteTask } from "../api/api";
 import { useProjects } from "../context/ProjectContext";
-// import axios from "axios";
 import { v4 as uuid } from "uuid";
-import { getTasks, addTask, deleteTask } from "../api/api";
+import styled from "styled-components";
 
 const Container = styled.div`
 	display: grid;
@@ -12,10 +11,10 @@ const Container = styled.div`
 `;
 
 const Tasks = () => {
-	const { project, task, getTask } = useProjects();
-	const [input, setInput] = useState("");
 	const [currentProject, setCurrentProject] = useState(null);
 	const [currentTask, setCurrentTask] = useState(null);
+	const [input, setInput] = useState("");
+	const { project, task, getTask } = useProjects();
 	const unique_id = uuid();
 
 	async function handleClick(taskData) {

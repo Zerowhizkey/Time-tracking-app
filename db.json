@@ -1,87 +1,48 @@
 {
   "projects": [
     {
-      "id": "c7d53734-82e5-4127-b061-fceff0ef3836",
-      "name": "hej",
+      "id": "07feae91-a6eb-49f1-8132-479448815358",
+      "name": "Clean apartment",
       "color": "#5e72e4"
     },
     {
-      "id": "74da035b-1dff-4fe1-a92d-8c24a4434f7c",
-      "name": "halå",
-      "color": "#5e72e4"
-    },
-    {
-      "id": "d6d060ef-8306-4bc2-9efc-ea654ce4871e",
-      "name": "he",
+      "id": "e6f1ede4-60af-424a-b3ef-9fcb1b1a39cd",
+      "name": "Create app",
       "color": "#5e72e4"
     }
   ],
   "tasks": [
     {
-      "id": "fb707eff-fe5f-4b24-bc98-50eea3a56e64",
-      "projectId": "c7d53734-82e5-4127-b061-fceff0ef3836",
-      "title": "hehehehe"
+      "id": "234e6775-7f4e-4820-809e-b794046a82e4",
+      "projectId": "07feae91-a6eb-49f1-8132-479448815358",
+      "title": "Do the dishes"
     },
     {
-      "id": "770146c2-d656-400b-acc7-5fe24995b0ff",
-      "projectId": "c7d53734-82e5-4127-b061-fceff0ef3836",
-      "title": "hehe"
+      "id": "c193e753-cd9f-43ab-a7c7-203149d98115",
+      "projectId": "07feae91-a6eb-49f1-8132-479448815358",
+      "title": "Vaccum"
     },
     {
-      "id": "9cd246dc-e4d7-408b-8345-a80a66f3976e",
-      "projectId": "c7d53734-82e5-4127-b061-fceff0ef3836",
-      "title": "heheaaaa"
+      "id": "7b93c038-254f-4f12-b319-8d9b86809759",
+      "projectId": "e6f1ede4-60af-424a-b3ef-9fcb1b1a39cd",
+      "title": "Make api file better "
     },
     {
-      "id": "06d8007a-27ab-4cc9-aac2-da70982ecb6a",
-      "projectId": "c7d53734-82e5-4127-b061-fceff0ef3836",
-      "title": "lol"
-    },
-    {
-      "id": "c16834fa-ad3b-4b9a-b6d8-48fe29c556e6",
-      "projectId": "74da035b-1dff-4fe1-a92d-8c24a4434f7c",
-      "title": "hallelåja"
-    },
-    {
-      "id": "e08d0ba0-fc3d-4780-9f67-78a49686ed29",
-      "projectId": "d6d060ef-8306-4bc2-9efc-ea654ce4871e",
-      "title": "hhhh"
+      "id": "7b61a5b2-6d2c-49fa-8303-eb3332e4097e",
+      "projectId": "e6f1ede4-60af-424a-b3ef-9fcb1b1a39cd",
+      "title": "Create Tasks"
     }
   ],
   "timelogs": [
     {
-      "id": "<random id>",
-      "taskId": "<task id>",
-      "start": "2022-10-12T10:49:33.081Z",
-      "end": "2022-10-12T10:49:33.081Z"
-    },
-    {
-      "id": "<random id>",
-      "taskId": "<task id>",
-      "start": "2022-10-12T10:49:33.081Z",
-      "end": "2022-10-12T10:49:33.081Z"
-    },
-    {
-      "id": "<random id>",
-      "taskId": "<task id>",
-      "start": "2022-10-12T10:49:33.081Z",
-      "end": "2022-10-12T10:49:33.081Z"
-    },
-    {
-      "id": "6587a7b5-706b-4108-ae2d-42dac9b1b84e",
-      "taskId": "fb707eff-fe5f-4b24-bc98-50eea3a56e64",
+      "id": "692e69e8-884a-4330-9a7c-0622e801ceca",
+      "taskId": "234e6775-7f4e-4820-809e-b794046a82e4",
       "start": "bajs",
       "stop": "korv"
     },
     {
-      "id": "d9128b03-917b-4610-bd22-41ca9db33d71",
-      "taskId": "9cd246dc-e4d7-408b-8345-a80a66f3976e",
-      "start": "bajs",
-      "stop": "korv"
-    },
-    {
-      "id": "39c2d375-b078-421a-832f-cdd3f04e72b5",
-      "taskId": "e08d0ba0-fc3d-4780-9f67-78a49686ed29",
+      "id": "e29a07f3-6447-4284-8f28-e7e5c053e2dd",
+      "taskId": "c193e753-cd9f-43ab-a7c7-203149d98115",
       "start": "bajs",
       "stop": "korv"
     }

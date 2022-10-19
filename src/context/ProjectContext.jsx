@@ -1,7 +1,8 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import axios from "axios";
+import { getProducts, getTimes, getTasks } from "../api/api";
+
 export const ProjectContex = createContext();
-import { getProducts, getTimes } from "../api/api";
+
 export const ProjectProvider = ({ children }) => {
 	const [project, setProject] = useState([]);
 	const [task, setTask] = useState([]);
@@ -13,10 +14,7 @@ export const ProjectProvider = ({ children }) => {
 	}
 
 	async function getTask() {
-		const { data } = await axios.request({
-			method: "get",
-			url: `http://localhost:3000/tasks`,
-		});
+		const data = await getTasks();
 		setTask(data);
 	}
 
@@ -60,14 +58,3 @@ export const useProjects = () => {
 	}
 	return context;
 };
-// getProject();
-// }, []);
-
-// useEffect(() => {
-// const { data } = await axios.request({
-// 	method: "get",
-// 	url: `http://localhost:3000/projects`,
-// });
-// setProject(data);
-// }, []);
-// useEffect(() => {

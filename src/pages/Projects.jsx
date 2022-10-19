@@ -4,7 +4,7 @@ import InputColor from "react-input-color";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { useProjects } from "../context/ProjectContext";
-import { deleteProjects, deleteTask } from "../api/api";
+import { deleteProjects, addProject } from "../api/api";
 
 const Container = styled.div`
 	display: grid;
@@ -25,15 +25,20 @@ const Projects = () => {
 	const { project, getProject } = useProjects();
 	const unique_id = uuid();
 
-	async function addProject() {
-		const response = await axios.request({
-			method: "post",
-			url: `http://localhost:3000/projects`,
-			data: { id: unique_id, name: input, color: color.hex },
-		});
-		await getProject();
-		return response.data;
-	}
+	// async function addProject() {
+	// const response = await axios.request({
+	// method: "post",
+	// url: `http://localhost:3000/projects`,
+	// data: { id: unique_id, name: input, color: color.hex },
+	// });
+	// await getProject();
+	// return response.data;
+	// }
+
+	const handleClickAdd = async (projectData) => {
+		await addProject(projectData);
+		getProject();
+	};
 
 	const handleInput = (e) => {
 		setInput(e.target.value);
@@ -70,7 +75,17 @@ const Projects = () => {
 						placement="middle"
 					/>
 				</div>
-				<button onClick={addProject}>Add a project</button>
+				<button
+					onClick={() =>
+						handleClickAdd({
+							id: unique_id,
+							name: input,
+							color: color.hex,
+						})
+					}
+				>
+					Add a project
+				</button>
 			</div>
 		</Container>
 	);

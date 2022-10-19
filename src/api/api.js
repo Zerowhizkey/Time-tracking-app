@@ -29,6 +29,16 @@ export const getTimes = async () => {
 	return data;
 };
 
+export async function addProject(projectData) {
+	const response = await axios.request({
+		method: "post",
+		url: `${URL}/projects`,
+		data: projectData,
+	});
+	console.log(response);
+	return;
+}
+
 export async function addTask(taskData) {
 	const response = await axios.request({
 		method: "post",
@@ -64,4 +74,3 @@ export async function deleteProjects(id) {
 	// console.log(response)
 	return;
 }
-

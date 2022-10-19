@@ -84,3 +84,13 @@ export const deleteTime = async (id) => {
 	// console.log(response)
 	return;
 };
+
+export const updateTime = async (id, timeData) => {
+	const response = await axios.request({
+		method: "patch",
+		url: `${URL}/timelogs/${id}`,
+		data: timeData,
+	});
+	console.log(response);
+	return;
+};

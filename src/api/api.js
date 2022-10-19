@@ -2,7 +2,7 @@ import axios from "axios";
 
 const URL = "http://localhost:3000";
 
-export const getProducts = async () => {
+export const getProjects = async () => {
 	const { data } = await axios.request({
 		method: "get",
 		url: `${URL}/projects`,

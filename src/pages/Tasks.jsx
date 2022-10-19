@@ -14,21 +14,21 @@ const Tasks = () => {
 	const [currentProject, setCurrentProject] = useState(null);
 	const [currentTask, setCurrentTask] = useState(null);
 	const [input, setInput] = useState("");
-	const { project, task, getTask } = useProjects();
+	const { projects, tasks, getTask } = useProjects();
 	const unique_id = uuid();
 
-	async function handleClick(taskData) {
+	const handleClickAdd = async (taskData) => {
 		await addTask(taskData);
 		getTask();
-	}
+		setInput("");
+	};
 
-	async function handleDelete() {
+	const handleClickDelete = async () => {
 		if (!currentTask) return;
-		console.log(currentTask);
 		await deleteTask(currentTask);
 		getTask();
 		setCurrentTask(null);
-	}
+	};
 
 	const handleOption = (e) => {
 		setCurrentProject(e.target.value);
@@ -42,28 +42,26 @@ const Tasks = () => {
 		setInput(e.target.value);
 	};
 
-	// console.log(currentTask);
-
 	return (
 		<Container>
 			<select onChange={handleOption}>
 				<option value="">Pick a Project</option>
-				{project
-					? project.map((proj) => (
-							<option key={proj.id} value={proj.id}>
-								{proj.name}
+				{projects
+					? projects.map((project) => (
+							<option key={project.id} value={project.id}>
+								{project.name}
 							</option>
 					  ))
 					: console.log("error")}
 			</select>
 			<select onChange={handleTask}>
 				<option value="">Pick a Task</option>
-				{task
-					? task
-							.filter((ta) => currentProject === ta.projectId)
-							.map((task) => (
-								<option value={task.id} key={task.id}>
-									{task.title}
+				{tasks
+					? tasks
+							.filter((task) => currentProject === task.projectId)
+							.map((tasks) => (
+								<option value={tasks.id} key={tasks.id}>
+									{tasks.title}
 								</option>
 							))
 					: console.log("no tasks")}
@@ -72,7 +70,7 @@ const Tasks = () => {
 				<input type="text" value={input} onChange={handleInput} />
 				<button
 					onClick={() =>
-						handleClick({
+						handleClickAdd({
 							id: unique_id,
 							projectId: currentProject,
 							title: input,
@@ -82,7 +80,7 @@ const Tasks = () => {
 					Add Task
 				</button>
 
-				<button onClick={handleDelete}>Delete</button>
+				<button onClick={handleClickDelete}>Delete</button>
 			</div>
 		</Container>
 	);
@@ -90,20 +88,20 @@ const Tasks = () => {
 
 export default Tasks;
 
-// if (ta.projectId === proj.id)
+// if (task.projectId === project.id)
 // {
-// 	console.log(ta.projectId);
+// 	console.log(task.projectId);
 // }
 // {
-// 	console.log(proj.id);
+// 	console.log(project.id);
 // }
 // value={currentProject}
 // value={currentTask}
-// const projId = project.map((project) => project.id);
+// const projId = projects.map((projects) => projects.id);
 // console.log(projId)
 /* height: 100vh; */
-// console.log(project);
-// console.log(task);
+// console.log(projects);
+// console.log(tasks);
 // console.log(currentProject);
 // console.log(currentTask);
 // currentTask,

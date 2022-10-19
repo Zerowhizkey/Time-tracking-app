@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { useProjects } from "../context/ProjectContext";
+import { useState } from "react";
 import { addTime } from "../api/api";
+import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
+import styled from "styled-components";
+
 const Container = styled.div`
 	display: grid;
 `;
@@ -17,12 +18,11 @@ const Header = styled.div`
 `;
 
 const Home = () => {
-	const { task, getTime } = useProjects();
 	const [currentTask, setCurrentTask] = useState(null);
+	const { tasks, getTime } = useProjects();
 	const unique_id = uuid();
 
 	const handleCurrentTask = (e) => {
-		// console.log(e.target.value);
 		setCurrentTask(e.target.value);
 	};
 
@@ -31,9 +31,8 @@ const Home = () => {
 		getTime();
 	};
 
-	// console.log(currentTask);
-	const theChoosenOne = task.find((ta) => ta.id === currentTask);
-	// console.log(theChoosenOne);
+	const theChoosenOne = tasks.find((task) => task.id === currentTask);
+
 	return (
 		<Container>
 			<Header>
@@ -67,56 +66,22 @@ const Home = () => {
 					</div>
 				</div>
 			</Header>
-			{task &&
-				task.map((ta) => (
+
+			{tasks &&
+				tasks.map((task) => (
 					<button
 						onClick={handleCurrentTask}
-						key={ta.id}
-						value={ta.id}
+						key={task.id}
+						value={task.id}
 						style={{ marginTop: "1em", display: "flex" }}
 					>
-						{ta.title}
+						{task.title}
 					</button>
 				))}
+
 			<ItemContainer></ItemContainer>
 		</Container>
 	);
 };
 
 export default Home;
-// const { products, tasks, times } = useLoaderData();
-
-// const product = products.map((product) => {
-// 	return product.name;
-// });
-// console.log(product)
-{
-	/* <p>{product}</p> */
-}
-{
-	/* {products.map((product) => (
-					<div key={product.id} style={{ backgroundColor: product.color }}>
-						<p>{product.name}</p>
-					</div>
-				))} */
-}
-{
-	/* {tasks.map((task) => (
-					<div key={task.projectId}>
-						<p>{task.title}</p>
-					</div>
-				))}
-				{times.map((time) => (
-					<div key={time.taskId}>
-						<p>
-							start: {time.start} end: {time.end}
-						</p> */
-}
-{
-	/* </div> */
-}
-{
-	/* ))} */
-}
-// import { useLoaderData } from "react-router-dom";
-// console.log(task);

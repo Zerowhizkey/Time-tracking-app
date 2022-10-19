@@ -1,50 +1,17 @@
 {
   "projects": [
     {
-      "id": "07feae91-a6eb-49f1-8132-479448815358",
-      "name": "Clean apartment",
-      "color": "#5e72e4"
-    },
-    {
-      "id": "e6f1ede4-60af-424a-b3ef-9fcb1b1a39cd",
-      "name": "Create app",
+      "id": "75e355ae-e19c-4e19-ba2b-f39d30160bb4",
+      "name": "aaaa",
       "color": "#5e72e4"
     }
   ],
   "tasks": [
     {
-      "id": "234e6775-7f4e-4820-809e-b794046a82e4",
-      "projectId": "07feae91-a6eb-49f1-8132-479448815358",
-      "title": "Do the dishes"
-    },
-    {
-      "id": "c193e753-cd9f-43ab-a7c7-203149d98115",
-      "projectId": "07feae91-a6eb-49f1-8132-479448815358",
-      "title": "Vaccum"
-    },
-    {
-      "id": "7b93c038-254f-4f12-b319-8d9b86809759",
-      "projectId": "e6f1ede4-60af-424a-b3ef-9fcb1b1a39cd",
-      "title": "Make api file better "
-    },
-    {
-      "id": "7b61a5b2-6d2c-49fa-8303-eb3332e4097e",
-      "projectId": "e6f1ede4-60af-424a-b3ef-9fcb1b1a39cd",
-      "title": "Create Tasks"
+      "id": "570d05d4-c2a2-4d66-82bd-cba7ee149b65",
+      "projectId": "75e355ae-e19c-4e19-ba2b-f39d30160bb4",
+      "title": "aaa"
     }
   ],
-  "timelogs": [
-    {
-      "id": "692e69e8-884a-4330-9a7c-0622e801ceca",
-      "taskId": "234e6775-7f4e-4820-809e-b794046a82e4",
-      "start": "bajs",
-      "stop": "korv"
-    },
-    {
-      "id": "e29a07f3-6447-4284-8f28-e7e5c053e2dd",
-      "taskId": "c193e753-cd9f-43ab-a7c7-203149d98115",
-      "start": "bajs",
-      "stop": "korv"
-    }
-  ]
+  "timelogs": []
 }

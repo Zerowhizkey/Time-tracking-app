@@ -1,46 +1,46 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { getProducts, getTimes, getTasks } from "../api/api";
+import { getProjects, getTasks, getTimes } from "../api/api";
 
 export const ProjectContex = createContext();
 
 export const ProjectProvider = ({ children }) => {
-	const [project, setProject] = useState([]);
-	const [task, setTask] = useState([]);
-	const [time, setTime] = useState([]);
+	const [projects, setProjects] = useState([]);
+	const [tasks, setTasks] = useState([]);
+	const [times, setTimes] = useState([]);
 
-	async function getProject() {
-		const data = await getProducts();
-		setProject(data);
-	}
+	const getProject = async () => {
+		const data = await getProjects();
+		setProjects(data);
+	};
 
-	async function getTask() {
+	const getTask = async () => {
 		const data = await getTasks();
-		setTask(data);
-	}
+		setTasks(data);
+	};
 
-	async function getTime() {
+	const getTime = async () => {
 		const data = await getTimes();
-		setTime(data);
-	}
+		setTimes(data);
+	};
 
 	useEffect(() => {
-		function worki() {
+		const worki = () => {
 			getProject();
 			getTask();
 			getTimes();
-		}
+		};
 		worki();
-	}, []);
+	}, [getTask]);
 
 	return (
 		<ProjectContex.Provider
 			value={{
-				project,
-				setProject,
-				task,
-				setTask,
-				time,
-				setTime,
+				projects,
+				setProjects,
+				tasks,
+				setTasks,
+				times,
+				setTimes,
 				getProject,
 				getTask,
 				getTime,

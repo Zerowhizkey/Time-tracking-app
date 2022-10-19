@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useProjects } from "../context/ProjectContext";
 // import axios from "axios";
 import { v4 as uuid } from "uuid";
-import { getTasks, addTask } from "../api/api";
+import { getTasks, addTask, deleteTask } from "../api/api";
 
 const Container = styled.div`
 	display: grid;
@@ -14,13 +14,21 @@ const Container = styled.div`
 const Tasks = () => {
 	const { project, task, getTask } = useProjects();
 	const [input, setInput] = useState("");
-	const [currentProject, setCurrentProject] = useState();
-	const [currentTask, setCurrentTask] = useState();
+	const [currentProject, setCurrentProject] = useState(null);
+	const [currentTask, setCurrentTask] = useState(null);
 	const unique_id = uuid();
 
 	async function handleClick(test) {
 		await addTask(test);
 		getTask();
+	}
+
+	async function handleDelete() {
+		if (!currentTask) return;
+		console.log(currentTask);
+		await deleteTask(currentTask);
+		getTask();
+		setCurrentTask(null);
 	}
 
 	const handleOption = (e) => {
@@ -34,6 +42,8 @@ const Tasks = () => {
 	const handleInput = (e) => {
 		setInput(e.target.value);
 	};
+
+	console.log(currentTask);
 
 	return (
 		<Container>
@@ -72,6 +82,8 @@ const Tasks = () => {
 				>
 					Add Task
 				</button>
+
+				<button onClick={handleDelete}>Delete</button>
 			</div>
 		</Container>
 	);

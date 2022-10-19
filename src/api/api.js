@@ -36,6 +36,15 @@ export async function addTask(test) {
 		data: test,
 	});
 	// await getTask();
+	console.log(response);
+	return;
+}
+
+export async function deleteTask(id) {
+	const response = await axios.request({
+		method: "delete",
+		url: `http://localhost:3000/tasks/${id}`,
+	});
 	console.log(response)
 	return;
 }

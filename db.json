@@ -33,19 +33,9 @@
   ],
   "tasks": [
     {
-      "id": 11,
-      "projectId": "9d6eda63-a6ca-4ddd-975f-bddaba0a31b3",
-      "title": "Läsa genom Reacts nya dokumentation"
-    },
-    {
       "id": 22,
       "projectId": "19507d66-74c1-41dc-94c5-92d82d653ea0",
       "title": "Det funkar ?"
-    },
-    {
-      "id": "1c8cf461-a9e9-46a9-9bca-291a7cc9521b",
-      "projectId": "9d6eda63-a6ca-4ddd-975f-bddaba0a31b3",
-      "title": "asdasd"
     },
     {
       "id": "d24a9b63-a188-4d25-97cd-1aec61e00749",
@@ -58,39 +48,10 @@
       "title": "hehe"
     },
     {
-      "id": "9208feeb-6f8f-4dc7-8aaa-d58e3397c8a2",
-      "projectId": "9d6eda63-a6ca-4ddd-975f-bddaba0a31b3",
-      "title": "heluuuuuuuuuu"
-    },
-    {
       "id": "0998fd9e-0d6d-4582-98fb-20dc8f3dcf21",
       "projectId": "9d6eda63-a6ca-4ddd-975f-bddaba0a31b3",
       "title": "hehehe"
-    },
-    {
-      "id": "740ac024-d2ec-44e0-b9d8-cc1d1add4414",
-      "projectId": "9d6eda63-a6ca-4ddd-975f-bddaba0a31b3",
-      "title": "hahahahahahahaha"
     }
   ],
-  "timelogs": [
-    {
-      "id": 111,
-      "taskId": 11,
-      "start": "2022-10-12T10:49:33.081Z",
-      "end": "2022-10-12T10:49:33.081Z"
-    },
-    {
-      "id": 112,
-      "taskId": 12,
-      "start": "2022-10-12T10:49:33.081Z",
-      "end": "2022-10-12T10:49:33.081Z"
-    },
-    {
-      "id": 113,
-      "taskId": 13,
-      "start": "2022-10-12T10:49:33.081Z",
-      "end": "2022-10-12T10:49:33.081Z"
-    }
-  ]
+  "timelogs": []
 }

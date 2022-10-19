@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// import { getProducts, getTasks, getTimes } from "./api/api";
+
 import "./App.css";
 import { ProjectProvider } from "./context/ProjectContext";
 import Calendar from "./pages/Calendar";
@@ -17,13 +17,6 @@ const router = createBrowserRouter([
 			{
 				index: "/",
 				element: <Home />,
-				// loader: async () => {
-				// 	const products = await getProducts();
-				// 	const tasks = await getTasks();
-				// 	const times = await getTimes();
-				// 	return { products, tasks, times };
-				// },
-				// loader: getProducts,
 			},
 			{
 				path: "calendar",
@@ -33,14 +26,9 @@ const router = createBrowserRouter([
 				path: "overview",
 				element: <Overview />,
 				children: [
-					// {
-					// 	index: true,
-					// 	element: <Projects />
-					// },
 					{
 						path: "projects",
 						element: <Projects />,
-						// loader: getProducts,
 					},
 					{
 						path: "tasks",
@@ -63,3 +51,16 @@ function App() {
 }
 
 export default App;
+// import { getProducts, getTasks, getTimes } from "./api/api";
+// loader: getProducts,
+// {
+// 	index: true,
+// 	element: <Projects />
+// },
+// loader: async () => {
+// 	const products = await getProducts();
+// 	const tasks = await getTasks();
+// 	const times = await getTimes();
+// 	return { products, tasks, times };
+// },
+// loader: getProducts,

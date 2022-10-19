@@ -3,9 +3,8 @@ import styled from "styled-components";
 import InputColor from "react-input-color";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
-// import { useLoaderData } from "react-router-dom";
+
 import { useProjects } from "../context/ProjectContext";
-// import { getProducts } from "../api/api";
 
 const Container = styled.div`
 	display: grid;
@@ -33,11 +32,6 @@ const Projects = () => {
 
 		return response.data;
 	}
-
-	// const handleClick = async () => {
-	// 	await addProject();
-	// 	await getProducts();
-	// };
 
 	const handleInput = (e) => {
 		setInput(e.target.value);
@@ -94,3 +88,9 @@ export default Projects;
 // 	}
 // 	getProject();
 // }, []);
+// import { getProducts } from "../api/api";
+// const handleClick = async () => {
+// 	await addProject();
+// 	await getProducts();
+// };
+// import { useLoaderData } from "react-router-dom";

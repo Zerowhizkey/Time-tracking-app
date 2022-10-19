@@ -7,7 +7,6 @@ import { v4 as uuid } from "uuid";
 const Container = styled.div`
 	display: grid;
 	justify-content: center;
-	/* height: 100vh; */
 	margin-top: 2em;
 `;
 
@@ -28,9 +27,6 @@ const Tasks = () => {
 		}
 		getTask();
 	}, []);
-
-	// const projId = project.map((project) => project.id);
-	// console.log(projId)
 
 	async function addTask() {
 		const response = await axios.request({
@@ -57,8 +53,6 @@ const Tasks = () => {
 	console.log(currentProject);
 	console.log(currentTask);
 	return (
-		// value={currentProject}
-		// value={currentTask}
 		<Container>
 			<select onChange={handleOption}>
 				<option value="">Pick a Project</option>
@@ -100,3 +94,8 @@ export default Tasks;
 // {
 // 	console.log(proj.id);
 // }
+// value={currentProject}
+// value={currentTask}
+// const projId = project.map((project) => project.id);
+// console.log(projId)
+/* height: 100vh; */

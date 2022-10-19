@@ -1,5 +1,5 @@
 import React from "react";
-// import { useLoaderData } from "react-router-dom";
+
 import styled from "styled-components";
 import { useProjects } from "../context/ProjectContext";
 
@@ -18,12 +18,7 @@ const Header = styled.div`
 
 const Home = () => {
 	const { project } = useProjects();
-	// const { products, tasks, times } = useLoaderData();
 
-	// const product = products.map((product) => {
-	// 	return product.name;
-	// });
-	// console.log(product)
 	console.log(project);
 	return (
 		<Container>
@@ -49,14 +44,30 @@ const Home = () => {
 						{proj.name}
 					</span>
 				))}
-			<ItemContainer>
-				{/* <p>{product}</p> */}
-				{/* {products.map((product) => (
+			<ItemContainer></ItemContainer>
+		</Container>
+	);
+};
+
+export default Home;
+// const { products, tasks, times } = useLoaderData();
+
+// const product = products.map((product) => {
+// 	return product.name;
+// });
+// console.log(product)
+{
+	/* <p>{product}</p> */
+}
+{
+	/* {products.map((product) => (
 					<div key={product.id} style={{ backgroundColor: product.color }}>
 						<p>{product.name}</p>
 					</div>
-				))} */}
-				{/* {tasks.map((task) => (
+				))} */
+}
+{
+	/* {tasks.map((task) => (
 					<div key={task.projectId}>
 						<p>{task.title}</p>
 					</div>
@@ -65,12 +76,12 @@ const Home = () => {
 					<div key={time.taskId}>
 						<p>
 							start: {time.start} end: {time.end}
-						</p> */}
-				{/* </div> */}
-				{/* ))} */}
-			</ItemContainer>
-		</Container>
-	);
-};
-
-export default Home;
+						</p> */
+}
+{
+	/* </div> */
+}
+{
+	/* ))} */
+}
+// import { useLoaderData } from "react-router-dom";

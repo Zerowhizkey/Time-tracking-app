@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useProjects } from "../context/ProjectContext";
-import axios from "axios";
+// import axios from "axios";
 import { v4 as uuid } from "uuid";
+import { getTasks, addTask } from "../api/api";
 
 const Container = styled.div`
 	display: grid;
@@ -17,14 +18,9 @@ const Tasks = () => {
 	const [currentTask, setCurrentTask] = useState();
 	const unique_id = uuid();
 
-	async function addTask() {
-		const response = await axios.request({
-			method: "post",
-			url: `http://localhost:3000/tasks`,
-			data: { id: unique_id, projectId: currentProject, title: input },
-		});
-		await getTask();
-		return response.data;
+	async function handleClick(test) {
+		await addTask(test);
+		getTask();
 	}
 
 	const handleOption = (e) => {
@@ -65,7 +61,17 @@ const Tasks = () => {
 			</select>
 			<div>
 				<input type="text" value={input} onChange={handleInput} />
-				<button onClick={addTask}>Add Task</button>
+				<button
+					onClick={() =>
+						handleClick({
+							id: unique_id,
+							projectId: currentProject,
+							title: input,
+						})
+					}
+				>
+					Add Task
+				</button>
 			</div>
 		</Container>
 	);
@@ -100,3 +106,12 @@ export default Tasks;
 // 	}
 // 	getTask();
 // }, []);
+// async function addTask(test) {
+// 	const response = await axios.request({
+// 		method: "post",
+// 		url: `http://localhost:3000/tasks`,
+// 		data: { id: unique_id, projectId: currentProject, title: input },
+// 	});
+// 	await getTask();
+// 	return response.data;
+// }

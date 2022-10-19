@@ -1,19 +1,24 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 export const ProjectContex = createContext();
-
+import { getProducts } from "../api/api";
 export const ProjectProvider = ({ children }) => {
 	const [project, setProject] = useState([]);
 	const [task, setTask] = useState([]);
 	const [time, setTime] = useState([]);
 
+	// useEffect(() => {
 	async function getProject() {
-		const { data } = await axios.request({
-			method: "get",
-			url: `http://localhost:3000/projects`,
-		});
+		const data = await getProducts();
 		setProject(data);
+		// const { data } = await axios.request({
+		// 	method: "get",
+		// 	url: `http://localhost:3000/projects`,
+		// });
+		// setProject(data);
 	}
+	// getProject();
+	// }, []);
 
 	// useEffect(() => {
 	async function getTask() {
@@ -26,8 +31,11 @@ export const ProjectProvider = ({ children }) => {
 	// }, []);
 
 	useEffect(() => {
-		getProject();
-		getTask();
+		function worki() {
+			getProject();
+			getTask();
+		}
+		worki();
 	}, []);
 
 	return (

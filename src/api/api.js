@@ -28,3 +28,14 @@ export const getTimes = async () => {
 	console.log(data);
 	return data;
 };
+
+export async function addTask(test) {
+	const response = await axios.request({
+		method: "post",
+		url: `http://localhost:3000/tasks`,
+		data: test,
+	});
+	// await getTask();
+	console.log(response)
+	return;
+}

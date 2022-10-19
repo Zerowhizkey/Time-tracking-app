@@ -1,56 +1,26 @@
 {
   "projects": [
     {
-      "id": "9d6eda63-a6ca-4ddd-975f-bddaba0a31b3",
-      "name": "Projekt nr 1",
-      "color": "#4E0E9F"
-    },
-    {
-      "id": "19507d66-74c1-41dc-94c5-92d82d653ea0",
-      "name": "lol",
-      "color": "#1e1f21ff"
-    },
-    {
-      "id": "cfb2331a-7672-4680-baec-d88183b3baab",
-      "name": "hejsan",
+      "id": "dc006981-4247-47df-bd28-5430a847a329",
+      "name": "Build Website",
       "color": "#5e72e4"
     },
     {
-      "id": "ec58fd7b-c536-427a-992b-df06236cc1ce",
-      "name": "hej",
-      "color": "#5e72e4"
-    },
-    {
-      "id": "4f97fbdc-540b-48ab-b215-b7747ae65079",
-      "name": "hejjdfg",
-      "color": "#5e72e4"
-    },
-    {
-      "id": "16a5a275-8c28-45d3-b782-4840628cd494",
-      "name": "hahahahaha",
-      "color": "#5e72e4"
+      "id": "01ce05c3-e009-4d77-b920-ef8f6e721cec",
+      "name": "he",
+      "color": "#010208ff"
     }
   ],
   "tasks": [
     {
-      "id": 22,
-      "projectId": "19507d66-74c1-41dc-94c5-92d82d653ea0",
-      "title": "Det funkar ?"
+      "id": "9059d8cc-6d3b-4be7-a4ca-a0c71ff62443",
+      "projectId": "dc006981-4247-47df-bd28-5430a847a329",
+      "title": "React"
     },
     {
-      "id": "d24a9b63-a188-4d25-97cd-1aec61e00749",
-      "projectId": "16a5a275-8c28-45d3-b782-4840628cd494",
-      "title": "hahaha"
-    },
-    {
-      "id": "1cc865ae-6ee6-4b0c-9c72-74474d677bf6",
-      "projectId": "9d6eda63-a6ca-4ddd-975f-bddaba0a31b3",
-      "title": "hehe"
-    },
-    {
-      "id": "0998fd9e-0d6d-4582-98fb-20dc8f3dcf21",
-      "projectId": "9d6eda63-a6ca-4ddd-975f-bddaba0a31b3",
-      "title": "hehehe"
+      "id": "0aee5e2b-755f-4eca-bc81-d3bd5addfb79",
+      "projectId": "dc006981-4247-47df-bd28-5430a847a329",
+      "title": "Api"
     }
   ],
   "timelogs": []

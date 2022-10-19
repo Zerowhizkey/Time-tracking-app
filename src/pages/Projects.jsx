@@ -3,8 +3,8 @@ import styled from "styled-components";
 import InputColor from "react-input-color";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
-
 import { useProjects } from "../context/ProjectContext";
+import { deleteProjects, deleteTask } from "../api/api";
 
 const Container = styled.div`
 	display: grid;
@@ -20,6 +20,8 @@ const ProjectContainer = styled.div`
 const Projects = () => {
 	const [color, setColor] = useState({});
 	const [input, setInput] = useState("");
+	const [currentProject, setCurrentProject] = useState(null);
+
 	const { project, getProject } = useProjects();
 	const unique_id = uuid();
 
@@ -37,16 +39,27 @@ const Projects = () => {
 		setInput(e.target.value);
 	};
 
+	const handleDelete = async () => {
+		await deleteProjects(currentProject);
+
+		getProject();
+	};
+	const handleClickProj = (e) => {
+		setCurrentProject(e.target.value);
+	};
+	// const projectTasks = task.filter((ta) => ta.projectId === currentProject);
+
 	return (
 		<Container>
 			Projects
 			<ProjectContainer>
 				{project &&
 					project.map((proj) => (
-						<span key={proj.id} style={{ marginTop: "1em", display: "flex" }}>
+						<button onClick={handleClickProj} key={proj.id} value={proj.id}>
 							{proj.name}
-						</span>
+						</button>
 					))}
+				<button onClick={handleDelete}>Delete</button>
 			</ProjectContainer>
 			<div style={{ marginTop: "2em", display: "grid" }}>
 				<input required type="text" value={input} onChange={handleInput} />
@@ -95,3 +108,32 @@ export default Projects;
 // };
 // import { useLoaderData } from "react-router-dom";
 // console.log(project);
+// const projects = [
+// 	{ id: 1, title: "nuggets" }
+//   ]
+//   const tasks = [
+// 	{ id: 1, projectId: 1, title: "eat them"},
+// 	{ id: 2, projectId: 1, title: "order more"}
+//   ]
+//   const { tasks } = useTasks();
+//   function deleteProject(id) {
+// 	const projectId = id; // 1
+// 	fetch(`URL/projects/${projectId}`) // DELETE
+// 	const tasksToBeDeleted = tasks.filter(task => task.projectId === projectId);
+// 	tasksToBeDeleted.forEach((task) => {
+// 	  fetch(`URL/tasks/${task.id}`) // DELETE
+// 	})
+//   }
+// if (project.id === task.projectId) {
+// for (const task of projectTasks) {
+// await deleteTask(task.id);
+// }
+// projectTasks.forEach(async (task) => {
+// });
+// }// console.log(currentTask);
+// console.log(task);	// if (project.id === task.projectId) {
+// setCurrentTask(e.target.value);
+// console.log(currentTask);
+// }// const [currentTask, setCurrentTask] = useState(null);
+// console.log("current project", currentProject);
+// console.log("projects tasks", projectTasks);

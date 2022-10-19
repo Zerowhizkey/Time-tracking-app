@@ -48,3 +48,12 @@ export async function deleteTask(id) {
 	console.log(response)
 	return;
 }
+export async function deleteProjects(id) {
+	const response = await axios.request({
+		method: "delete",
+		url: `http://localhost:3000/projects/${id}`,
+	});
+	console.log(response)
+	return;
+}
+

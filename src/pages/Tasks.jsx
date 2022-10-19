@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useProjects } from "../context/ProjectContext";
 import axios from "axios";
@@ -11,22 +11,11 @@ const Container = styled.div`
 `;
 
 const Tasks = () => {
-	const { project, task, setTask } = useProjects();
+	const { project, task, getTask } = useProjects();
 	const [input, setInput] = useState("");
 	const [currentProject, setCurrentProject] = useState();
 	const [currentTask, setCurrentTask] = useState();
 	const unique_id = uuid();
-
-	useEffect(() => {
-		async function getTask() {
-			const { data } = await axios.request({
-				method: "get",
-				url: `http://localhost:3000/tasks`,
-			});
-			setTask(data);
-		}
-		getTask();
-	}, []);
 
 	async function addTask() {
 		const response = await axios.request({
@@ -34,6 +23,7 @@ const Tasks = () => {
 			url: `http://localhost:3000/tasks`,
 			data: { id: unique_id, projectId: currentProject, title: input },
 		});
+		await getTask();
 		return response.data;
 	}
 
@@ -48,10 +38,7 @@ const Tasks = () => {
 	const handleInput = (e) => {
 		setInput(e.target.value);
 	};
-	console.log(project);
-	console.log(task);
-	console.log(currentProject);
-	console.log(currentTask);
+
 	return (
 		<Container>
 			<select onChange={handleOption}>
@@ -61,7 +48,6 @@ const Tasks = () => {
 							<option key={proj.id} value={proj.id}>
 								{proj.name}
 							</option>
-							// eslint-disable-next-line no-mixed-spaces-and-tabs
 					  ))
 					: console.log("error")}
 			</select>
@@ -99,3 +85,18 @@ export default Tasks;
 // const projId = project.map((project) => project.id);
 // console.log(projId)
 /* height: 100vh; */
+// console.log(project);
+// console.log(task);
+// console.log(currentProject);
+// console.log(currentTask);
+// currentTask,
+// useEffect(() => {
+// 	async function getTask() {
+// 		const { data } = await axios.request({
+// 			method: "get",
+// 			url: `http://localhost:3000/tasks`,
+// 		});
+// 		setTask(data);
+// 	}
+// 	getTask();
+// }, []);

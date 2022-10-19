@@ -4,8 +4,6 @@ import styled from "styled-components";
 
 const Container = styled.div`
 	display: grid;
-	/* justify-content: center; */
-	/* height: 100vh; */
 `;
 
 const Header = styled.h2`
@@ -41,3 +39,5 @@ const Overview = () => {
 };
 
 export default Overview;
+/* justify-content: center; */
+/* height: 100vh; */

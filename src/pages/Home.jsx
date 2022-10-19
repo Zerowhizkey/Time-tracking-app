@@ -19,7 +19,6 @@ const Header = styled.div`
 const Home = () => {
 	const { project } = useProjects();
 
-	console.log(project);
 	return (
 		<Container>
 			<Header>
@@ -85,3 +84,4 @@ export default Home;
 	/* ))} */
 }
 // import { useLoaderData } from "react-router-dom";
+// console.log(project);

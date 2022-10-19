@@ -20,7 +20,7 @@ const ProjectContainer = styled.div`
 const Projects = () => {
 	const [color, setColor] = useState({});
 	const [input, setInput] = useState("");
-	const { project } = useProjects();
+	const { project, getProject } = useProjects();
 	const unique_id = uuid();
 
 	async function addProject() {
@@ -29,14 +29,14 @@ const Projects = () => {
 			url: `http://localhost:3000/projects`,
 			data: { id: unique_id, name: input, color: color.hex },
 		});
-
+		await getProject();
 		return response.data;
 	}
 
 	const handleInput = (e) => {
 		setInput(e.target.value);
 	};
-	console.log(project);
+
 	return (
 		<Container>
 			Projects
@@ -94,3 +94,4 @@ export default Projects;
 // 	await getProducts();
 // };
 // import { useLoaderData } from "react-router-dom";
+// console.log(project);

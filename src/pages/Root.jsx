@@ -1,8 +1,6 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
-
 const RootContainer = styled.div`
 	padding: 0;
 	margin: 0;
@@ -16,7 +14,7 @@ const Root = () => {
 			<RootContainer>
 				<Outlet />
 			</RootContainer>
-				<Navbar />
+			<Navbar />
 		</>
 	);
 };

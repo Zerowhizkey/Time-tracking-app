@@ -18,8 +18,8 @@ const Tasks = () => {
 	const [currentTask, setCurrentTask] = useState(null);
 	const unique_id = uuid();
 
-	async function handleClick(test) {
-		await addTask(test);
+	async function handleClick(taskData) {
+		await addTask(taskData);
 		getTask();
 	}
 
@@ -43,7 +43,7 @@ const Tasks = () => {
 		setInput(e.target.value);
 	};
 
-	console.log(currentTask);
+	// console.log(currentTask);
 
 	return (
 		<Container>
@@ -110,20 +110,20 @@ export default Tasks;
 // currentTask,
 // useEffect(() => {
 // 	async function getTask() {
-// 		const { data } = await axios.request({
+// 		const { taskData } = await axios.request({
 // 			method: "get",
 // 			url: `http://localhost:3000/tasks`,
 // 		});
-// 		setTask(data);
+// 		setTask(taskData);
 // 	}
 // 	getTask();
 // }, []);
-// async function addTask(test) {
+// async function addTask(taskData) {
 // 	const response = await axios.request({
 // 		method: "post",
 // 		url: `http://localhost:3000/tasks`,
-// 		data: { id: unique_id, projectId: currentProject, title: input },
+// 		taskData: { id: unique_id, projectId: currentProject, title: input },
 // 	});
 // 	await getTask();
-// 	return response.data;
+// 	return response.taskData;
 // }

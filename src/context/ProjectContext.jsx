@@ -1,26 +1,17 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 export const ProjectContex = createContext();
-import { getProducts } from "../api/api";
+import { getProducts, getTimes } from "../api/api";
 export const ProjectProvider = ({ children }) => {
 	const [project, setProject] = useState([]);
 	const [task, setTask] = useState([]);
 	const [time, setTime] = useState([]);
 
-	// useEffect(() => {
 	async function getProject() {
 		const data = await getProducts();
 		setProject(data);
-		// const { data } = await axios.request({
-		// 	method: "get",
-		// 	url: `http://localhost:3000/projects`,
-		// });
-		// setProject(data);
 	}
-	// getProject();
-	// }, []);
 
-	// useEffect(() => {
 	async function getTask() {
 		const { data } = await axios.request({
 			method: "get",
@@ -28,12 +19,17 @@ export const ProjectProvider = ({ children }) => {
 		});
 		setTask(data);
 	}
-	// }, []);
+
+	async function getTime() {
+		const data = await getTimes();
+		setTime(data);
+	}
 
 	useEffect(() => {
 		function worki() {
 			getProject();
 			getTask();
+			getTimes();
 		}
 		worki();
 	}, []);
@@ -49,6 +45,7 @@ export const ProjectProvider = ({ children }) => {
 				setTime,
 				getProject,
 				getTask,
+				getTime,
 			}}
 		>
 			{children}
@@ -63,3 +60,14 @@ export const useProjects = () => {
 	}
 	return context;
 };
+// getProject();
+// }, []);
+
+// useEffect(() => {
+// const { data } = await axios.request({
+// 	method: "get",
+// 	url: `http://localhost:3000/projects`,
+// });
+// setProject(data);
+// }, []);
+// useEffect(() => {

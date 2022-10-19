@@ -1,27 +1,89 @@
 {
   "projects": [
     {
-      "id": "dc006981-4247-47df-bd28-5430a847a329",
-      "name": "Build Website",
+      "id": "c7d53734-82e5-4127-b061-fceff0ef3836",
+      "name": "hej",
       "color": "#5e72e4"
     },
     {
-      "id": "01ce05c3-e009-4d77-b920-ef8f6e721cec",
+      "id": "74da035b-1dff-4fe1-a92d-8c24a4434f7c",
+      "name": "halå",
+      "color": "#5e72e4"
+    },
+    {
+      "id": "d6d060ef-8306-4bc2-9efc-ea654ce4871e",
       "name": "he",
-      "color": "#010208ff"
+      "color": "#5e72e4"
     }
   ],
   "tasks": [
     {
-      "id": "9059d8cc-6d3b-4be7-a4ca-a0c71ff62443",
-      "projectId": "dc006981-4247-47df-bd28-5430a847a329",
-      "title": "React"
+      "id": "fb707eff-fe5f-4b24-bc98-50eea3a56e64",
+      "projectId": "c7d53734-82e5-4127-b061-fceff0ef3836",
+      "title": "hehehehe"
     },
     {
-      "id": "0aee5e2b-755f-4eca-bc81-d3bd5addfb79",
-      "projectId": "dc006981-4247-47df-bd28-5430a847a329",
-      "title": "Api"
+      "id": "770146c2-d656-400b-acc7-5fe24995b0ff",
+      "projectId": "c7d53734-82e5-4127-b061-fceff0ef3836",
+      "title": "hehe"
+    },
+    {
+      "id": "9cd246dc-e4d7-408b-8345-a80a66f3976e",
+      "projectId": "c7d53734-82e5-4127-b061-fceff0ef3836",
+      "title": "heheaaaa"
+    },
+    {
+      "id": "06d8007a-27ab-4cc9-aac2-da70982ecb6a",
+      "projectId": "c7d53734-82e5-4127-b061-fceff0ef3836",
+      "title": "lol"
+    },
+    {
+      "id": "c16834fa-ad3b-4b9a-b6d8-48fe29c556e6",
+      "projectId": "74da035b-1dff-4fe1-a92d-8c24a4434f7c",
+      "title": "hallelåja"
+    },
+    {
+      "id": "e08d0ba0-fc3d-4780-9f67-78a49686ed29",
+      "projectId": "d6d060ef-8306-4bc2-9efc-ea654ce4871e",
+      "title": "hhhh"
     }
   ],
-  "timelogs": []
+  "timelogs": [
+    {
+      "id": "<random id>",
+      "taskId": "<task id>",
+      "start": "2022-10-12T10:49:33.081Z",
+      "end": "2022-10-12T10:49:33.081Z"
+    },
+    {
+      "id": "<random id>",
+      "taskId": "<task id>",
+      "start": "2022-10-12T10:49:33.081Z",
+      "end": "2022-10-12T10:49:33.081Z"
+    },
+    {
+      "id": "<random id>",
+      "taskId": "<task id>",
+      "start": "2022-10-12T10:49:33.081Z",
+      "end": "2022-10-12T10:49:33.081Z"
+    },
+    {
+      "id": "6587a7b5-706b-4108-ae2d-42dac9b1b84e",
+      "taskId": "fb707eff-fe5f-4b24-bc98-50eea3a56e64",
+      "start": "bajs",
+      "stop": "korv"
+    },
+    {
+      "id": "d9128b03-917b-4610-bd22-41ca9db33d71",
+      "taskId": "9cd246dc-e4d7-408b-8345-a80a66f3976e",
+      "start": "bajs",
+      "stop": "korv"
+    },
+    {
+      "id": "39c2d375-b078-421a-832f-cdd3f04e72b5",
+      "taskId": "e08d0ba0-fc3d-4780-9f67-78a49686ed29",
+      "start": "bajs",
+      "stop": "korv"
+    }
+  ]
 }

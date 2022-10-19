@@ -7,7 +7,7 @@ export const getProducts = async () => {
 		method: "get",
 		url: `${URL}/projects`,
 	});
-	console.log(data);
+	// console.log(data);
 	return data;
 };
 
@@ -16,7 +16,7 @@ export const getTasks = async () => {
 		method: "get",
 		url: `${URL}/tasks`,
 	});
-	console.log(data);
+	// console.log(data);
 	return data;
 };
 
@@ -25,18 +25,26 @@ export const getTimes = async () => {
 		method: "get",
 		url: `${URL}/timelogs`,
 	});
-	console.log(data);
+	// console.log(data);
 	return data;
 };
 
-export async function addTask(test) {
+export async function addTask(taskData) {
 	const response = await axios.request({
 		method: "post",
 		url: `http://localhost:3000/tasks`,
-		data: test,
+		data: taskData,
 	});
-	// await getTask();
-	console.log(response);
+	// console.log(response);
+	return;
+}
+export async function addTime(timeData) {
+	const response = await axios.request({
+		method: "post",
+		url: `http://localhost:3000/timelogs`,
+		data: timeData,
+	});
+	// console.log(response);
 	return;
 }
 
@@ -45,7 +53,7 @@ export async function deleteTask(id) {
 		method: "delete",
 		url: `http://localhost:3000/tasks/${id}`,
 	});
-	console.log(response)
+	// console.log(response)
 	return;
 }
 export async function deleteProjects(id) {
@@ -53,7 +61,7 @@ export async function deleteProjects(id) {
 		method: "delete",
 		url: `http://localhost:3000/projects/${id}`,
 	});
-	console.log(response)
+	// console.log(response)
 	return;
 }
 

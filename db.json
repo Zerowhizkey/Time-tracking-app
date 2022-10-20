@@ -1,17 +1,18 @@
 {
-	"projects": [
-		{
-			"id": "75e355ae-e19c-4e19-ba2b-f39d30160bb4",
-			"name": "aaaa",
-			"color": "#5e72e4"
-		}
-	],
-	"tasks": [
-		{
-			"id": "21cb8fe5-aae2-47fc-81d7-cfebc6d8115f",
-			"projectId": "75e355ae-e19c-4e19-ba2b-f39d30160bb4",
-			"title": "aaaaa"
-		}
-	],
-	"timelogs": []
+  "projects": [
+    {
+      "id": "b2285b60-697e-48fc-a61b-a6f70606ba4d",
+      "name": "hej",
+      "color": "#5e72e4"
+    }
+  ],
+  "tasks": [],
+  "timelogs": [
+    {
+      "id": "6f82697f-e849-4ed9-a59e-33b72ca37a07",
+      "taskId": "40f5535d-f4cb-4443-8316-1908ef37d634",
+      "start": "00:00",
+      "stop": "00:00"
+    }
+  ]
 }

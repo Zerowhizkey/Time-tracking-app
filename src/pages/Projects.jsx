@@ -20,10 +20,19 @@ const Projects = () => {
 	const [currentProject, setCurrentProject] = useState(null);
 	const [input, setInput] = useState("");
 	const [color, setColor] = useState("");
-	const { projects, getProject } = useProjects();
-	const unique_id = uuid();
+	const { projects, getProject, getTask } = useProjects();
+	// const unique_id = uuid();
 
-	const handleClickAdd = async (projectData) => {
+	const handleClickAdd = async () => {
+		if (!input.trim()) return;
+
+		const projectData = {
+			id: uuid(),
+			name: input,
+			color: color.hex,
+		};
+		if (projects.find((project) => project.name === projectData.name)) return;
+		if (projects.find((project) => project.color === projectData.color)) return;
 		await addProject(projectData);
 		getProject();
 		setInput("");
@@ -31,7 +40,8 @@ const Projects = () => {
 
 	const handleDelete = async () => {
 		await deleteProjects(currentProject);
-		getProject();
+		await getProject();
+		getTask();
 	};
 
 	const handleInput = (e) => {
@@ -59,7 +69,7 @@ const Projects = () => {
 				<button onClick={handleDelete}>Delete</button>
 			</ProjectContainer>
 			<div style={{ marginTop: "2em", display: "grid" }}>
-				<input required type="text" value={input} onChange={handleInput} />
+				<input type="text" value={input} onChange={handleInput} />
 				<div style={{ display: "flex" }}>
 					<InputColor
 						initialValue="#5e72e4"
@@ -67,17 +77,7 @@ const Projects = () => {
 						placement="middle"
 					/>
 				</div>
-				<button
-					onClick={() =>
-						handleClickAdd({
-							id: unique_id,
-							name: input,
-							color: color.hex,
-						})
-					}
-				>
-					Add a project
-				</button>
+				<button onClick={handleClickAdd}>Add a project</button>
 			</div>
 		</Container>
 	);

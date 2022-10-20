@@ -1,6 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-import "./App.css";
+import {
+	BrowserRouter,
+	createBrowserRouter,
+	RouterProvider,
+} from "react-router-dom";
 import { ProjectProvider } from "./context/ProjectContext";
 import Calendar from "./pages/Calendar";
 import Home from "./pages/Home";
@@ -8,6 +10,7 @@ import Overview from "./pages/Overview";
 import Projects from "./pages/Projects";
 import Root from "./pages/Root";
 import Tasks from "./pages/Tasks";
+import "./App.css";
 
 const router = createBrowserRouter([
 	{

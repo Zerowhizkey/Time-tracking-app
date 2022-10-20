@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { addTime, deleteTime, updateTime } from "../api/api";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
@@ -26,15 +26,21 @@ const Home = () => {
 	const [currentTime, setCurrentTime] = useState(null);
 	const [logTime, setLogTime] = useState("");
 	const { tasks, getTime } = useProjects();
-	const unique_id = uuid();
 	const { seconds, minutes, hours, days, isRunning, start, pause, reset } =
-		useStopwatch({ autoStart: true });
+		useStopwatch({ autoStart: false });
 
 	const theChoosenOne = tasks.find((task) => task.id === currentTask);
 
 	// const setLogTime( = { d: { days }, h: { hours }, m: { minutes }, s: { seconds })
 
-	const handleClickAdd = async (timeData) => {
+	const handleClickAdd = async () => {
+		// if (timeData.start !== "") return;
+		const timeData = {
+			id: uuid(),
+			taskId: currentTask,
+			start: "00:00",
+			stop: "00:00",
+		};
 		await addTime(timeData);
 		start();
 		setCurrentTime(timeData);
@@ -65,12 +71,16 @@ const Home = () => {
 		setCurrentTime(null);
 	};
 
-	const handleSavedTime = (e) => {
-		setLogTime(e.target.value);
-		console.log(e.target.value);
-		console.log(logTime);
-		console.log(currentTime.id);
-	};
+	useEffect(() => {
+		setLogTime({
+			d: days,
+			h: hours,
+			m: minutes,
+			s: seconds,
+		});
+	}, [seconds]);
+	console.log(logTime);
+
 	return (
 		<Container>
 			<Header>
@@ -85,7 +95,9 @@ const Home = () => {
 								{isRunning ? (
 									<FaPauseCircle
 										style={{ padding: "10px", margin: "10px" }}
-										onClick={() => handlePause({ start: logTime })}
+										onClick={() =>
+											handlePause({ start: logTime, stop: logTime })
+										}
 									></FaPauseCircle>
 								) : (
 									<FaPlayCircle onClick={handlePlay}></FaPlayCircle>
@@ -93,7 +105,7 @@ const Home = () => {
 
 								<FaStopCircle
 									style={{ padding: "10px", margin: "10px" }}
-									onClick={handleStop}
+									onClick={() => handleStop({ start: logTime, stop: logTime })}
 								></FaStopCircle>
 								<ImCross
 									style={{ padding: "10px", margin: "10px" }}
@@ -101,42 +113,20 @@ const Home = () => {
 								></ImCross>
 							</div>
 						) : (
-							<FaPlayCircle
-								onClick={() =>
-									handleClickAdd({
-										id: unique_id,
-										taskId: currentTask,
-										start: "00:00",
-										stop: "00:00",
-									})
-								}
-							>
-								{/* { days, hours, minutes, seconds } */}
-								Start
-							</FaPlayCircle>
+							<FaPlayCircle onClick={handleClickAdd}>Start</FaPlayCircle>
 						)}
 					</>
 				)}
 				<div style={{ display: "flex", justifyContent: "space-around" }}>
 					<div>
 						<p>total</p>
-						{logTime && <p>{logTime}</p>}
+						{/* {logTime && <p>{logTime}</p>} */}
 					</div>
 					<div>
 						<p>today</p>
 
 						{currentTime && (
-							<p
-								value={currentTime.id}
-								onChange={() =>
-									handleSavedTime({
-										d: days,
-										h: hours,
-										m: minutes,
-										s: seconds,
-									})
-								}
-							>
+							<p>
 								d:{days} h:{hours} m:{minutes} s:{seconds}
 							</p>
 						)}

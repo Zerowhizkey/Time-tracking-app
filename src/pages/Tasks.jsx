@@ -15,9 +15,14 @@ const Tasks = () => {
 	const [currentTask, setCurrentTask] = useState(null);
 	const [input, setInput] = useState("");
 	const { projects, tasks, getTask } = useProjects();
-	const unique_id = uuid();
 
-	const handleClickAdd = async (taskData) => {
+	const handleClickAdd = async () => {
+		if (!input.trim()) return;
+		const taskData = {
+			id: uuid(),
+			projectId: currentProject,
+			title: input,
+		};
 		await addTask(taskData);
 		getTask();
 		setInput("");
@@ -68,17 +73,7 @@ const Tasks = () => {
 			</select>
 			<div>
 				<input type="text" value={input} onChange={handleInput} />
-				<button
-					onClick={() =>
-						handleClickAdd({
-							id: unique_id,
-							projectId: currentProject,
-							title: input,
-						})
-					}
-				>
-					Add Task
-				</button>
+				<button onClick={() => handleClickAdd()}>Add Task</button>
 
 				<button onClick={handleClickDelete}>Delete</button>
 			</div>

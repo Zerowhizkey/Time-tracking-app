@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { RiTimerFill, RiCalendarFill } from "react-icons/ri";
 import { FaToolbox } from "react-icons/fa";
-
 const NavContainer = styled.ul`
 	list-style: none;
 	padding: 0;

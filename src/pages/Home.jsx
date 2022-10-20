@@ -41,6 +41,7 @@ const Home = () => {
 			start: "00:00",
 			stop: "00:00",
 		};
+		// if (timeData.start !== "") return;
 		await addTime(timeData);
 		start();
 		setCurrentTime(timeData);
@@ -79,7 +80,7 @@ const Home = () => {
 			s: seconds,
 		});
 	}, [seconds]);
-	console.log(logTime);
+	// console.log(logTime);
 
 	return (
 		<Container>

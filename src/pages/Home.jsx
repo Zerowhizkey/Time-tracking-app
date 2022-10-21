@@ -26,8 +26,8 @@ const Home = () => {
 	const [logTime, setLogTime] = useState("");
 	const { tasks, getTime } = useProjects();
 	const timer = new Timer();
-	const date = Date();
-
+	const date = Date.now();
+	// const datenumber = Date.now();
 	const intervalRef = useRef();
 	const timeRef = useRef(new Timer());
 	const timers = timeRef.current;

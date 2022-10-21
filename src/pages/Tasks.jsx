@@ -3,6 +3,7 @@ import { addTask, deleteTask } from "../api/api";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
 import styled from "styled-components";
+import { ImGift } from "react-icons/im";
 
 const Container = styled.div`
 	display: grid;
@@ -18,11 +19,14 @@ const Tasks = () => {
 
 	const handleClickAdd = async () => {
 		if (!input.trim()) return;
+		if (!currentProject) return setInput("");
+
 		const taskData = {
 			id: uuid(),
 			projectId: currentProject,
 			title: input,
 		};
+
 		await addTask(taskData);
 		getTask();
 		setInput("");
@@ -59,18 +63,20 @@ const Tasks = () => {
 					  ))
 					: console.log("error")}
 			</select>
-			<select onChange={handleTask}>
-				<option value="">Pick a Task</option>
-				{tasks
-					? tasks
-							.filter((task) => currentProject === task.projectId)
-							.map((tasks) => (
-								<option value={tasks.id} key={tasks.id}>
-									{tasks.title}
-								</option>
-							))
-					: console.log("no tasks")}
-			</select>
+			{currentProject && (
+				<select onChange={handleTask}>
+					<option value=""> Pick a Task</option>
+					{tasks
+						? tasks
+								.filter((task) => currentProject === task.projectId)
+								.map((tasks) => (
+									<option value={tasks.id} key={tasks.id}>
+										{tasks.title}
+									</option>
+								))
+						: console.log("no tasks")}
+				</select>
+			)}
 			<div>
 				<input type="text" value={input} onChange={handleInput} />
 				<button onClick={() => handleClickAdd()}>Add Task</button>

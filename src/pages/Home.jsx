@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { addTime, deleteTime, updateTime } from "../api/api";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
-import { useStopwatch } from "react-timer-hook";
+import { Timer, Time, TimerOptions } from "timer-node";
 import { FaStopCircle, FaPlayCircle, FaPauseCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import styled from "styled-components";
-import axios from "axios";
 
 const Container = styled.div`
 	display: grid;
@@ -26,8 +25,12 @@ const Home = () => {
 	const [currentTime, setCurrentTime] = useState(null);
 	const [logTime, setLogTime] = useState("");
 	const { tasks, getTime } = useProjects();
-	const { seconds, minutes, hours, days, isRunning, start, pause, reset } =
-		useStopwatch({ autoStart: false });
+	const timer = new Timer();
+	const date = Date();
+
+	const intervalRef = useRef();
+	const timeRef = useRef(new Timer());
+	const timers = timeRef.current;
 
 	const theChoosenOne = tasks.find((task) => task.id === currentTask);
 
@@ -38,12 +41,15 @@ const Home = () => {
 		const timeData = {
 			id: uuid(),
 			taskId: currentTask,
-			start: "00:00",
-			stop: "00:00",
+			start: date,
+			stop: "",
 		};
 		// if (timeData.start !== "") return;
 		await addTime(timeData);
-		start();
+		// start();
+		timer.start();
+		timers.start();
+		startTime();
 		setCurrentTime(timeData);
 		getTime();
 	};
@@ -58,47 +64,54 @@ const Home = () => {
 		setCurrentTask(e.target.value);
 	};
 
-	const handlePlay = () => {
-		start();
+	const handlePlay = async () => {
+		timer.resume();
+		timers.resume();
+		console.log(timer.isRunning());
 	};
 
 	const handlePause = async (timeData) => {
-		pause();
+		timer.pause();
+		timers.pause();
+		console.log(timer.isPaused());
 		await updateTime(currentTime.id, timeData);
 	};
 
-	const handleStop = () => {
-		pause();
+	const handleStop = async (timeData) => {
+		timer.stop();
+		timers.stop();
+		stopTime();
+		await updateTime(currentTime.id, timeData);
 		setCurrentTime(null);
 	};
 
-	useEffect(() => {
-		setLogTime({
-			d: days,
-			h: hours,
-			m: minutes,
-			s: seconds,
-		});
-	}, [seconds]);
-	// console.log(logTime);
+	const startTime = () => {
+		const id = setInterval(() => {
+			setLogTime(timers.format());
+		}, 100);
+		intervalRef.current = id;
+	};
 
+	const stopTime = () => {
+		clearInterval(intervalRef.current);
+		setLogTime(timers.format());
+	};
+	console.log(timers);
 	return (
 		<Container>
 			<Header>
 				<h2 style={{ marginTop: "0" }}>Timer</h2>
-				<h2 style={{ marginBottom: "0" }}>00:12:34</h2>
+				<h2 style={{ marginBottom: "0" }}>{currentTime && <p>{logTime}</p>}</h2>
 				{theChoosenOne && (
 					<>
 						<p style={{ marginTop: "0" }}>{theChoosenOne.title}</p>
 
 						{currentTime ? (
 							<div>
-								{isRunning ? (
+								{!timer.isPaused() && !timers.isPaused() ? (
 									<FaPauseCircle
 										style={{ padding: "10px", margin: "10px" }}
-										onClick={() =>
-											handlePause({ start: logTime, stop: logTime })
-										}
+										onClick={() => handlePause({ stop: date })}
 									></FaPauseCircle>
 								) : (
 									<FaPlayCircle onClick={handlePlay}></FaPlayCircle>
@@ -106,7 +119,7 @@ const Home = () => {
 
 								<FaStopCircle
 									style={{ padding: "10px", margin: "10px" }}
-									onClick={() => handleStop({ start: logTime, stop: logTime })}
+									onClick={() => handleStop({ stop: date })}
 								></FaStopCircle>
 								<ImCross
 									style={{ padding: "10px", margin: "10px" }}
@@ -125,12 +138,6 @@ const Home = () => {
 					</div>
 					<div>
 						<p>today</p>
-
-						{currentTime && (
-							<p>
-								d:{days} h:{hours} m:{minutes} s:{seconds}
-							</p>
-						)}
 					</div>
 				</div>
 			</Header>

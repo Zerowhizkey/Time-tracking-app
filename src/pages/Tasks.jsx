@@ -3,7 +3,6 @@ import { addTask, deleteTask } from "../api/api";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
 import styled from "styled-components";
-import { ImGift } from "react-icons/im";
 
 const Container = styled.div`
 	display: grid;

@@ -1,70 +1,29 @@
 {
   "projects": [
     {
-      "id": "d5c0a94a-5c97-4bd9-8363-18fb1f8d9ad5",
-      "name": "marcus",
+      "id": "8a9cd5fa-561f-4056-9572-66c972f48e31",
+      "name": "Build website",
       "color": "#5e72e4"
     }
   ],
   "tasks": [
     {
-      "id": "bf92f3d0-d420-4d57-8c22-b6788870be91",
-      "projectId": "d5c0a94a-5c97-4bd9-8363-18fb1f8d9ad5",
+      "id": "65d5f817-3f0f-4c38-849e-9286df4c25c6",
+      "projectId": "8a9cd5fa-561f-4056-9572-66c972f48e31",
       "title": "he"
     },
     {
-      "id": "66269e40-b4c5-4aee-ae4b-729456ec40b2",
-      "projectId": "d5c0a94a-5c97-4bd9-8363-18fb1f8d9ad5",
-      "title": "ha"
-    },
-    {
-      "id": "27ccbaf8-89b9-4c5b-8938-8d19217b68b0",
-      "projectId": "d5c0a94a-5c97-4bd9-8363-18fb1f8d9ad5",
-      "title": "hå"
+      "id": "39f9e646-2df2-41b8-8e9c-3aec1f5a7384",
+      "projectId": "8a9cd5fa-561f-4056-9572-66c972f48e31",
+      "title": "he"
     }
   ],
   "timelogs": [
     {
-      "id": "a029a89d-a802-409d-8e32-60440bc0ea57",
-      "taskId": "bf92f3d0-d420-4d57-8c22-b6788870be91",
-      "start": 1666355575320,
-      "stop": 1666355577640
-    },
-    {
-      "id": "81026bf5-798d-4bf1-8fe5-6aa53301df0b",
-      "taskId": "66269e40-b4c5-4aee-ae4b-729456ec40b2",
-      "start": 1666355578519,
-      "stop": 1666355581233
-    },
-    {
-      "id": "9f6d05bf-37ab-4b57-b20c-c252ec6600d6",
-      "taskId": "27ccbaf8-89b9-4c5b-8938-8d19217b68b0",
-      "start": 1666355784656,
-      "stop": 1666355787444
-    },
-    {
-      "id": "55d8cc13-d489-4381-aba8-c0cd4f5a9bc9",
-      "taskId": "27ccbaf8-89b9-4c5b-8938-8d19217b68b0",
-      "start": 1666355864847,
-      "stop": 1666355866861
-    },
-    {
-      "id": "748ec984-ec48-492e-a90e-a27a97c6590f",
-      "taskId": "27ccbaf8-89b9-4c5b-8938-8d19217b68b0",
-      "start": 1666356025109,
-      "stop": 1666356027041
-    },
-    {
-      "id": "185d2ac5-39fd-4a28-96f3-07095616d988",
-      "taskId": "27ccbaf8-89b9-4c5b-8938-8d19217b68b0",
-      "start": 1666356826070,
-      "stop": 1666356829773
-    },
-    {
-      "id": "3e6d3cc3-9c4a-493e-8c24-2c16feeccedd",
-      "taskId": "66269e40-b4c5-4aee-ae4b-729456ec40b2",
-      "start": 1666356977512,
-      "stop": 1666356980649
+      "id": "ba375ec9-df1d-4009-9c44-5a904d1bee49",
+      "taskId": "39f9e646-2df2-41b8-8e9c-3aec1f5a7384",
+      "start": 1666390775655,
+      "stop": 1666390777648
     }
   ]
 }

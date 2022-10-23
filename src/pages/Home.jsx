@@ -38,7 +38,7 @@ const Home = () => {
 	const timeRef = useRef(new Timer());
 	const timers = timeRef.current;
 
-	const theChoosenOne = tasks.find((task) => task.id === currentTask);
+	const activeTask = tasks.find((task) => task.id === currentTask);
 
 	const handleClickAdd = async () => {
 		const timeData = {
@@ -98,50 +98,28 @@ const Home = () => {
 		clearInterval(intervalRef.current);
 		setLogTime(timers.format());
 	};
-	console.log(timers);
+	// console.log(timers);
+	// console.log(currentTime);
+
 	return (
 		<Container>
 			<Header>
 				<h2 style={{ marginTop: "0" }}>Timer</h2>
 				<h2 style={{ marginBottom: "0" }}>{currentTime && <p>{logTime}</p>}</h2>
-				{theChoosenOne && (
+				{activeTask && (
 					<>
-						<p style={{ marginTop: "0" }}>{theChoosenOne.title}</p>
-
-						{currentTime ? (
-							<div>
-								{!timer.isPaused() && !timers.isPaused() ? (
-									<FaPauseCircle
-										style={{ padding: "10px", margin: "10px" }}
-										onClick={() => handlePause({ timerStop: timeStart })}
-									></FaPauseCircle>
-								) : (
-									<FaPlayCircle onClick={handlePlay}></FaPlayCircle>
-								)}
-
-								<FaStopCircle
-									style={{ padding: "10px", margin: "10px" }}
-									onClick={() => handleStop({ timerStop: timeStart })}
-								></FaStopCircle>
-								<ImCross
-									style={{ padding: "10px", margin: "10px" }}
-									onClick={handleClickDelete}
-								></ImCross>
-							</div>
-						) : (
-							<FaPlayCircle onClick={handleClickAdd}>Start</FaPlayCircle>
-						)}
+						<p style={{ marginTop: "0" }}>{activeTask.title}</p>
 					</>
 				)}
-				<div style={{ display: "flex", justifyContent: "space-around" }}>
+
+				{/* <div style={{ display: "flex", justifyContent: "space-around" }}>
 					<div>
 						<p>total</p>
-						{/* {logTime && <p>{logTime}</p>} */}
 					</div>
 					<div>
 						<p>today</p>
 					</div>
-				</div>
+				</div> */}
 			</Header>
 
 			{tasks &&
@@ -153,12 +131,32 @@ const Home = () => {
 						style={{ marginTop: "1em", display: "flex" }}
 					>
 						{task.title}
+						{currentTask && (
+							<>
+								<FaPlayCircle onClick={handleClickAdd}>Start</FaPlayCircle>
+								<FaStopCircle
+									onClick={() => handleStop({ timerStop: timeStart })}
+								></FaStopCircle>
+							</>
+						)}
 					</button>
 				))}
-
-			<ItemContainer></ItemContainer>
 		</Container>
 	);
 };
 
 export default Home;
+// {/* <div>
+// {/* {!timer.isPaused() && !timers.isPaused() && ( */}
+
+// <FaPlayCircle onClick={handlePlay}></FaPlayCircle>
+// <FaPauseCircle
+// 	style={{ padding: "10px", margin: "10px" }}
+// 	onClick={() => handlePause({ timerStop: timeStart })}
+// ></FaPauseCircle>
+
+// <ImCross
+// 	style={{ padding: "10px", margin: "10px" }}
+// 	onClick={handleClickDelete}
+// ></ImCross>
+// </div> */}

@@ -1,32 +1,27 @@
 {
-  "projects": [
-    {
-      "id": "07c4007f-9317-4dc8-a713-5a8087a4dd96",
-      "name": "Build a website",
-      "color": "#71e35dff"
-    }
-  ],
-  "tasks": [
-    {
-      "id": "108633a1-f41d-4723-9962-045ccfd000a8",
-      "projectId": "07c4007f-9317-4dc8-a713-5a8087a4dd96",
-      "title": "create vite app"
-    }
-  ],
+  "projects": [],
+  "tasks": [],
   "timelogs": [
     {
-      "id": "1c3e1796-b428-4d95-840e-7968164508fc",
-      "taskId": "108633a1-f41d-4723-9962-045ccfd000a8",
+      "id": "8adda95b-f29a-47e4-9431-26c94da582f8",
+      "taskId": "f203dea9-fb35-4395-b38e-0b67a5fcc462",
       "start": "2022-10-23",
-      "timerStart": "Su-09-57-18",
-      "timerStop": "Su-09-57-20"
+      "timerStart": "Su-11-13-23",
+      "timerStop": "Su-11-13-27"
     },
     {
-      "id": "27811d04-5a16-4b6e-ae84-1ea5a6507489",
-      "taskId": "108633a1-f41d-4723-9962-045ccfd000a8",
+      "id": "28d33877-e759-4f7e-a8bf-eb9cf9edc166",
+      "taskId": "4900f88c-9af2-40ab-9870-7e116877760b",
       "start": "2022-10-23",
-      "timerStart": "Su-09-57-20",
-      "timerStop": "Su-09-57-23"
+      "timerStart": "Su-11-13-33",
+      "timerStop": "Su-11-13-37"
+    },
+    {
+      "id": "c102e8e4-68e5-4bbb-8d02-b8a9257a0ae2",
+      "taskId": "f203dea9-fb35-4395-b38e-0b67a5fcc462",
+      "start": "2022-10-23",
+      "timerStart": "Su-11-13-38",
+      "timerStop": "Su-11-13-41"
     }
   ]
 }

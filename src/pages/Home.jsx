@@ -33,6 +33,7 @@ const Home = () => {
 
 	const timer = new Timer();
 	const date = dayjs(tsn).format("YYYY-MM-DD");
+	const timeStart = dayjs(Date.now()).format("dd-hh-mm-ss");
 	const intervalRef = useRef();
 	const timeRef = useRef(new Timer());
 	const timers = timeRef.current;
@@ -44,7 +45,8 @@ const Home = () => {
 			id: uuid(),
 			taskId: currentTask,
 			start: date,
-			stop: "",
+			timerStart: timeStart,
+			timerStop: "",
 		};
 		await addTime(timeData);
 		timer.start();
@@ -111,7 +113,7 @@ const Home = () => {
 								{!timer.isPaused() && !timers.isPaused() ? (
 									<FaPauseCircle
 										style={{ padding: "10px", margin: "10px" }}
-										onClick={() => handlePause({ stop: date })}
+										onClick={() => handlePause({ timerStop: timeStart })}
 									></FaPauseCircle>
 								) : (
 									<FaPlayCircle onClick={handlePlay}></FaPlayCircle>
@@ -119,7 +121,7 @@ const Home = () => {
 
 								<FaStopCircle
 									style={{ padding: "10px", margin: "10px" }}
-									onClick={() => handleStop({ stop: date })}
+									onClick={() => handleStop({ timerStop: timeStart })}
 								></FaStopCircle>
 								<ImCross
 									style={{ padding: "10px", margin: "10px" }}

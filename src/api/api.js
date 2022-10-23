@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://localhost:3000";
+const URL = "http://192.168.1.86:3000";
 
 export const getProjects = async () => {
 	const { data } = await axios.request({

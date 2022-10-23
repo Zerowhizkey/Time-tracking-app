@@ -1,29 +1,71 @@
 {
   "projects": [
     {
-      "id": "8a9cd5fa-561f-4056-9572-66c972f48e31",
+      "id": "974e8793-406f-4b9e-a8c5-499ccdd7f73c",
       "name": "Build website",
-      "color": "#5e72e4"
+      "color": "#000105ff"
+    },
+    {
+      "id": "9450f945-d393-4506-bef4-8a4893f27718",
+      "name": "Clean apartment",
+      "color": "#c8cbdbff"
+    },
+    {
+      "id": "07c4007f-9317-4dc8-a713-5a8087a4dd96",
+      "name": "hej",
+      "color": "#71e35dff"
     }
   ],
   "tasks": [
     {
-      "id": "65d5f817-3f0f-4c38-849e-9286df4c25c6",
-      "projectId": "8a9cd5fa-561f-4056-9572-66c972f48e31",
-      "title": "he"
+      "id": "c084a591-d4f4-4a5f-aaf4-72c2444b8d20",
+      "projectId": "974e8793-406f-4b9e-a8c5-499ccdd7f73c",
+      "title": "Style it with css"
     },
     {
-      "id": "39f9e646-2df2-41b8-8e9c-3aec1f5a7384",
-      "projectId": "8a9cd5fa-561f-4056-9572-66c972f48e31",
-      "title": "he"
+      "id": "7af24526-9d9f-45d7-8856-f5a31c817e36",
+      "projectId": "974e8793-406f-4b9e-a8c5-499ccdd7f73c",
+      "title": "Build app with vite"
+    },
+    {
+      "id": "ebbd4f92-35b6-46a9-8177-732b5e21a230",
+      "projectId": "974e8793-406f-4b9e-a8c5-499ccdd7f73c",
+      "title": "Fix context"
+    },
+    {
+      "id": "d144fc63-11da-44f6-bc0d-2331400bc31e",
+      "projectId": "9450f945-d393-4506-bef4-8a4893f27718",
+      "title": "vaccum"
+    },
+    {
+      "id": "cdbd0d50-6f27-4810-a669-4653fc4a50c1",
+      "projectId": "9450f945-d393-4506-bef4-8a4893f27718",
+      "title": "Dishes"
+    },
+    {
+      "id": "9b5cff84-f43e-4f87-8f19-f36ddc765240",
+      "projectId": "974e8793-406f-4b9e-a8c5-499ccdd7f73c",
+      "title": "hahaha"
     }
   ],
   "timelogs": [
     {
-      "id": "ba375ec9-df1d-4009-9c44-5a904d1bee49",
-      "taskId": "39f9e646-2df2-41b8-8e9c-3aec1f5a7384",
-      "start": 1666390775655,
-      "stop": 1666390777648
+      "id": "6a4d6dda-0506-4bb3-ab18-a481f7910cbf",
+      "taskId": "c084a591-d4f4-4a5f-aaf4-72c2444b8d20",
+      "start": 1666507116241,
+      "stop": 1666507122602
+    },
+    {
+      "id": "54b6bccf-8ccb-4d58-86f8-66aa402c1546",
+      "taskId": "cdbd0d50-6f27-4810-a669-4653fc4a50c1",
+      "start": 1666507613485,
+      "stop": 1666507617942
+    },
+    {
+      "id": "9757f505-f99c-4f88-8b38-4d033f650686",
+      "taskId": "ebbd4f92-35b6-46a9-8177-732b5e21a230",
+      "start": 1666507891795,
+      "stop": 1666507897640
     }
   ]
 }

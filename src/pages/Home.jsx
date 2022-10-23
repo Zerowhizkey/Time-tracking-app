@@ -2,11 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { addTime, deleteTime, updateTime } from "../api/api";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
-import { Timer, Time, TimerOptions } from "timer-node";
+import { Timer } from "timer-node";
 import { FaStopCircle, FaPlayCircle, FaPauseCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import styled from "styled-components";
-
 const Container = styled.div`
 	display: grid;
 `;
@@ -25,28 +24,23 @@ const Home = () => {
 	const [currentTime, setCurrentTime] = useState(null);
 	const [logTime, setLogTime] = useState("");
 	const { tasks, getTime } = useProjects();
+
 	const timer = new Timer();
 	const date = Date.now();
-	// const datenumber = Date.now();
 	const intervalRef = useRef();
 	const timeRef = useRef(new Timer());
 	const timers = timeRef.current;
 
 	const theChoosenOne = tasks.find((task) => task.id === currentTask);
 
-	// const setLogTime( = { d: { days }, h: { hours }, m: { minutes }, s: { seconds })
-
 	const handleClickAdd = async () => {
-		// if (timeData.start !== "") return;
 		const timeData = {
 			id: uuid(),
 			taskId: currentTask,
 			start: date,
 			stop: "",
 		};
-		// if (timeData.start !== "") return;
 		await addTime(timeData);
-		// start();
 		timer.start();
 		timers.start();
 		startTime();

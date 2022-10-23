@@ -1,11 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { addTime, deleteTime, updateTime } from "../api/api";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
-import { Timer } from "timer-node";
 import { FaStopCircle, FaPlayCircle, FaPauseCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
+import { Timer } from "timer-node";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
 import styled from "styled-components";
+
+dayjs.extend(customParseFormat);
+
 const Container = styled.div`
 	display: grid;
 `;
@@ -20,13 +25,14 @@ const Header = styled.div`
 `;
 
 const Home = () => {
+	const [tsn, setTsn] = useState(Date.now());
 	const [currentTask, setCurrentTask] = useState(null);
 	const [currentTime, setCurrentTime] = useState(null);
 	const [logTime, setLogTime] = useState("");
 	const { tasks, getTime } = useProjects();
 
 	const timer = new Timer();
-	const date = Date.now();
+	const date = dayjs(tsn).format("YYYY-MM-DD");
 	const intervalRef = useRef();
 	const timeRef = useRef(new Timer());
 	const timers = timeRef.current;

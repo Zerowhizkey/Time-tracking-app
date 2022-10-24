@@ -2,7 +2,12 @@ import { useRef, useState } from "react";
 import { addTime, deleteTime, updateTime } from "../api/api";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
-import { FaStopCircle, FaPlayCircle, FaPauseCircle } from "react-icons/fa";
+import {
+	FaStopCircle,
+	FaPlayCircle,
+	FaPauseCircle,
+	FaTrashAlt,
+} from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import { Timer } from "timer-node";
 import dayjs from "dayjs";
@@ -29,7 +34,7 @@ const Home = () => {
 	const [currentTask, setCurrentTask] = useState(null);
 	const [currentTime, setCurrentTime] = useState(null);
 	const [logTime, setLogTime] = useState("");
-	const { tasks, getTime } = useProjects();
+	const { tasks, times, getTime } = useProjects();
 
 	const timer = new Timer();
 	const date = dayjs(tsn).format("YYYY-MM-DD");
@@ -84,7 +89,7 @@ const Home = () => {
 		timers.stop();
 		stopTime();
 		await updateTime(currentTime.id, timeData);
-		setCurrentTime(null);
+		// setCurrentTime(null);
 	};
 
 	const startTime = () => {
@@ -99,8 +104,21 @@ const Home = () => {
 		setLogTime(timers.format());
 	};
 	// console.log(timers);
+	// console.log(currentTask);
 	// console.log(currentTime);
-
+	// console.log(times)
+	const totalTime = times.filter((time) => time.taskId === currentTask);
+	const total = totalTime.map(
+		(total) => {
+			const dateStart = dayjs(total.timerStart, "dd-hh-mm-ss");
+			const dateEnd = dayjs(total.timerStop, "dd-hh-mm-ss");
+			const timeDiff = dateEnd.diff(dateStart, "second");
+			return timeDiff;
+		}
+		// dayjs(total.timerStop, "dd-hh-mm-ss").diff(dayjs(total.timerStart, "dd-hh-mm-ss"))
+	);
+	// console.log(totalTime, "totala timaie");
+	console.log(total, "this is totala");
 	return (
 		<Container>
 			<Header>
@@ -111,35 +129,26 @@ const Home = () => {
 						<p style={{ marginTop: "0" }}>{activeTask.title}</p>
 					</>
 				)}
-
-				{/* <div style={{ display: "flex", justifyContent: "space-around" }}>
-					<div>
-						<p>total</p>
-					</div>
-					<div>
-						<p>today</p>
-					</div>
-				</div> */}
 			</Header>
 
 			{tasks &&
 				tasks.map((task) => (
-					<button
-						onClick={handleCurrentTask}
-						key={task.id}
-						value={task.id}
-						style={{ marginTop: "1em", display: "flex" }}
-					>
+					<div key={task.id} style={{ marginTop: "1em", display: "flex" }}>
 						{task.title}
-						{currentTask && (
-							<>
+						<button value={task.id} onClick={handleCurrentTask}>
+							Choose me
+						</button>
+						{currentTask === task.id ? (
+							<div key={task.id}>
 								<FaPlayCircle onClick={handleClickAdd}>Start</FaPlayCircle>
 								<FaStopCircle
 									onClick={() => handleStop({ timerStop: timeStart })}
 								></FaStopCircle>
-							</>
+							</div>
+						) : (
+							<></>
 						)}
-					</button>
+					</div>
 				))}
 		</Container>
 	);
@@ -160,3 +169,13 @@ export default Home;
 // 	onClick={handleClickDelete}
 // ></ImCross>
 // </div> */}
+{
+	/* <div style={{ display: "flex", justifyContent: "space-around" }}>
+					<div>
+						<p>total</p>
+					</div>
+					<div>
+						<p>today</p>
+					</div>
+				</div> */
+}

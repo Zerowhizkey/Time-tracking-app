@@ -2,19 +2,18 @@ import { useState } from "react";
 import { deleteProjects, addProject } from "../api/api";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
-import styled from "styled-components";
 import InputColor from "react-input-color";
+import { Container, ProjectContainer } from "./Projects.styles";
+// const Container = styled.div`
+// 	display: grid;
+// 	justify-content: center;
+// 	margin-top: 2em;
+// `;
 
-const Container = styled.div`
-	display: grid;
-	justify-content: center;
-	margin-top: 2em;
-`;
-
-const ProjectContainer = styled.div`
-	margin-top: 2em;
-	display: grid;
-`;
+// const ProjectContainer = styled.div`
+// 	margin-top: 2em;
+// 	display: grid;
+// `;
 
 const Projects = () => {
 	const [currentProject, setCurrentProject] = useState(null);

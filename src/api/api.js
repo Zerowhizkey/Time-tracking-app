@@ -55,7 +55,7 @@ export const addTime = async (timeData) => {
 		data: timeData,
 	});
 	// console.log(response);
-	return;
+	return response.data;
 };
 
 export const deleteProjects = async (id) => {
@@ -91,6 +91,6 @@ export const updateTime = async (id, timeData) => {
 		url: `${URL}/timelogs/${id}`,
 		data: timeData,
 	});
-	console.log(response);
+	// console.log(response);
 	return;
 };

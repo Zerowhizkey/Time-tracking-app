@@ -26,7 +26,7 @@ const NavLink = styled(Link)`
 
 const Overview = () => {
 	return (
-		<Container style={{ border: "red solid 1px" }}>
+		<Container>
 			<Header>Overview</Header>
 			<ItemContainer>
 				<NavLink to={"projects"}>Projects</NavLink>

@@ -27,8 +27,8 @@ const Navbar = () => {
 	return (
 		<NavContainer>
 			<li style={{ display: "flex" }}>
-				<NavLink to={"/"}>
-					<RiTimerFill />
+				<NavLink to={"/projects"}>
+					<FaToolbox />
 				</NavLink>
 			</li>
 
@@ -37,10 +37,9 @@ const Navbar = () => {
 					<RiCalendarFill />
 				</NavLink>
 			</li>
-
 			<li style={{ display: "flex" }}>
-				<NavLink to={"overview/projects"}>
-					<FaToolbox />
+				<NavLink to={"timer"}>
+					<RiTimerFill />
 				</NavLink>
 			</li>
 		</NavContainer>

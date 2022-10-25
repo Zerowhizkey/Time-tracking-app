@@ -1,83 +1,47 @@
 {
-  "projects": [],
-  "tasks": [],
+  "projects": [
+    {
+      "id": "a53b84a5-960e-4a6f-a423-e5eb75985b26",
+      "name": "Build a website",
+      "color": "#5e72e4"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "0e718bc8-ada6-4b71-9804-91375473cba5",
+      "projectId": "a53b84a5-960e-4a6f-a423-e5eb75985b26",
+      "title": "Create a vite app"
+    },
+    {
+      "id": "311a8436-a0b6-4135-9bc4-07c1fe5e079b",
+      "projectId": "a53b84a5-960e-4a6f-a423-e5eb75985b26",
+      "title": "style "
+    }
+  ],
   "timelogs": [
     {
-      "id": "732c4ecd-1880-4102-8959-06717bbe00a2",
-      "taskId": "1e69adb7-aeb6-4467-b2ad-973c12036484",
-      "start": "2022-10-24",
-      "timerStart": "Mo-02-59-33",
-      "timerStop": "Mo-02-59-36"
+      "id": "75c80ce9-5e4e-49b1-8761-be43d896dbc0",
+      "taskId": "0e718bc8-ada6-4b71-9804-91375473cba5",
+      "timerStart": 1666704124267,
+      "timerStop": 1666704132727
     },
     {
-      "id": "0bf000b5-b5f2-4fc8-abb2-1772151e804c",
-      "taskId": "1e69adb7-aeb6-4467-b2ad-973c12036484",
-      "start": "2022-10-24",
-      "timerStart": "Mo-02-59-36",
-      "timerStop": "Mo-02-59-45"
+      "id": "a0b04508-ed92-40e1-8dab-2e3ea6b7218b",
+      "taskId": "311a8436-a0b6-4135-9bc4-07c1fe5e079b",
+      "timerStart": 1666704140003,
+      "timerStop": 1666704143475
     },
     {
-      "id": "908e48b4-0142-4f51-b6dc-48a616aed1ba",
-      "taskId": "a81d9421-d869-483f-9d69-b5afb1746f91",
-      "start": "2022-10-24",
-      "timerStart": "Mo-02-59-46",
-      "timerStop": "Mo-02-59-48"
+      "id": "dfee8f01-4519-4391-b7f9-02ca91a4ccd0",
+      "taskId": "0e718bc8-ada6-4b71-9804-91375473cba5",
+      "timerStart": 1666704151563,
+      "timerStop": 1666704155251
     },
     {
-      "id": "f364c3ef-5c43-4161-9164-fdbf6f1502b4",
-      "taskId": "a81d9421-d869-483f-9d69-b5afb1746f91",
-      "start": "2022-10-24",
-      "timerStart": "Mo-03-07-45",
-      "timerStop": "Mo-03-07-49"
-    },
-    {
-      "id": "72436abe-a39e-48c7-811b-a56f72a91341",
-      "taskId": "1e69adb7-aeb6-4467-b2ad-973c12036484",
-      "start": "2022-10-24",
-      "timerStart": "Mo-03-15-03",
-      "timerStop": "Mo-03-15-06"
-    },
-    {
-      "id": "220732fd-178a-4d82-8da2-3cf2a08a77ce",
-      "taskId": "a81d9421-d869-483f-9d69-b5afb1746f91",
-      "start": "2022-10-24",
-      "timerStart": "Mo-03-25-51",
-      "timerStop": "Mo-03-25-54"
-    },
-    {
-      "id": "a6a9d7d9-33af-44f7-ad89-c3fbdddb1bdb",
-      "taskId": "1e69adb7-aeb6-4467-b2ad-973c12036484",
-      "start": "2022-10-24",
-      "timerStart": "Mo-03-26-49",
-      "timerStop": "Mo-03-26-52"
-    },
-    {
-      "id": "aad70e9d-ccbf-435d-8128-c98917674e0a",
-      "taskId": "a81d9421-d869-483f-9d69-b5afb1746f91",
-      "start": "2022-10-24",
-      "timerStart": "Mo-03-27-28",
-      "timerStop": "Mo-03-27-31"
-    },
-    {
-      "id": "f880e5e7-a86b-49a2-a944-6c05f1a10cc0",
-      "taskId": "a81d9421-d869-483f-9d69-b5afb1746f91",
-      "start": "2022-10-24",
-      "timerStart": "Mo-03-27-48",
-      "timerStop": "Mo-03-28-27"
-    },
-    {
-      "id": "1dbe5a96-af92-4d0a-929f-b94673825dbe",
-      "taskId": "a81d9421-d869-483f-9d69-b5afb1746f91",
-      "start": "2022-10-24",
-      "timerStart": "Mo-03-37-47",
-      "timerStop": "Mo-03-37-51"
-    },
-    {
-      "id": "149fe460-2db0-49b0-a6c5-97e05cffb342",
-      "taskId": "a81d9421-d869-483f-9d69-b5afb1746f91",
-      "start": "2022-10-24",
-      "timerStart": "Mo-03-41-38",
-      "timerStop": "Mo-03-41-41"
+      "id": "ac5b4ac6-34de-45c5-8a1c-ddfea356231b",
+      "taskId": "0e718bc8-ada6-4b71-9804-91375473cba5",
+      "timerStart": 1666704588389,
+      "timerStop": 1666704591101
     }
   ]
 }

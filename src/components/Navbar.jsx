@@ -13,7 +13,7 @@ const NavContainer = styled.ul`
 	width: 100vw;
 	bottom: 0;
 	left: 0;
-	background-color: lightgray;
+	background-color: #20212c;
 `;
 
 const NavLink = styled(Link)`
@@ -21,6 +21,7 @@ const NavLink = styled(Link)`
 	color: inherit;
 	padding: 0.5em;
 	font-size: x-large;
+	
 `;
 
 const Navbar = () => {

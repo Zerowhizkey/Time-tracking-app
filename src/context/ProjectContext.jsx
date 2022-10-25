@@ -23,10 +23,10 @@ export const ProjectProvider = ({ children }) => {
 		setTimes(data);
 	};
 
-const addTime = async (timeData) => {
-const data = await api.addTime(timeData)
-setTimes((times) => [...times, data])
-}
+	const addTime = async (timeData) => {
+		const data = await api.addTime(timeData);
+		setTimes((times) => [...times, data]);
+	};
 
 	useEffect(() => {
 		getProject();
@@ -43,7 +43,7 @@ setTimes((times) => [...times, data])
 				getProject,
 				getTask,
 				getTime,
-				addTime
+				addTime,
 			}}
 		>
 			{children}

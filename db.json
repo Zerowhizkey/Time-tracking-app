@@ -1,47 +1,21 @@
 {
   "projects": [
     {
-      "id": "a53b84a5-960e-4a6f-a423-e5eb75985b26",
-      "name": "Build a website",
-      "color": "#5e72e4"
+      "id": "7256d7dc-ba0f-429d-92b3-c0bdfc887dff",
+      "name": "School",
+      "color": "#cde8204f"
+    },
+    {
+      "id": "a25ae0b1-673c-4292-a493-4d5fdccb485f",
+      "name": "Home",
+      "color": "#27f249ff"
+    },
+    {
+      "id": "cdb54ee7-6c1a-4daf-8168-c6b284ca975b",
+      "name": "Work",
+      "color": "#27eff2ff"
     }
   ],
-  "tasks": [
-    {
-      "id": "0e718bc8-ada6-4b71-9804-91375473cba5",
-      "projectId": "a53b84a5-960e-4a6f-a423-e5eb75985b26",
-      "title": "Create a vite app"
-    },
-    {
-      "id": "311a8436-a0b6-4135-9bc4-07c1fe5e079b",
-      "projectId": "a53b84a5-960e-4a6f-a423-e5eb75985b26",
-      "title": "style "
-    }
-  ],
-  "timelogs": [
-    {
-      "id": "75c80ce9-5e4e-49b1-8761-be43d896dbc0",
-      "taskId": "0e718bc8-ada6-4b71-9804-91375473cba5",
-      "timerStart": 1666704124267,
-      "timerStop": 1666704132727
-    },
-    {
-      "id": "a0b04508-ed92-40e1-8dab-2e3ea6b7218b",
-      "taskId": "311a8436-a0b6-4135-9bc4-07c1fe5e079b",
-      "timerStart": 1666704140003,
-      "timerStop": 1666704143475
-    },
-    {
-      "id": "dfee8f01-4519-4391-b7f9-02ca91a4ccd0",
-      "taskId": "0e718bc8-ada6-4b71-9804-91375473cba5",
-      "timerStart": 1666704151563,
-      "timerStop": 1666704155251
-    },
-    {
-      "id": "ac5b4ac6-34de-45c5-8a1c-ddfea356231b",
-      "taskId": "0e718bc8-ada6-4b71-9804-91375473cba5",
-      "timerStart": 1666704588389,
-      "timerStop": 1666704591101
-    }
-  ]
+  "tasks": [],
+  "timelogs": []
 }

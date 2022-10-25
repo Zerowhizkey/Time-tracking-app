@@ -1,19 +1,19 @@
 {
   "projects": [
     {
-      "id": "7256d7dc-ba0f-429d-92b3-c0bdfc887dff",
-      "name": "School",
-      "color": "#cde8204f"
-    },
-    {
-      "id": "a25ae0b1-673c-4292-a493-4d5fdccb485f",
-      "name": "Home",
-      "color": "#27f249ff"
-    },
-    {
       "id": "cdb54ee7-6c1a-4daf-8168-c6b284ca975b",
       "name": "Work",
       "color": "#27eff2ff"
+    },
+    {
+      "id": "a3f3276f-287a-404f-89aa-689331d8e3f3",
+      "name": "School",
+      "color": "#e35db0ff"
+    },
+    {
+      "id": "8b4e4630-8e8b-437a-8fa8-c7d9aae45288",
+      "name": "Home",
+      "color": "#f7edf4ff"
     }
   ],
   "tasks": [],

@@ -1,7 +1,7 @@
 ## Deployment
 * WORK IN PROGRESS
 
-## Requirements
+
 
 # Kunskapskontroll 1: Time-tracking-app
 
@@ -26,6 +26,8 @@
   I implemented eslint because it helps out to state obious errors, kinda feel like a "must have" in once projects. To put it simple, makes life easier
 - Concurrently:\
   Concurrently helps me write in my script to start both backend and frontend at the same time and on the same terminal, found it very usefull and timesaving. 
+
+## Requirements
 
 ## En användare ska kunna:
 - Skapa ett projekt (X)

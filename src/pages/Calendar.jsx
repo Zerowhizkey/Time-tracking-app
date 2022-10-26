@@ -32,10 +32,11 @@ const Calendar = () => {
 				<input type="date" onChange={handleInput} />
 				{tasks.map((task) => {
 					// om task har timelog.start === inputvalue
-					const foundTimes = times.filter( 
+					const foundTimes = times.filter(
 						(time) =>
 							dayjs(time.timeStart).format("YYYY-MM-DD") === inputValue &&
-							task.id === time.taskId && time.timerStop
+							task.id === time.taskId &&
+							time.timerStop
 					);
 					// console.log(foundTimes);
 					if (foundTimes.length === 0) return;

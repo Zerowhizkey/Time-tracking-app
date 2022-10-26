@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -21,30 +21,60 @@ const Header = styled.h4`
 const ItemContainer = styled.div`
 	display: flex;
 	justify-content: space-around;
-	`;
-
-const NavLink = styled(Link)`
-	display: flex;
-	text-decoration: none;
-	color: inherit;
-	font-size: 1.2rem;
-	/* background-color: #20212c; */
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	padding: 0.2em;
-	/* padding-bottom: 15px; */
-	border-bottom: #20212c solid 0.15em;
 `;
 
+// const NaLink = styled(NavLink)`
+// 	display: flex;
+// 	/* text-decoration: none; */
+// 	/* color: inherit; */
+// 	font-size: 1.2rem;
+// 	/* background-color: #20212c; */
+// 	align-items: center;
+// 	justify-content: center;
+// 	width: 100%;
+// 	height: 100%;
+// 	padding: 0.2em;
+// 	/* padding-bottom: 15px; */
+// 	border-bottom: #20212c solid 0.15em;
+// `;
+
 const Overview = () => {
+	let activeStyle = {
+		color: "white",
+		fontSize: "1.2rem",
+		textDecoration: "none",
+		width: "100%",
+		height: "100%",
+		textAlign: "center",
+		padding: "0.2em",
+		// border: "#20212c solid 0.15em",
+		backgroundColor: "#20212c",
+	};
+	let inActiveStyle = {
+		color: "white",
+		fontSize: "1.2rem",
+		textDecoration: "none",
+		width: "100%",
+		height: "100%",
+		textAlign: "center",
+		padding: "0.2em",
+	};
 	return (
 		<Container>
 			<Header>Overview</Header>
 			<ItemContainer>
-				<NavLink to={"projects"}>Projects</NavLink>
-				<NavLink to={"tasks"}>Tasks</NavLink>
+				<NavLink
+					to={"projects"}
+					style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
+				>
+					Projects
+				</NavLink>
+				<NavLink
+					to={"tasks"}
+					style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
+				>
+					Tasks
+				</NavLink>
 			</ItemContainer>
 			<Outlet />
 		</Container>

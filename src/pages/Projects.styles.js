@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-	display: grid;
+	display: flex;
 	justify-content: center;
+	flex-direction: column;
 	margin-top: 2em;
 	margin-left: 5%;
 	margin-right: 5%;
@@ -13,6 +14,7 @@ export const InputContainer = styled.div`
 	display: grid;
 	gap: 1em;
 	padding: 2em;
+	margin: 0 2.5em;
 	background-color: #20212c;
 	border-radius: 20px;
 `;
@@ -54,7 +56,7 @@ export const Button = styled.button`
 export const ColorContainer = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: space-between;
 `;
 
 export const Text = styled.p``;
@@ -81,6 +83,7 @@ export const ProjectList = styled.ul`
 `;
 
 export const ProjectItem = styled.li`
+	max-width: 100px;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 1em;

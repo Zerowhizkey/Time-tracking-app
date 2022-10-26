@@ -41,13 +41,14 @@ const Projects = () => {
 		const projectData = {
 			id: uuid(),
 			name: input,
-			color: color.hex,
+			color: color,
 		};
 		if (projects.find((project) => project.name === projectData.name)) return;
-		if (projects.find((project) => project.color === projectData.color)) return;
+		// if (projects.find((project) => project.color === projectData.color)) return;
 		await addProject(projectData);
 		getProject();
 		setInput("");
+		setColor("");
 	};
 
 	const handleDelete = async (id) => {
@@ -74,18 +75,10 @@ const Projects = () => {
 					onChange={handleInput}
 					placeholder="Write here ...."
 				/>
+
+				<Text>Pick a color :</Text>
 				<ColorContainer>
-					<Text>Pick a color :</Text>
-					<InputColor
-						style={{
-							backgroundColor: "transparent",
-							border: "#2e2e39 solid 0.05em",
-							marginLeft: "1em",
-						}}
-						initialValue="#5e72e4"
-						onChange={setColor}
-						// placement="right"
-					/>
+					<input type="color" onChange={(e) => setColor(e.target.value)} />
 				</ColorContainer>
 
 				<Button onClick={handleClickAdd}>Add a project</Button>
@@ -106,7 +99,7 @@ const Projects = () => {
 										backgroundColor: `${project.color}`,
 										padding: "0.25em",
 										borderRadius: "10%",
-										color: " #da22ff"
+										color: " #da22ff",
 									}}
 								/>
 								<TiDelete
@@ -116,7 +109,7 @@ const Projects = () => {
 									}}
 									onClick={() => handleDelete(project.id)}
 								/>
-								{project.name}
+								<p style={{ width: "50px" }}>{project.name}</p>
 							</ProjectItem>
 						))}
 				</ProjectList>

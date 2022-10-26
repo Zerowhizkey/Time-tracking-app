@@ -1,6 +1,5 @@
-import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { RiTimerFill, RiCalendarFill } from "react-icons/ri";
 import { FaToolbox } from "react-icons/fa";
 const NavContainer = styled.ul`
@@ -16,30 +15,49 @@ const NavContainer = styled.ul`
 	background-color: #20212c;
 `;
 
-const NavLink = styled(Link)`
-	text-decoration: none;
-	color: inherit;
-	padding: 0.5em;
-	font-size: x-large;
-	
-`;
+// const NaLink = styled(NavLink)`
+// 	/* text-decoration: none; */
+// 	color: inherit;
+// 	padding: 0.5em;
+// 	font-size: x-large;
+// `;
 
 const Navbar = () => {
+	let activeStyle = {
+		color: "#da22ff",
+		fontSize: "x-large", 
+		padding: "0.5em",
+	};
+	let inActiveStyle = {
+		color: "white",
+		fontSize: "x-large",
+		padding: "0.5em",
+	}
+
 	return (
 		<NavContainer>
 			<li style={{ display: "flex" }}>
-				<NavLink to={"/projects"}>
+				<NavLink
+					to={"overview"}
+					style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
+				>
 					<FaToolbox />
 				</NavLink>
 			</li>
 
 			<li style={{ display: "flex" }}>
-				<NavLink to={"calendar"}>
+				<NavLink
+					to={"calendar"}
+					style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
+				>
 					<RiCalendarFill />
 				</NavLink>
 			</li>
 			<li style={{ display: "flex" }}>
-				<NavLink to={"timer"}>
+				<NavLink
+					to={"timer"}
+					style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
+				>
 					<RiTimerFill />
 				</NavLink>
 			</li>

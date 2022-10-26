@@ -38,7 +38,7 @@ const Navbar = () => {
 		<NavContainer>
 			<li style={{ display: "flex" }}>
 				<NavLink
-					to={"overview"}
+					to={"/"}
 					style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
 				>
 					<FaToolbox />

@@ -64,7 +64,7 @@ const Overview = () => {
 			<Header>Overview</Header>
 			<ItemContainer>
 				<NavLink
-					to={"projects"}
+					to={"/"}
 					style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
 				>
 					Projects

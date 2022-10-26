@@ -26,11 +26,11 @@ const router = createBrowserRouter([
 				element: <Calendar />,
 			},
 			{
-				path: "overview",
+				index: "/",
 				element: <Overview />,
 				children: [
 					{
-						path: "projects",
+						index: "/",
 						element: <Projects />,
 					},
 					{

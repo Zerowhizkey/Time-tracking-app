@@ -49,8 +49,14 @@ const Home = () => {
 		await deleteTime(currentTime.id);
 		setCurrentTime(null);
 	};
-
+	const badTime = times.find((time) => time.timerStop === 0);
 	const handleCurrentTask = (e) => {
+		if (badTime?.taskId === e.target.value) {
+			timer.current.start();
+
+			startTime();
+			setCurrentTime(badTime);
+		}
 		setCurrentTask(e.target.value);
 	};
 
@@ -90,9 +96,11 @@ const Home = () => {
 		const filterdTimes = times.filter(
 			(time) => time.taskId === currentTask && time.timerStop
 		);
-		return filterdTimes.reduce((sum, curr) => {
+
+		const elapsed = filterdTimes.reduce((sum, curr) => {
 			return sum + (curr.timerStop - curr.timerStart);
 		}, 0);
+		return badTime ? elapsed + (Date.now() - badTime.timerStart) : elapsed;
 	}, [times, currentTask]);
 
 	const showTotal = useMemo(() => {

@@ -1,8 +1,4 @@
-import {
-	BrowserRouter,
-	createBrowserRouter,
-	RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ProjectProvider } from "./context/ProjectContext";
 import Calendar from "./pages/Calendar";
 import Home from "./pages/Home";
@@ -26,11 +22,11 @@ const router = createBrowserRouter([
 				element: <Calendar />,
 			},
 			{
-				index: "/",
+				path: "overview",
 				element: <Overview />,
 				children: [
 					{
-						index: "/",
+						path: "projects",
 						element: <Projects />,
 					},
 					{

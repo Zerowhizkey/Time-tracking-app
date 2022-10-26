@@ -1,98 +1,58 @@
 import { useState } from "react";
-import { deleteProjects, addProject } from "../api/api";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
-import InputColor from "react-input-color";
-import { GrProjects } from "react-icons/gr";
 import { TiDelete, TiFolderDelete } from "react-icons/ti";
-import {
-	Container,
-	ProjectContainer,
-	InputContainer,
-	InputText,
-	Button,
-	Title,
-	ProjectList,
-	ProjectItem,
-	ColorContainer,
-	Text,
-} from "./Projects.styles";
-// const Container = styled.div`
-// 	display: grid;
-// 	justify-content: center;
-// 	margin-top: 2em;
-// `;
-
-// const ProjectContainer = styled.div`
-// 	margin-top: 2em;
-// 	display: grid;
-// `;
+import * as S from "./Projects.styles";
 
 const Projects = () => {
-	// const [currentProject, setCurrentProject] = useState(null);
 	const [input, setInput] = useState("");
 	const [color, setColor] = useState("");
-	const { projects, getProject, getTask } = useProjects();
-	// const unique_id = uuid();
+	const { projects, addProject, deleteProject } = useProjects();
 
 	const handleClickAdd = async () => {
 		if (!input.trim()) return;
-
 		const projectData = {
 			id: uuid(),
 			name: input,
 			color: color,
 		};
 		if (projects.find((project) => project.name === projectData.name)) return;
-		// if (projects.find((project) => project.color === projectData.color)) return;
 		await addProject(projectData);
-		getProject();
 		setInput("");
 		setColor("");
 	};
 
 	const handleDelete = async (id) => {
-		await deleteProjects(id);
-		getProject();
-		// await
-		// getTask();
+		await deleteProject(id);
 	};
 
 	const handleInput = (e) => {
 		setInput(e.target.value);
 	};
 
-	// const handleClickProject = (e) => {
-	// 	setCurrentProject(e.target.value);
-	// };
-
 	return (
-		<Container>
-			<InputContainer>
-				<InputText
+		<S.Container>
+			<S.InputContainer>
+				<S.InputText
 					type="text"
 					value={input}
 					onChange={handleInput}
 					placeholder="Write here ...."
 				/>
 
-				<Text>Pick a color :</Text>
-				<ColorContainer>
-					<input type="color" onChange={(e) => setColor(e.target.value)} />
-				</ColorContainer>
+				<S.ColorContainer>
+				<S.Text>Pick a color :</S.Text>
+					<S.Input type="color" onChange={(e) => setColor(e.target.value)} />
+				</S.ColorContainer>
 
-				<Button onClick={handleClickAdd}>Add a project</Button>
-			</InputContainer>
-			<ProjectContainer>
-				<Title>Projects</Title>
-				<ProjectList
-
-				// onClick={handleClickProject}
-				// value={project.id}
-				>
+				<S.Button onClick={handleClickAdd}>Add a project</S.Button>
+			</S.InputContainer>
+			<S.ProjectContainer>
+				<S.Title>Projects</S.Title>
+				<S.ProjectList>
 					{projects &&
 						projects.map((project) => (
-							<ProjectItem key={project.id}>
+							<S.ProjectItem key={project.id}>
 								<TiFolderDelete
 									size={25}
 									style={{
@@ -110,11 +70,11 @@ const Projects = () => {
 									onClick={() => handleDelete(project.id)}
 								/>
 								<p style={{ width: "50px" }}>{project.name}</p>
-							</ProjectItem>
+							</S.ProjectItem>
 						))}
-				</ProjectList>
-			</ProjectContainer>
-		</Container>
+				</S.ProjectList>
+			</S.ProjectContainer>
+		</S.Container>
 	);
 };
 

@@ -13,9 +13,31 @@ export const ProjectProvider = ({ children }) => {
 		setProjects(data);
 	};
 
+	const addProject = async (projectData) => {
+		const data = await api.addProject(projectData);
+		setProjects((projects) => [...projects, data]);
+	};
+
+	const deleteProject = async (id) => {
+		if (!id) return;
+		const deleted = await api.deleteProject(id);
+		setProjects((currentData) => currentData.filter((data) => data.id !== id));
+	};
+
 	const getTask = async () => {
 		const data = await api.getTasks();
 		setTasks(data);
+	};
+
+	const addTask = async (taskData) => {
+		const data = await api.addTask(taskData);
+		setTasks((tasks) => [...tasks, data]);
+	};
+
+	const deleteTask = async (id) => {
+		if (!id) return;
+		const deleted = await api.deleteTask(id);
+		setTasks((currentData) => currentData.filter((data) => data.id !== id));
 	};
 
 	const getTime = async () => {
@@ -25,6 +47,17 @@ export const ProjectProvider = ({ children }) => {
 
 	const addTime = async (timeData) => {
 		const data = await api.addTime(timeData);
+		setTimes((times) => [...times, data]);
+	};
+
+	const deleteTime = async (id) => {
+		if (!id) return;
+		const deleted = await api.deleteTime(id);
+		setTimes((currentData) => currentData.filter((data) => data.id !== id));
+	};
+
+	const updateTime = async (id, timeData) => {
+		const data = await api.updateTime(id, timeData);
 		setTimes((times) => [...times, data]);
 	};
 
@@ -38,12 +71,18 @@ export const ProjectProvider = ({ children }) => {
 		<ProjectContex.Provider
 			value={{
 				projects,
-				tasks,
-				times,
 				getProject,
+				addProject,
+				deleteProject,
+				tasks,
 				getTask,
+				addTask,
+				deleteTask,
+				times,
 				getTime,
 				addTime,
+				deleteTime,
+				updateTime,
 			}}
 		>
 			{children}

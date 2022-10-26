@@ -59,12 +59,13 @@ const Overview = () => {
 		textAlign: "center",
 		padding: "0.2em",
 	};
+
 	return (
 		<Container>
 			<Header>Overview</Header>
 			<ItemContainer>
 				<NavLink
-					to={"/"}
+					to={"projects"}
 					style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
 				>
 					Projects

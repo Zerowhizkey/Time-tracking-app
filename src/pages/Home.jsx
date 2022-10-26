@@ -1,14 +1,7 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { deleteTime, updateTime } from "../api/api";
+import { useMemo, useRef, useState } from "react";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
-import {
-	FaStopCircle,
-	FaPlayCircle,
-	FaPauseCircle,
-	FaTrashAlt,
-} from "react-icons/fa";
-import { ImCross } from "react-icons/im";
+import { FaStopCircle, FaPlayCircle } from "react-icons/fa";
 import { Timer } from "timer-node";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
@@ -22,13 +15,13 @@ const Home = () => {
 	const [currentTask, setCurrentTask] = useState(null);
 	const [currentTime, setCurrentTime] = useState(null);
 	const [logTime, setLogTime] = useState(0);
-	const { tasks, times, getTime, addTime } = useProjects();
+	const { tasks, times, getTime, addTime, updateTime } = useProjects();
 
 	const timer = useRef(new Timer());
-
 	const intervalRef = useRef();
 
 	const activeTask = tasks.find((task) => task.id === currentTask);
+	const badTime = times.find((time) => time.timerStop === 0);
 
 	const handleClickAdd = async () => {
 		const timeData = {
@@ -39,38 +32,17 @@ const Home = () => {
 		};
 		await addTime(timeData);
 		timer.current.start();
-
 		startTime();
 		setCurrentTime(timeData);
 	};
 
-	const handleClickDelete = async () => {
-		if (!currentTime.id) return;
-		await deleteTime(currentTime.id);
-		setCurrentTime(null);
-	};
-	const badTime = times.find((time) => time.timerStop === 0);
 	const handleCurrentTask = (e) => {
 		if (badTime?.taskId === e.target.value) {
 			timer.current.start();
-
 			startTime();
 			setCurrentTime(badTime);
 		}
 		setCurrentTask(e.target.value);
-	};
-
-	const handlePlay = async () => {
-		timer.current.resume();
-
-		console.log(timer.isRunning());
-	};
-
-	const handlePause = async (timeData) => {
-		timer.current.pause();
-
-		console.log(timer.isPaused());
-		await updateTime(currentTime.id, timeData);
 	};
 
 	const handleStop = async (timeData) => {
@@ -217,3 +189,20 @@ export default Home;
 // const timeRef = useRef(new Timer());
 // const timers = timeRef.current;
 // start: date,
+// const handlePlay = async () => {
+// 	timer.current.resume();
+
+// 	console.log(timer.isRunning());
+// };
+
+// const handlePause = async (timeData) => {
+// 	timer.current.pause();
+
+// 	console.log(timer.isPaused());
+// 	await updateTime(currentTime.id, timeData);
+// };
+// const handleClickDelete = async () => {
+// 	if (!currentTime.id) return;
+// 	await deleteTime(currentTime.id);
+// 	setCurrentTime(null);
+// };

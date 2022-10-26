@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 import { useProjects } from "../context/ProjectContext";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import duration from "dayjs/plugin/duration";
+
 dayjs.extend(customParseFormat);
 dayjs.extend(duration);
+
 const Calendar = () => {
 	const [inputValue, setInputValue] = useState(null);
 	const [inputValueTwo, setInputValueTwo] = useState(null);
-	const { times, getTime, getTask, tasks } = useProjects();
+	const { times, tasks } = useProjects();
 
 	const handleInput = (e) => {
 		const date = dayjs(e.target.value).format("YYYY-MM-DD");
@@ -20,14 +22,8 @@ const Calendar = () => {
 		setInputValueTwo(date);
 	};
 
-	useEffect(() => {
-		getTask(), getTime();
-	}, []);
 	if (!times || times.length === 0) return <p>No tasks with any time data</p>;
-	console.log(inputValue);
-	console.log(inputValueTwo);
-	// dayjs(time.timeStart).format("YYYY-MM-DD") === inputValue
-	// <= time.timeStart && inputValueTwo >= time.timeStart &&
+
 	return (
 		<div>
 			<div>
@@ -95,3 +91,10 @@ export default Calendar;
 // om task har timelog.start === inputvalue
 // console.log(foundTimes);
 // console.log(date);
+// dayjs(time.timeStart).format("YYYY-MM-DD") === inputValue
+// <= time.timeStart && inputValueTwo >= time.timeStart &&
+// console.log(inputValue);
+// console.log(inputValueTwo);
+// useEffect(() => {
+// 	getTask(), getTime();
+// }, []);

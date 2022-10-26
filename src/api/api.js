@@ -11,6 +11,25 @@ export const getProjects = async () => {
 	return data;
 };
 
+export const addProject = async (projectData) => {
+	const response = await axios.request({
+		method: "post",
+		url: `${URL}/projects`,
+		data: projectData,
+	});
+	// console.log(response);
+	return response.data;
+};
+
+export const deleteProject = async (id) => {
+	const response = await axios.request({
+		method: "delete",
+		url: `${URL}/projects/${id}`,
+	});
+	// console.log(response);
+	return response.code === 200;
+};
+
 export const getTasks = async () => {
 	const { data } = await axios.request({
 		method: "get",
@@ -18,6 +37,25 @@ export const getTasks = async () => {
 	});
 	// console.log(data);
 	return data;
+};
+
+export const addTask = async (taskData) => {
+	const response = await axios.request({
+		method: "post",
+		url: `${URL}/tasks`,
+		data: taskData,
+	});
+	// console.log(response);
+	return response.data;
+};
+
+export const deleteTask = async (id) => {
+	const response = await axios.request({
+		method: "delete",
+		url: `${URL}/tasks/${id}`,
+	});
+	// console.log(response)
+	return response.code === 200;
 };
 
 export const getTimes = async () => {
@@ -29,25 +67,6 @@ export const getTimes = async () => {
 	return data;
 };
 
-export const addProject = async (projectData) => {
-	const response = await axios.request({
-		method: "post",
-		url: `${URL}/projects`,
-		data: projectData,
-	});
-	// console.log(response);
-	return;
-};
-
-export const addTask = async (taskData) => {
-	const response = await axios.request({
-		method: "post",
-		url: `${URL}/tasks`,
-		data: taskData,
-	});
-	// console.log(response);
-	return;
-};
 export const addTime = async (timeData) => {
 	const response = await axios.request({
 		method: "post",
@@ -58,31 +77,13 @@ export const addTime = async (timeData) => {
 	return response.data;
 };
 
-export const deleteProjects = async (id) => {
-	const response = await axios.request({
-		method: "delete",
-		url: `${URL}/projects/${id}`,
-	});
-	// console.log(response)
-	return;
-};
-
-export const deleteTask = async (id) => {
-	const response = await axios.request({
-		method: "delete",
-		url: `${URL}/tasks/${id}`,
-	});
-	// console.log(response)
-	return;
-};
-
 export const deleteTime = async (id) => {
 	const response = await axios.request({
 		method: "delete",
 		url: `${URL}/timelogs/${id}`,
 	});
 	// console.log(response)
-	return;
+	return response.code === 200;
 };
 
 export const updateTime = async (id, timeData) => {
@@ -92,5 +93,5 @@ export const updateTime = async (id, timeData) => {
 		data: timeData,
 	});
 	// console.log(response);
-	return;
+	return response.data;
 };

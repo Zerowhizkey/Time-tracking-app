@@ -1,53 +1,46 @@
 {
   "projects": [
     {
-      "id": "7d0a4f4d-c32d-41b2-b902-ecd98d16df6d",
-      "name": "hej",
-      "color": "#e11919"
+      "id": "064ece2c-eed7-4d93-aea6-e7cdaf1e5bfa",
+      "name": "Work",
+      "color": "#e00b0b"
+    },
+    {
+      "id": "167efd71-19e3-41f5-b435-637a355e4509",
+      "name": "School",
+      "color": "#0b2ee0"
+    },
+    {
+      "id": "266b04d1-b03c-4a1c-ad33-4267aa00fc4f",
+      "name": "Home",
+      "color": "#e0ce0b"
     }
   ],
   "tasks": [
     {
-      "id": "e9a1a173-5160-4f2e-b450-e0e47ac4237a",
-      "projectId": "7d0a4f4d-c32d-41b2-b902-ecd98d16df6d",
-      "title": "hw"
-    },
-    {
-      "id": "9c2d3ecc-da31-4cc8-aafd-e9210cdabf72",
-      "projectId": "7d0a4f4d-c32d-41b2-b902-ecd98d16df6d",
-      "title": "hehehehe"
+      "id": "a2cbb234-70ec-420e-98b4-28f767a48b83",
+      "projectId": "064ece2c-eed7-4d93-aea6-e7cdaf1e5bfa",
+      "title": "Make money"
     }
   ],
   "timelogs": [
     {
-      "id": "d2a6e042-5bae-4d40-9fed-1dc13be79719",
-      "taskId": "e9a1a173-5160-4f2e-b450-e0e47ac4237a",
-      "timerStart": 1666787816443,
-      "timerStop": 1666787851099
+      "id": "135a2f9c-37eb-454b-8ecc-f2f02c6345d7",
+      "taskId": "a2cbb234-70ec-420e-98b4-28f767a48b83",
+      "timerStart": 1666824322063,
+      "timerStop": 1666824336047
     },
     {
-      "id": "50a9fa27-7f9f-4008-8247-3a8d15e6b46a",
-      "taskId": "e9a1a173-5160-4f2e-b450-e0e47ac4237a",
-      "timerStart": 1666787939540,
-      "timerStop": 1666787979551
+      "id": "23a7fd17-a0ea-44f2-b031-6508dbcf4c08",
+      "taskId": "a2cbb234-70ec-420e-98b4-28f767a48b83",
+      "timerStart": 1666824345390,
+      "timerStop": 1666824355798
     },
     {
-      "id": "4613c0f8-9a78-49bb-9fda-ae3df9b14f5e",
-      "taskId": "9c2d3ecc-da31-4cc8-aafd-e9210cdabf72",
-      "timerStart": 1666788269999,
-      "timerStop": 1666788329202
-    },
-    {
-      "id": "10412acc-fdd8-4afd-8929-63831c557c9d",
-      "taskId": "9c2d3ecc-da31-4cc8-aafd-e9210cdabf72",
-      "timerStart": 1666789204660,
-      "timerStop": 1666789758700
-    },
-    {
-      "id": "fee2cd63-d117-4c5c-aee0-ea957c6cab0a",
-      "taskId": "9c2d3ecc-da31-4cc8-aafd-e9210cdabf72",
-      "timerStart": 1666789583645,
-      "timerStop": 1666790486225
+      "id": "3143c4df-f2f7-4f83-ad91-d5613a3253d0",
+      "taskId": "a2cbb234-70ec-420e-98b4-28f767a48b83",
+      "timerStart": 1666824369574,
+      "timerStop": 1666824375598
     }
   ]
 }

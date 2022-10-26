@@ -34,20 +34,18 @@ export const Button = styled.button`
 		#9733ee 51%,
 		#da22ff 100%
 	);
-	/* margin: 10px; */
 	padding: 10px 35px;
 	text-align: center;
-	/* text-transform: uppercase; */
 	transition: 0.5s;
 	background-size: 200% auto;
 	color: white;
 	box-shadow: 0 0 20px #0d0c11;
 	border-radius: 50px;
-	/* border: none; */
+	border: none;
 	font-family: poppins;
 
 	:hover {
-		background-position: right center; /* change the direction of the change here */
+		background-position: right center;
 		color: #fff;
 		text-decoration: none;
 	}
@@ -70,6 +68,14 @@ export const ProjectContainer = styled.div`
 	display: grid;
 	justify-content: center;
 	/* grid-template-columns: repeat(2, 1fr); */
+`;
+
+export const Input = styled.input`
+	text-decoration: none;
+	background-color: transparent;
+	border: solid 0.15em #2e2e39;
+	padding: 1em;
+	border-radius: 10px;
 `;
 
 export const ProjectList = styled.ul`

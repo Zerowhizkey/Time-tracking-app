@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { addTask, deleteTask } from "../api/api";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
 import styled from "styled-components";
@@ -14,27 +13,23 @@ const Tasks = () => {
 	const [currentProject, setCurrentProject] = useState(null);
 	const [currentTask, setCurrentTask] = useState(null);
 	const [input, setInput] = useState("");
-	const { projects, tasks, getTask } = useProjects();
+	const { projects, tasks, addTask, deleteTask } = useProjects();
 
 	const handleClickAdd = async () => {
 		if (!input.trim()) return;
 		if (!currentProject) return setInput("");
-
 		const taskData = {
 			id: uuid(),
 			projectId: currentProject,
 			title: input,
 		};
-
 		await addTask(taskData);
-		getTask();
 		setInput("");
 	};
 
 	const handleClickDelete = async () => {
 		if (!currentTask) return;
 		await deleteTask(currentTask);
-		getTask();
 		setCurrentTask(null);
 	};
 

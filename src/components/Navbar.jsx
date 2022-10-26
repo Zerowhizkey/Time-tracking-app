@@ -25,20 +25,20 @@ const NavContainer = styled.ul`
 const Navbar = () => {
 	let activeStyle = {
 		color: "#da22ff",
-		fontSize: "x-large", 
+		fontSize: "x-large",
 		padding: "0.5em",
 	};
 	let inActiveStyle = {
 		color: "white",
 		fontSize: "x-large",
 		padding: "0.5em",
-	}
+	};
 
 	return (
 		<NavContainer>
 			<li style={{ display: "flex" }}>
 				<NavLink
-					to={"/"}
+					to={"overview"}
 					style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
 				>
 					<FaToolbox />

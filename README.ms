@@ -72,8 +72,8 @@
 
 
 ## För att uppnå Väl Godkänt är kraven att:
-- Kunna välja ett tidsspan istället för bara ett specifikt datum i Kalender/historiks-vyn. (Datum & Tid) (X)
+- Kunna välja ett tidsspan istället för bara ett specifikt datum i Kalender/historiks-vyn. (Datum & Tid) ()
 
-- Kunna skapa/välja en användare och tidtagning/tasks/projekt individuella för vald användare. (X)
+- Kunna skapa/välja en användare och tidtagning/tasks/projekt individuella för vald användare. ()
 
 - Om en tidtagning är aktiv och sidan laddas om/stängs ner och öppnas upp senare, ska den återupptas och visa tiden från när den först startades. ()

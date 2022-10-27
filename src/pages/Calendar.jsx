@@ -29,8 +29,10 @@ const Calendar = () => {
 		<>
 			<S.Header>Calendar</S.Header>
 			<S.Container>
-				<S.Input type="date" onChange={handleInput} />
-				<S.Input type="date" onChange={handleInputTwo} />
+				<S.InputContainer>
+					<S.Input type="date" onChange={handleInput} />
+					<S.Input type="date" onChange={handleInputTwo} />
+				</S.InputContainer>
 				{tasks.map((task) => {
 					const foundTimes = times.filter(
 						(time) =>
@@ -42,20 +44,20 @@ const Calendar = () => {
 
 					if (foundTimes.length === 0) return;
 					return (
-						<div key={task.id}>
-							<h3>{task.title}</h3>
+						<S.TaskContainer key={task.id}>
+							<S.Title>{task.title}</S.Title>
 							{foundTimes.map((time) => (
-								<div key={time.id}>
-									<p>{time.taskId}</p>
+								<S.TimeContainer key={time.id}>
+									<S.Text>{time.taskId}</S.Text>
 
-									<p>
+									<S.Text>
 										{dayjs
 											.duration(time.timerStop - time.timerStart)
 											.format("HH:mm:ss")}
-									</p>
-								</div>
+									</S.Text>
+								</S.TimeContainer>
 							))}
-						</div>
+						</S.TaskContainer>
 					);
 				})}
 			</S.Container>

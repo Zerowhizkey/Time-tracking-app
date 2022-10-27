@@ -10,7 +10,6 @@ const Overview = () => {
 			<S.Header>Overview</S.Header>
 			<S.ItemContainer>
 				<S.ButtonActive> Projects</S.ButtonActive>
-
 				<S.Button onClick={() => setState("tasks")}>Tasks</S.Button>
 			</S.ItemContainer>
 			<Projects />
@@ -20,7 +19,6 @@ const Overview = () => {
 			<S.Header>Overview</S.Header>
 			<S.ItemContainer>
 				<S.Button onClick={() => setState("projects")}> Projects</S.Button>
-
 				<S.ButtonActive>Tasks</S.ButtonActive>
 			</S.ItemContainer>
 			<Tasks />

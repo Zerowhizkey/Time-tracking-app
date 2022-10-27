@@ -2,16 +2,17 @@ import { useMemo, useRef, useState } from "react";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
 import { FaStopCircle, FaPlayCircle } from "react-icons/fa";
+import { TiDelete } from "react-icons/ti";
 import { Timer } from "timer-node";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import duration from "dayjs/plugin/duration";
-import * as S from "./Home.styles";
+import * as S from "./Timers.styles";
 
 dayjs.extend(customParseFormat);
 dayjs.extend(duration);
 
-const Home = () => {
+const Timers = () => {
 	const [currentTask, setCurrentTask] = useState(null);
 	const [currentTime, setCurrentTime] = useState(null);
 	const [logTime, setLogTime] = useState(0);
@@ -81,55 +82,79 @@ const Home = () => {
 	const showTotal = useMemo(() => {
 		return dayjs.duration(totalTime + logTime).format("HH:mm:ss");
 	}, [totalTime, logTime]);
-
+	// console.log(logTime);
 	return (
-		<S.Container>
+		<>
 			<S.Header>Timer</S.Header>
-			{activeTask && (
-				<S.ItemContainer>
-					{activeTask.title} {showTotal}
-				</S.ItemContainer>
-			)}
-			{tasks &&
-				tasks.map((task) => {
-					const foundTimes = times.filter((time) => task.id === time.taskId);
-					return (
-						<div key={task.id} style={{ marginTop: "1em", display: "flex" }}>
-							{task.title}
-							<button value={task.id} onClick={handleCurrentTask}>
-								Choose me
-							</button>
-							{currentTask === task.id ? (
-								<>
-									<div key={task.id}>
-										<FaPlayCircle onClick={handleClickAdd}>Start</FaPlayCircle>
-										<FaStopCircle
-											onClick={() => handleStop({ timerStop: Date.now() })}
-										></FaStopCircle>
-									</div>
-									{foundTimes.map((time) => {
-										if (foundTimes)
-											return (
-												<div key={time.id}>
-													<p>{time.id}</p>
-													<button onClick={() => handleClickDelete(time.id)}>
-														x
-													</button>
-												</div>
-											);
-									})}
-								</>
-							) : (
-								<></>
-							)}
-						</div>
-					);
-				})}
-		</S.Container>
+			<S.Container>
+				{activeTask && (
+					<S.ItemContainer>
+						<S.Text>
+							{activeTask.title} {showTotal}
+						</S.Text>
+					</S.ItemContainer>
+				)}
+				{tasks &&
+					tasks.map((task) => {
+						const foundTimes = times.filter((time) => task.id === time.taskId);
+						return (
+							<S.TaskContainer key={task.id}>
+								<S.Title>{task.title}</S.Title>
+								<S.Button value={task.id} onClick={handleCurrentTask}>
+									Choose me
+								</S.Button>
+								{currentTask === task.id ? (
+									<>
+										<S.TimeContainer key={task.id}>
+											<FaPlayCircle
+												onClick={handleClickAdd}
+												size={50}
+												style={{
+													color: " #da22ff",
+												}}
+											>
+												Start
+											</FaPlayCircle>
+											<FaStopCircle
+												onClick={() => handleStop({ timerStop: Date.now() })}
+												size={50}
+												style={{
+													color: " #da22ff",
+												}}
+											></FaStopCircle>
+										</S.TimeContainer>
+										{foundTimes.map((time) => {
+											if (foundTimes)
+												return (
+													<S.TimeContainer key={time.id}>
+														<p>
+															{dayjs
+																.duration(time.timerStop - time.timerStart)
+																.format("HH:mm:ss")}
+														</p>
+														<TiDelete
+															size={50}
+															style={{
+																color: " #da22ff",
+															}}
+															onClick={() => handleClickDelete(time.id)}
+														/>
+													</S.TimeContainer>
+												);
+										})}
+									</>
+								) : (
+									<></>
+								)}
+							</S.TaskContainer>
+						);
+					})}
+			</S.Container>
+		</>
 	);
 };
 
-export default Home;
+export default Timers;
 // {/* <div>
 // {/* {!timer.isPaused() && !timers.isPaused() && ( */}
 

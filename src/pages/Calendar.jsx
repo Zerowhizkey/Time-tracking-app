@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useProjects } from "../context/ProjectContext";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import duration from "dayjs/plugin/duration";
+import * as S from "./Calendar.styles";
 
 dayjs.extend(customParseFormat);
 dayjs.extend(duration);
@@ -25,10 +26,11 @@ const Calendar = () => {
 	if (!times || times.length === 0) return <p>No tasks with any time data</p>;
 
 	return (
-		<div>
-			<div>
-				<input type="date" onChange={handleInput} />
-				<input type="date" onChange={handleInputTwo} />
+		<>
+			<S.Header>Calendar</S.Header>
+			<S.Container>
+				<S.Input type="date" onChange={handleInput} />
+				<S.Input type="date" onChange={handleInputTwo} />
 				{tasks.map((task) => {
 					const foundTimes = times.filter(
 						(time) =>
@@ -56,8 +58,8 @@ const Calendar = () => {
 						</div>
 					);
 				})}
-			</div>
-		</div>
+			</S.Container>
+		</>
 	);
 };
 

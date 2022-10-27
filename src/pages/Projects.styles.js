@@ -22,6 +22,7 @@ export const InputContainer = styled.div`
 export const InputText = styled.input`
 	text-decoration: none;
 	background-color: transparent;
+	color: white;
 	border: solid 0.15em #2e2e39;
 	padding: 1em;
 	border-radius: 10px;

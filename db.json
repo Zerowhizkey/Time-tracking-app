@@ -1,102 +1,24 @@
 {
   "projects": [
     {
-      "id": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "name": "hw",
-      "color": ""
+      "id": "8c47937f-3ec3-43ad-befa-95812982deb2",
+      "name": "School",
+      "color": "#0c27ed"
     }
   ],
   "tasks": [
     {
-      "id": "03aebee9-1da7-41e2-9c01-6ddc48d4c8ca",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "w"
-    },
-    {
-      "id": "f4da70b3-580f-4b2c-b7cf-bf626b9ccfe4",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "a"
-    },
-    {
-      "id": "646348ba-714c-499a-b3f7-ab31cdbe7a5f",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "s"
-    },
-    {
-      "id": "bf26ae85-bd6f-499a-98ac-50d44264ca5c",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "d"
-    },
-    {
-      "id": "0da8a8a3-01f8-4c16-881e-3078a289b51c",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "f"
-    },
-    {
-      "id": "d7a14c22-a3c0-497d-8675-0d6fbeff6830",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "g"
-    },
-    {
-      "id": "b625058d-efd0-4053-998b-2440b3f59f2e",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "h"
-    },
-    {
-      "id": "ebe8c741-6635-4571-9cbc-c74ce7f10175",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "j"
-    },
-    {
-      "id": "33f2a3b9-110a-43e8-b5b8-a847add758a8",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "k"
-    },
-    {
-      "id": "3eff250e-8ff9-49d0-a34d-6a99e76ab4ad",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "l"
-    },
-    {
-      "id": "4983e992-024c-4af7-9ff2-f9eef2393f48",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "q"
-    },
-    {
-      "id": "08ea4612-5629-4a2f-820a-fa80b2f30efc",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "w"
-    },
-    {
-      "id": "842cc826-85b0-4a06-9b13-e3c20013f3fe",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "e"
-    },
-    {
-      "id": "457608aa-fa53-4a83-9c00-d90afaecb30f",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "r"
-    },
-    {
-      "id": "db823610-b1b9-4602-9e43-c74cba139674",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "fdsaafd"
-    },
-    {
-      "id": "b193dae8-d76a-4748-a791-f378767a5f64",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "ghhg"
-    },
-    {
-      "id": "71ad058d-56bb-4948-b0e6-2842cc12c581",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "cvvbcbvc"
-    },
-    {
-      "id": "e65f6335-5ebb-4989-b8e5-e6fe10e09ff7",
-      "projectId": "c7f77fb0-6c52-4cbb-a4be-88d60013df25",
-      "title": "zvcxcvczx"
+      "id": "d4c85a44-8072-452f-8e8e-bc859cdb638e",
+      "projectId": "8c47937f-3ec3-43ad-befa-95812982deb2",
+      "title": "study"
     }
   ],
-  "timelogs": []
+  "timelogs": [
+    {
+      "id": "c4be6cf2-e112-4832-a13d-1fed3f5bc48e",
+      "taskId": "fce43e83-b193-4970-8614-76e8dc83e338",
+      "timerStart": 1666906143629,
+      "timerStop": 1666906147806
+    }
+  ]
 }

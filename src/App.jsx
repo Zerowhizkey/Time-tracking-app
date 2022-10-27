@@ -1,11 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ProjectProvider } from "./context/ProjectContext";
 import Calendar from "./pages/Calendar";
-import Home from "./pages/Home";
 import Overview from "./pages/Overview";
-import Projects from "./pages/Projects";
 import Root from "./pages/Root";
-import Tasks from "./pages/Tasks";
+import Timers from "./pages/Timers";
 import "./App.css";
 
 const router = createBrowserRouter([
@@ -28,7 +26,7 @@ const router = createBrowserRouter([
 
 			{
 				path: "timer",
-				element: <Home />,
+				element: <Timers />,
 			},
 		],
 	},

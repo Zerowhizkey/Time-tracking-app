@@ -17,7 +17,7 @@
 - uuid:\
   Uuid generates IDs with a long unique string every time it's called on, and that helps me not to worry about having a dubbel of an ID in my code. 
 - react-icons:\ 
-  All above are used for my styling which has been motivated above. 
+  React icons is used because its very simple to use and has alot of variations for icons. 
 - dayjs:\
   Dayjs is used to generate and transform date and time. It was very handy to have when I worked with the calendar and timers. 
 - timmer-node:\

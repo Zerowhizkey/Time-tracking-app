@@ -15,7 +15,7 @@ const Home = () => {
 	const [currentTask, setCurrentTask] = useState(null);
 	const [currentTime, setCurrentTime] = useState(null);
 	const [logTime, setLogTime] = useState(0);
-	const { tasks, times, getTime, addTime, updateTime } = useProjects();
+	const { tasks, times, addTime, updateTime, deleteTime } = useProjects();
 
 	const timer = useRef(new Timer());
 	const intervalRef = useRef();
@@ -63,6 +63,10 @@ const Home = () => {
 		setLogTime(0);
 	};
 
+	const handleClickDelete = async (id) => {
+		await deleteTime(id);
+	};
+
 	const totalTime = useMemo(() => {
 		const filterdTimes = times.filter(
 			(time) => time.taskId === currentTask && time.timerStop
@@ -78,46 +82,49 @@ const Home = () => {
 		return dayjs.duration(totalTime + logTime).format("HH:mm:ss");
 	}, [totalTime, logTime]);
 
-	// const showTimeLog = useMemo(() => {
-	// 	return dayjs.duration(logTime).format("HH:mm:ss");
-	// }, [logTime]);
-
 	return (
 		<S.Container>
-			<S.Header>
-				<h2 style={{ marginTop: "0" }}>Timer</h2>
-				<h2 style={{ marginBottom: "0" }}></h2>
-				{activeTask && (
-					<>
-						<p style={{ marginTop: "0" }}>
-							{activeTask.title} {showTotal}
-						</p>
-						{/* <p style={{ marginTop: "0" }}>
-							{activeTask.title} {showTimeLog}
-						</p> */}
-					</>
-				)}
-			</S.Header>
-
+			<S.Header>Timer</S.Header>
+			{activeTask && (
+				<S.ItemContainer>
+					{activeTask.title} {showTotal}
+				</S.ItemContainer>
+			)}
 			{tasks &&
-				tasks.map((task) => (
-					<div key={task.id} style={{ marginTop: "1em", display: "flex" }}>
-						{task.title}
-						<button value={task.id} onClick={handleCurrentTask}>
-							Choose me
-						</button>
-						{currentTask === task.id ? (
-							<div key={task.id}>
-								<FaPlayCircle onClick={handleClickAdd}>Start</FaPlayCircle>
-								<FaStopCircle
-									onClick={() => handleStop({ timerStop: Date.now() })}
-								></FaStopCircle>
-							</div>
-						) : (
-							<></>
-						)}
-					</div>
-				))}
+				tasks.map((task) => {
+					const foundTimes = times.filter((time) => task.id === time.taskId);
+					return (
+						<div key={task.id} style={{ marginTop: "1em", display: "flex" }}>
+							{task.title}
+							<button value={task.id} onClick={handleCurrentTask}>
+								Choose me
+							</button>
+							{currentTask === task.id ? (
+								<>
+									<div key={task.id}>
+										<FaPlayCircle onClick={handleClickAdd}>Start</FaPlayCircle>
+										<FaStopCircle
+											onClick={() => handleStop({ timerStop: Date.now() })}
+										></FaStopCircle>
+									</div>
+									{foundTimes.map((time) => {
+										if (foundTimes)
+											return (
+												<div key={time.id}>
+													<p>{time.id}</p>
+													<button onClick={() => handleClickDelete(time.id)}>
+														x
+													</button>
+												</div>
+											);
+									})}
+								</>
+							) : (
+								<></>
+							)}
+						</div>
+					);
+				})}
 		</S.Container>
 	);
 };
@@ -207,8 +214,12 @@ export default Home;
 // 	console.log(timer.isPaused());
 // 	await updateTime(currentTime.id, timeData);
 // };
-// const handleClickDelete = async () => {
-// 	if (!currentTime.id) return;
-// 	await deleteTime(currentTime.id);
-// 	setCurrentTime(null);
-// };
+
+{
+	/* <p style={{ marginTop: "0" }}>
+							{activeTask.title} {showTimeLog}
+						</p> */
+}
+// const showTimeLog = useMemo(() => {
+// 	return dayjs.duration(logTime).format("HH:mm:ss");
+// }, [logTime]);

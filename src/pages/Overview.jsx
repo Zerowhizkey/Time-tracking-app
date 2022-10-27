@@ -1,28 +1,74 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
-import styled from "styled-components";
+import { useState } from "react";
+import * as S from "./Overview.styles";
+import Projects from "./Projects";
+import Tasks from "./Tasks";
+const Overview = () => {
+	const [state, setState] = useState("projects");
 
-const Container = styled.div`
-	display: grid;
-`;
+	return state === "projects" ? (
+		<S.Container>
+			<S.Header>Overview</S.Header>
+			<S.ItemContainer>
+				<S.ButtonActive> Projects</S.ButtonActive>
 
-const Header = styled.h4`
-	display: flex;
-	width: 100vw;
-	height: 5vh;
-	margin: 0;
-	background-color: #20212c;
-	justify-content: center;
-	align-items: center;
-	letter-spacing: 0.1em;
-	font-weight: 200;
-	/* text-transform: uppercase; */
-`;
+				<S.Button onClick={() => setState("tasks")}>Tasks</S.Button>
+			</S.ItemContainer>
+			<Projects />
+		</S.Container>
+	) : (
+		<S.Container>
+			<S.Header>Overview</S.Header>
+			<S.ItemContainer>
+				<S.Button onClick={() => setState("projects")}> Projects</S.Button>
 
-const ItemContainer = styled.div`
-	display: flex;
-	justify-content: space-around;
-`;
+				<S.ButtonActive>Tasks</S.ButtonActive>
+			</S.ItemContainer>
+			<Tasks />
+		</S.Container>
+	);
+};
 
+export default Overview;
+/* justify-content: center; */
+/* height: 100vh; */
+{
+	/* <NavLink
+					to={"projects"}
+					style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
+				> */
+}
+{
+	/* </NavLink> */
+}
+{
+	/* <NavLink
+					to={"tasks"}
+					style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
+				> */
+}
+{
+	/* </NavLink> */
+}
+// let activeStyle = {
+// 	color: "white",
+// 	fontSize: "1.2rem",
+// 	textDecoration: "none",
+// 	width: "100%",
+// 	height: "100%",
+// 	textAlign: "center",
+// 	padding: "0.2em",
+// 	// border: "#20212c solid 0.15em",
+// 	backgroundColor: "#20212c",
+// };
+// let inActiveStyle = {
+// 	color: "white",
+// 	fontSize: "1.2rem",
+// 	textDecoration: "none",
+// 	width: "100%",
+// 	height: "100%",
+// 	textAlign: "center",
+// 	padding: "0.2em",
+// };
 // const NaLink = styled(NavLink)`
 // 	display: flex;
 // 	/* text-decoration: none; */
@@ -37,51 +83,3 @@ const ItemContainer = styled.div`
 // 	/* padding-bottom: 15px; */
 // 	border-bottom: #20212c solid 0.15em;
 // `;
-
-const Overview = () => {
-	let activeStyle = {
-		color: "white",
-		fontSize: "1.2rem",
-		textDecoration: "none",
-		width: "100%",
-		height: "100%",
-		textAlign: "center",
-		padding: "0.2em",
-		// border: "#20212c solid 0.15em",
-		backgroundColor: "#20212c",
-	};
-	let inActiveStyle = {
-		color: "white",
-		fontSize: "1.2rem",
-		textDecoration: "none",
-		width: "100%",
-		height: "100%",
-		textAlign: "center",
-		padding: "0.2em",
-	};
-
-	return (
-		<Container>
-			<Header>Overview</Header>
-			<ItemContainer>
-				<NavLink
-					to={"projects"}
-					style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
-				>
-					Projects
-				</NavLink>
-				<NavLink
-					to={"tasks"}
-					style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
-				>
-					Tasks
-				</NavLink>
-			</ItemContainer>
-			<Outlet />
-		</Container>
-	);
-};
-
-export default Overview;
-/* justify-content: center; */
-/* height: 100vh; */

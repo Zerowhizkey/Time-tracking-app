@@ -6,7 +6,7 @@ import { Timer } from "timer-node";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import duration from "dayjs/plugin/duration";
-import * as style from "./Home.styles";
+import * as S from "./Home.styles";
 
 dayjs.extend(customParseFormat);
 dayjs.extend(duration);
@@ -47,7 +47,6 @@ const Home = () => {
 
 	const handleStop = async (timeData) => {
 		await updateTime(currentTime.id, timeData);
-		await getTime();
 		stopTime();
 	};
 
@@ -79,9 +78,13 @@ const Home = () => {
 		return dayjs.duration(totalTime + logTime).format("HH:mm:ss");
 	}, [totalTime, logTime]);
 
+	// const showTimeLog = useMemo(() => {
+	// 	return dayjs.duration(logTime).format("HH:mm:ss");
+	// }, [logTime]);
+
 	return (
-		<style.Container>
-			<style.Header>
+		<S.Container>
+			<S.Header>
 				<h2 style={{ marginTop: "0" }}>Timer</h2>
 				<h2 style={{ marginBottom: "0" }}></h2>
 				{activeTask && (
@@ -89,9 +92,12 @@ const Home = () => {
 						<p style={{ marginTop: "0" }}>
 							{activeTask.title} {showTotal}
 						</p>
+						{/* <p style={{ marginTop: "0" }}>
+							{activeTask.title} {showTimeLog}
+						</p> */}
 					</>
 				)}
-			</style.Header>
+			</S.Header>
 
 			{tasks &&
 				tasks.map((task) => (
@@ -112,7 +118,7 @@ const Home = () => {
 						)}
 					</div>
 				))}
-		</style.Container>
+		</S.Container>
 	);
 };
 

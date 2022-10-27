@@ -14,26 +14,21 @@ const router = createBrowserRouter([
 		element: <Root />,
 		children: [
 			{
-				path: "timer",
-				element: <Home />,
+				index: true,
+				element: <Overview />,
+			},
+			{
+				path: "overview",
+				element: <Overview />,
 			},
 			{
 				path: "calendar",
 				element: <Calendar />,
 			},
+
 			{
-				path: "overview",
-				element: <Overview />,
-				children: [
-					{
-						path: "projects",
-						element: <Projects />,
-					},
-					{
-						path: "tasks",
-						element: <Tasks />,
-					},
-				],
+				path: "timer",
+				element: <Home />,
 			},
 		],
 	},
@@ -63,3 +58,13 @@ export default App;
 // 	return { products, tasks, times };
 // },
 // loader: getProducts,
+// children: [
+// 	{
+// 		path: "projects",
+// 		element: <Projects />,
+// 	},
+// 	{
+// 		path: "tasks",
+// 		element: <Tasks />,
+// 	},
+// ],

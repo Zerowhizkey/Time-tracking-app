@@ -21,6 +21,8 @@ export const ProjectProvider = ({ children }) => {
 	const deleteProject = async (id) => {
 		if (!id) return;
 		const deleted = await api.deleteProject(id);
+		if (!deleted) return;
+		console.log(deleted);
 		setProjects((currentData) => currentData.filter((data) => data.id !== id));
 	};
 
@@ -58,7 +60,7 @@ export const ProjectProvider = ({ children }) => {
 
 	const updateTime = async (id, timeData) => {
 		const data = await api.updateTime(id, timeData);
-		setTimes((times) => [...times, data]);
+		setTimes((times) => times.map((time) => (time.id !== id ? time : data)));
 	};
 
 	useEffect(() => {

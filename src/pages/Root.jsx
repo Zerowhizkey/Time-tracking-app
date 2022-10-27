@@ -13,7 +13,7 @@ const RootContainer = styled.div`
 const Root = () => {
 	const navigate = useNavigate();
 	useEffect(() => {
-		navigate("overview/projects");
+		navigate("overview");
 	}, []);
 	return (
 		<>

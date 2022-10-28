@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { RiTimerFill, RiCalendarFill } from "react-icons/ri";
 import { FaToolbox } from "react-icons/fa";
 const NavContainer = styled.ul`
@@ -14,13 +14,6 @@ const NavContainer = styled.ul`
 	left: 0;
 	background-color: #20212c;
 `;
-
-// const NaLink = styled(NavLink)`
-// 	/* text-decoration: none; */
-// 	color: inherit;
-// 	padding: 0.5em;
-// 	font-size: x-large;
-// `;
 
 const Navbar = () => {
 	let activeStyle = {

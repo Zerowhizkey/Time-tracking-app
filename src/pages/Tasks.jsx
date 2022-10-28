@@ -1,18 +1,13 @@
 import { useState } from "react";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
-import styled from "styled-components";
-
-const Container = styled.div`
-	display: grid;
-	justify-content: center;
-	margin-top: 2em;
-`;
-
+import * as S from "./Tasks.styles";
+import { TiDelete, TiFolderDelete } from "react-icons/ti";
 const Tasks = () => {
 	const [currentProject, setCurrentProject] = useState(null);
 	const [currentTask, setCurrentTask] = useState(null);
 	const [input, setInput] = useState("");
+	const [isOpen, setIsOpen] = useState(false);
 	const { projects, tasks, addTask, deleteTask } = useProjects();
 
 	const handleClickAdd = async () => {
@@ -27,9 +22,13 @@ const Tasks = () => {
 		setInput("");
 	};
 
-	const handleClickDelete = async () => {
-		if (!currentTask) return;
-		await deleteTask(currentTask);
+	const handleClickOpen = () => {
+		setIsOpen(true);
+	};
+
+	const handleClickDelete = async (id) => {
+		if (!id) return;
+		await deleteTask(id);
 		setCurrentTask(null);
 	};
 
@@ -37,47 +36,79 @@ const Tasks = () => {
 		setCurrentProject(e.target.value);
 	};
 
-	const handleTask = (e) => {
-		setCurrentTask(e.target.value);
-	};
+	// const handleTask = (e) => {
+	// 	setCurrentTask(e.target.value);
+	// };
 
 	const handleInput = (e) => {
 		setInput(e.target.value);
 	};
 
-	return (
-		<Container>
-			<select onChange={handleOption}>
-				<option value="">Pick a Project</option>
-				{projects
-					? projects.map((project) => (
-							<option key={project.id} value={project.id}>
-								{project.name}
-							</option>
-					  ))
-					: console.log("error")}
-			</select>
-			{currentProject && (
-				<select onChange={handleTask}>
-					<option value=""> Pick a Task</option>
-					{tasks
-						? tasks
-								.filter((task) => currentProject === task.projectId)
-								.map((tasks) => (
-									<option value={tasks.id} key={tasks.id}>
-										{tasks.title}
-									</option>
-								))
-						: console.log("no tasks")}
-				</select>
-			)}
-			<div>
-				<input type="text" value={input} onChange={handleInput} />
-				<button onClick={() => handleClickAdd()}>Add Task</button>
-
-				<button onClick={handleClickDelete}>Delete</button>
-			</div>
-		</Container>
+	return isOpen === true ? (
+		<S.Container>
+			<S.SelectContainer>
+				<S.Exit>
+					<TiDelete
+						size={25}
+						style={{
+							color: " #da22ff",
+						}}
+						onClick={() => setIsOpen(false)}
+					>
+						X
+					</TiDelete>
+				</S.Exit>
+				<S.Select onChange={handleOption}>
+					<S.Option value="">Pick a Project</S.Option>
+					{projects
+						? projects.map((project) => (
+								<S.Option key={project.id} value={project.id} style={{backgroundColor: `${project.color}`}}>
+									{project.name}
+								</S.Option>
+						  ))
+						: console.log("error")}
+				</S.Select>
+			</S.SelectContainer>
+			<S.InputContainer>
+				<S.InputText type="text" value={input} onChange={handleInput} />
+				<S.Button onClick={() => handleClickAdd()}>Add Task</S.Button>
+			</S.InputContainer>
+		</S.Container>
+	) : (
+		<>
+			<S.Container>
+				<S.InputContainer>
+					<S.Button onClick={() => setIsOpen(true)}>Add Task</S.Button>
+				</S.InputContainer>
+			</S.Container>
+			<S.ProjectContainer>
+				<S.Title>Tasks</S.Title>
+				<S.ProjectList>
+					{tasks.map((task) => {
+						return (
+							<S.ProjectItem key={task.id}>
+								<TiFolderDelete
+									size={25}
+									style={{
+										padding: "0.25em",
+										borderRadius: "10%",
+										color: " #da22ff",
+									}}
+								/>
+								<TiDelete
+									size={25}
+									style={{
+										color: " #da22ff",
+									}}
+									onClick={() => handleClickDelete(task.id)}
+								/>
+								<p style={{ width: "50px" }}>{task.title}</p>
+							</S.ProjectItem>
+						);
+					})}
+				</S.ProjectList>
+			</S.ProjectContainer>
+		</>
 	);
 };
 

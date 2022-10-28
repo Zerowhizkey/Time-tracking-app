@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useProjects } from "../context/ProjectContext";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import duration from "dayjs/plugin/duration";
@@ -14,30 +14,31 @@ const Calendar = () => {
 	const { times, tasks } = useProjects();
 
 	const handleInput = (e) => {
-		const date = dayjs(e.target.value).format("YYYY-MM-DD");
+		const date = dayjs(e.target.value).format("YYYY-MM-DD HH-mm");
 		setInputValue(date);
 	};
+	// console.log(inputValue);
 
 	const handleInputTwo = (e) => {
-		const date = dayjs(e.target.value).format("YYYY-MM-DD");
+		const date = dayjs(e.target.value).format("YYYY-MM-DD HH-mm");
+		console.log(date);
 		setInputValueTwo(date);
 	};
 
 	if (!times || times.length === 0) return <p>No tasks with any time data</p>;
-
 	return (
 		<>
 			<S.Header>Calendar</S.Header>
 			<S.Container>
 				<S.InputContainer>
-					<S.Input type="date" onChange={handleInput} />
-					<S.Input type="date" onChange={handleInputTwo} />
+					<S.Input type="datetime-local" onChange={handleInput} />
+					<S.Input type="datetime-local" onChange={handleInputTwo} />
 				</S.InputContainer>
 				{tasks.map((task) => {
 					const foundTimes = times.filter(
 						(time) =>
-							dayjs(time.timeStart).format("YYYY-MM-DD") >= inputValue &&
-							dayjs(time.timeStart).format("YYYY-MM-DD") <= inputValueTwo &&
+							dayjs(time.timeStart).format("YYYY-MM-DD HH-mm") >= inputValue &&
+							dayjs(time.timeStart).format("YYYY-MM-DD HH-mm") <= inputValueTwo &&
 							task.id === time.taskId &&
 							time.timerStop
 					);

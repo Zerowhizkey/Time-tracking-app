@@ -1,15 +1,35 @@
 import axios from "axios";
 
-const URL = "http://192.168.1.86:3000";
-// export const get = async (ENDPOINT) => {
-// 	const { data } = await axios.request({
-// 		method: "get",
-// 		url: `${URL}/${ENDPOINT}`,
-// 	});
-// 	console.log(data);
-// 	return data;
+const URL = "http://10.24.200.173:3000";
 
-// }
+export const getUsers = async () => {
+	const { data } = await axios.request({
+		method: "get",
+		url: `${URL}/users`,
+	});
+	// console.log(data);
+	return data;
+};
+
+export const addUser = async (userData) => {
+	const response = await axios.request({
+		method: "post",
+		url: `${URL}/users`,
+		data: userData,
+	});
+	// console.log(response);
+	return response.data;
+};
+
+export const deleteUser = async (id) => {
+	const response = await axios.request({
+		method: "delete",
+		url: `${URL}/users/${id}`,
+	});
+	console.log(response);
+	return response.status === 200;
+};
+
 export const getProjects = async () => {
 	const { data } = await axios.request({
 		method: "get",

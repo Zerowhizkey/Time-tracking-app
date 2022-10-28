@@ -6,20 +6,26 @@ import * as S from "./Projects.styles";
 
 const Projects = () => {
 	const [input, setInput] = useState("");
+	const [isOpen, setIsOpen] = useState(false);
 	const [color, setColor] = useState("");
-	const { projects, addProject, deleteProject } = useProjects();
+	const [currentUser, setCurrentUser] = useState();
+	const { users, projects, addProject, deleteProject } = useProjects();
 
 	const handleClickAdd = async () => {
 		if (!input.trim()) return;
 		const projectData = {
 			id: uuid(),
+			userId: currentUser,
 			name: input,
 			color: color,
 		};
-		if (projects.find((project) => project.name === projectData.name)) return;
+		// if (projects.find((project) => project.name === projectData.name)) return;
 		await addProject(projectData);
 		setInput("");
 		setColor("");
+	};
+	const handleOption = (e) => {
+		setCurrentUser(e.target.value);
 	};
 
 	const handleDelete = async (id) => {
@@ -30,22 +36,44 @@ const Projects = () => {
 		setInput(e.target.value);
 	};
 
-	return (
+	return isOpen === true ? (
 		<S.Container>
+			<S.SelectContainer>
+				<S.Exit>
+					<TiDelete
+						size={25}
+						style={{
+							color: " #da22ff",
+						}}
+						onClick={() => setIsOpen(false)}
+					>
+						X
+					</TiDelete>
+				</S.Exit>
+				<S.Select onChange={handleOption}>
+					<S.Option value="">Pick a User</S.Option>
+					{users
+						? users.map((user) => (
+								<S.Option key={user.id} value={user.id}>
+									{user.name}
+								</S.Option>
+						  ))
+						: console.log("error")}
+				</S.Select>
+			</S.SelectContainer>
 			<S.InputContainer>
-				<S.InputText
-					type="text"
-					value={input}
-					onChange={handleInput}
-					placeholder="Write here ...."
-				/>
-
+				<S.InputText type="text" value={input} onChange={handleInput} />
 				<S.ColorContainer>
-				<S.Text>Pick a color :</S.Text>
+					<S.Text>Pick a color :</S.Text>
 					<S.Input type="color" onChange={(e) => setColor(e.target.value)} />
 				</S.ColorContainer>
-
-				<S.Button onClick={handleClickAdd}>Add a project</S.Button>
+				<S.Button onClick={() => handleClickAdd()}>Add Project</S.Button>
+			</S.InputContainer>
+		</S.Container>
+	) : (
+		<S.Container>
+			<S.InputContainer>
+				<S.Button onClick={() => setIsOpen(true)}>Add a project</S.Button>
 			</S.InputContainer>
 			<S.ProjectContainer>
 				<S.Title>Projects</S.Title>

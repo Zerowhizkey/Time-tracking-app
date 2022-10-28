@@ -4,9 +4,31 @@ import * as api from "../api/api";
 export const ProjectContex = createContext();
 
 export const ProjectProvider = ({ children }) => {
+	const [users, setUsers] = useState([]);
 	const [projects, setProjects] = useState([]);
 	const [tasks, setTasks] = useState([]);
 	const [times, setTimes] = useState([]);
+
+	const getUser = async () => {
+		const data = await api.getUsers();
+		setUsers(data);
+	};
+
+	const addUser = async (userData) => {
+		const data = await api.addUser(userData);
+		setUsers((users) => [...users, data]);
+	};
+
+	const deleteUser = async (id) => {
+		if (!id) return;
+		const deleted = await api.deleteUser(id);
+		if (!deleted) return;
+		console.log(deleted);
+		setUsers((currentData) => currentData.filter((data) => data.id !== id));
+		setProjects((currentData) =>
+			currentData.filter((data) => data.userId !== id)
+		);
+	};
 
 	const getProject = async () => {
 		const data = await api.getProjects();
@@ -24,7 +46,11 @@ export const ProjectProvider = ({ children }) => {
 		if (!deleted) return;
 		console.log(deleted);
 		setProjects((currentData) => currentData.filter((data) => data.id !== id));
+		setTasks((currentData) =>
+			currentData.filter((data) => data.projectId !== id)
+		);
 	};
+	// console.log(tasks)
 
 	const getTask = async () => {
 		const data = await api.getTasks();
@@ -40,6 +66,7 @@ export const ProjectProvider = ({ children }) => {
 		if (!id) return;
 		const deleted = await api.deleteTask(id);
 		setTasks((currentData) => currentData.filter((data) => data.id !== id));
+		setTimes((currentData) => currentData.filter((data) => data.taskId !== id));
 	};
 
 	const getTime = async () => {
@@ -57,6 +84,7 @@ export const ProjectProvider = ({ children }) => {
 		const deleted = await api.deleteTime(id);
 		setTimes((currentData) => currentData.filter((data) => data.id !== id));
 	};
+	// console.log(times);
 
 	const updateTime = async (id, timeData) => {
 		const data = await api.updateTime(id, timeData);
@@ -64,6 +92,7 @@ export const ProjectProvider = ({ children }) => {
 	};
 
 	useEffect(() => {
+		getUser();
 		getProject();
 		getTask();
 		getTime();
@@ -72,6 +101,10 @@ export const ProjectProvider = ({ children }) => {
 	return (
 		<ProjectContex.Provider
 			value={{
+				users,
+				getUser,
+				addUser,
+				deleteUser,
 				projects,
 				getProject,
 				addProject,

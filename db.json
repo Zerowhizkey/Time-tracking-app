@@ -1,52 +1,41 @@
 {
-  "projects": [
+  "users": [
     {
-      "id": "8c47937f-3ec3-43ad-befa-95812982deb2",
-      "name": "School",
-      "color": "#0c27ed"
+      "id": "b9be3945-9cf8-4e36-b0e4-728cd60e010e",
+      "name": "Linda"
     },
     {
-      "id": "892cc726-e00e-40e7-98ce-d149ee0031d1",
-      "name": "Home",
-      "color": "#f109e9"
+      "id": "cb584ef9-b1ec-40b5-9b12-5dfbe4577bec",
+      "name": "Marcus"
+    }
+  ],
+  "projects": [
+    {
+      "id": "c1173fbf-29df-4de9-87e2-f342161e4aaf",
+      "userId": "b9be3945-9cf8-4e36-b0e4-728cd60e010e",
+      "name": "School",
+      "color": "#ee1717"
     }
   ],
   "tasks": [
     {
-      "id": "d4c85a44-8072-452f-8e8e-bc859cdb638e",
-      "projectId": "8c47937f-3ec3-43ad-befa-95812982deb2",
-      "title": "study"
-    },
-    {
-      "id": "268c8ea3-ffee-42d9-b5f4-337f42761c14",
-      "projectId": "892cc726-e00e-40e7-98ce-d149ee0031d1",
-      "title": "Clean"
+      "id": "e816bcdb-b62f-4090-9369-1728d051b515",
+      "projectId": "c1173fbf-29df-4de9-87e2-f342161e4aaf",
+      "title": "Get database online"
     }
   ],
   "timelogs": [
     {
-      "id": "c4be6cf2-e112-4832-a13d-1fed3f5bc48e",
-      "taskId": "fce43e83-b193-4970-8614-76e8dc83e338",
-      "timerStart": 1666906143629,
-      "timerStop": 1666906147806
+      "id": "17911c9a-6014-48e8-94be-8342067e4ae9",
+      "taskId": "e816bcdb-b62f-4090-9369-1728d051b515",
+      "timerStart": 1666958233456,
+      "timerStop": 1666958236896
     },
     {
-      "id": "ee35501c-1fa9-452c-a664-804406032609",
-      "taskId": "d4c85a44-8072-452f-8e8e-bc859cdb638e",
-      "timerStart": 1666908027545,
-      "timerStop": 1666908029134
-    },
-    {
-      "id": "d08cfbdf-301f-4774-aa7b-5fecf29a67b9",
-      "taskId": "268c8ea3-ffee-42d9-b5f4-337f42761c14",
-      "timerStart": 1666908355102,
-      "timerStop": 1666908356865
-    },
-    {
-      "id": "0193278b-5e6e-41a6-9998-9bc79dc61684",
-      "taskId": "268c8ea3-ffee-42d9-b5f4-337f42761c14",
-      "timerStart": 1666908358101,
-      "timerStop": 1666908360238
+      "id": "62e3f568-3cd0-46f5-aaaa-162a64cc22b0",
+      "taskId": "e816bcdb-b62f-4090-9369-1728d051b515",
+      "timerStart": 1666959548616,
+      "timerStop": 1666959564702
     }
   ]
 }

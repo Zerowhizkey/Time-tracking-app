@@ -10,6 +10,13 @@ export const Container = styled.div`
 	margin-bottom: 15%;
 `;
 
+export const Exit = styled.div`
+	display: flex;
+	justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+`;
+
 export const InputContainer = styled.div`
 	display: grid;
 	gap: 1em;
@@ -17,6 +24,28 @@ export const InputContainer = styled.div`
 	margin: 0 2.5em;
 	background-color: #20212c;
 	border-radius: 20px;
+`;
+export const SelectContainer = styled.div`
+	display: grid;
+	gap: 1em;
+	padding: 2em;
+	margin: 0 2.5em;
+	background-color: #20212c;
+	border-radius: 20px;
+	margin-bottom: 1em;
+`;
+export const MagicDiv = styled.div`
+	background-color: #da22ff24;
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 `;
 
 export const InputText = styled.input`
@@ -103,41 +132,11 @@ export const ProjectItem = styled.li`
 	letter-spacing: 0.07em;
 `;
 
-export const Exit = styled.div`
-	display: flex;
-	justify-content: flex-end;
-	margin: 0;
-	padding: 0;
-`;
-
-export const SelectContainer = styled.div`
-	display: grid;
-	gap: 1em;
-	padding: 2em;
-	margin: 0 2.5em;
-	background-color: #20212c;
-	border-radius: 20px;
-	margin-bottom: 1em;
-`;
-export const MagicDiv = styled.div`
-	background-color: #da22ff24;
-	display: none; /* Hidden by default */
-	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
-	left: 0;
-	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	overflow: auto; /* Enable scroll if needed */
-	background-color: rgb(0, 0, 0); /* Fallback color */
-	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-`;
-
 export const Option = styled.option`
 	text-decoration: none;
 	background-color: transparent;
 	border: solid 0.15em #2e2e39;
-	color: white;
+    color: white;
 	/* padding: 1em; */
 	border-radius: 10px;
 `;

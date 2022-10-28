@@ -79,7 +79,14 @@ const Timers = () => {
 		return badTime ? elapsed + (Date.now() - badTime.timerStart) : elapsed;
 	}, [times, currentTask]);
 
+	//const showTotal = useMemo(() => {
+	//	const addElapsed = currentTime.taskId === currentTask ? logTime : 0;
+	//	console.log(addElapsed)
+	//	return dayjs.duration(totalTime + addElapsed).format("HH:mm:ss");
+	//}, [currentTime, currentTask, totalTime, logTime]);
+
 	const showTotal = useMemo(() => {
+		console.log("showTotal");
 		return dayjs.duration(totalTime + logTime).format("HH:mm:ss");
 	}, [totalTime, logTime]);
 	// console.log(logTime);

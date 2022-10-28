@@ -23,6 +23,7 @@ const Projects = () => {
 		await addProject(projectData);
 		setInput("");
 		setColor("");
+		setIsOpen(false);
 	};
 	const handleOption = (e) => {
 		setCurrentUser(e.target.value);
@@ -39,6 +40,16 @@ const Projects = () => {
 	return isOpen === true ? (
 		<S.Container>
 			<S.SelectContainer>
+				<S.Select onChange={handleOption}>
+					<S.Option value="">Pick a User</S.Option>
+					{users
+						? users.map((user) => (
+								<S.Option key={user.id} value={user.id}>
+									{user.name}
+								</S.Option>
+						  ))
+						: console.log("error")}
+				</S.Select>
 				<S.Exit>
 					<TiDelete
 						size={25}
@@ -50,16 +61,6 @@ const Projects = () => {
 						X
 					</TiDelete>
 				</S.Exit>
-				<S.Select onChange={handleOption}>
-					<S.Option value="">Pick a User</S.Option>
-					{users
-						? users.map((user) => (
-								<S.Option key={user.id} value={user.id}>
-									{user.name}
-								</S.Option>
-						  ))
-						: console.log("error")}
-				</S.Select>
 			</S.SelectContainer>
 			<S.InputContainer>
 				<S.InputText type="text" value={input} onChange={handleInput} />
@@ -107,3 +108,34 @@ const Projects = () => {
 };
 
 export default Projects;
+{
+	/* <S.ProjectList>
+					{filterProjects &&
+						filterProjects.map((project) => (
+							<S.ProjectItem key={project.id}>
+								<TiFolderDelete
+									size={25}
+									style={{
+										backgroundColor: `${project.color}`,
+										padding: "0.25em",
+										borderRadius: "10%",
+										color: " #da22ff",
+									}}
+								/>
+								<TiDelete
+									size={25}
+									style={{
+										color: " #da22ff",
+									}}
+									onClick={() => handleDelete(project.id)}
+								/>
+								<p style={{ width: "50px" }}>{project.name}</p>
+							</S.ProjectItem>
+						))}
+				</S.ProjectList> */
+}
+// const filterProjects = projects.filter(
+// 	(project) => project.userId === currentUser
+// );
+// console.log(filterProjects);
+// console.log(users);

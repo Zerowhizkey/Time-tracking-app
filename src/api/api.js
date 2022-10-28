@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://10.24.200.173:3000";
+const URL = "http://192.168.1.86:3000";
 
 export const getUsers = async () => {
 	const { data } = await axios.request({

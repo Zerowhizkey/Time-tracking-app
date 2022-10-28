@@ -5,7 +5,6 @@ import * as S from "./Tasks.styles";
 import { TiDelete, TiFolderDelete } from "react-icons/ti";
 const Tasks = () => {
 	const [currentProject, setCurrentProject] = useState(null);
-	const [currentTask, setCurrentTask] = useState(null);
 	const [input, setInput] = useState("");
 	const [isOpen, setIsOpen] = useState(false);
 	const { projects, tasks, addTask, deleteTask } = useProjects();
@@ -20,16 +19,12 @@ const Tasks = () => {
 		};
 		await addTask(taskData);
 		setInput("");
-	};
-
-	const handleClickOpen = () => {
-		setIsOpen(true);
+		setIsOpen(false)
 	};
 
 	const handleClickDelete = async (id) => {
 		if (!id) return;
 		await deleteTask(id);
-		setCurrentTask(null);
 	};
 
 	const handleOption = (e) => {
@@ -62,7 +57,11 @@ const Tasks = () => {
 					<S.Option value="">Pick a Project</S.Option>
 					{projects
 						? projects.map((project) => (
-								<S.Option key={project.id} value={project.id} style={{backgroundColor: `${project.color}`}}>
+								<S.Option
+									key={project.id}
+									value={project.id}
+									style={{ backgroundColor: `${project.color}` }}
+								>
 									{project.name}
 								</S.Option>
 						  ))

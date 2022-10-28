@@ -52,14 +52,6 @@ export const Button = styled.button`
 	}
 `;
 
-export const ColorContainer = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-`;
-
-export const Text = styled.p``;
-
 export const Title = styled.h3`
 	text-align: center;
 `;
@@ -68,15 +60,6 @@ export const ProjectContainer = styled.div`
 	margin-top: 2em;
 	display: grid;
 	justify-content: center;
-	/* grid-template-columns: repeat(2, 1fr); */
-`;
-
-export const Input = styled.input`
-	text-decoration: none;
-	background-color: transparent;
-	border: solid 0.15em #2e2e39;
-	/* padding: 1em; */
-	border-radius: 10px;
 `;
 
 export const ProjectList = styled.ul`

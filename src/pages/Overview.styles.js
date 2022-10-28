@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-// export const Container = styled.div`
-// 	display: flex;
-// 	justify-content: center;
-// 	flex-direction: column;
-// 	margin-top: 2em;
-// 	margin-left: 5%;
-// 	margin-right: 5%;
-// 	margin-bottom: 15%;
-// `;
 export const Container = styled.div`
 	display: grid;
 `;
@@ -23,7 +14,6 @@ export const Header = styled.h4`
 	align-items: center;
 	letter-spacing: 0.1em;
 	font-weight: 200;
-	/* text-transform: uppercase; */
 `;
 
 export const ItemContainer = styled.div`

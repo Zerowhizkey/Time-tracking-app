@@ -4,10 +4,9 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"start": "concurrently \"vite --host 192.168.1.86\" \"json-server --host 192.168.1.86 --watch db.json\"",
+		"start": "concurrently \"vite --host localhost\" \"json-server --host localhost --watch db.json\"",
 		"dev": "vite",
-		"dev:host": "vite --host",
-		"json:server": "json-server --watch db.json --host 192.168.1.86",
+		"json:server": "json-server --watch db.json",
 		"build": "vite build",
 		"preview": "vite preview"
 	},

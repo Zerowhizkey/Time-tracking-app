@@ -6,8 +6,8 @@ import * as S from "./Projects.styles";
 
 const Projects = () => {
 	const [input, setInput] = useState("");
-	const [isOpen, setIsOpen] = useState(false);
 	const [color, setColor] = useState("");
+	const [isOpen, setIsOpen] = useState(false);
 	const [currentUser, setCurrentUser] = useState();
 	const { users, projects, addProject, deleteProject } = useProjects();
 
@@ -19,7 +19,6 @@ const Projects = () => {
 			name: input,
 			color: color,
 		};
-		// if (projects.find((project) => project.name === projectData.name)) return;
 		await addProject(projectData);
 		setInput("");
 		setColor("");
@@ -108,34 +107,3 @@ const Projects = () => {
 };
 
 export default Projects;
-{
-	/* <S.ProjectList>
-					{filterProjects &&
-						filterProjects.map((project) => (
-							<S.ProjectItem key={project.id}>
-								<TiFolderDelete
-									size={25}
-									style={{
-										backgroundColor: `${project.color}`,
-										padding: "0.25em",
-										borderRadius: "10%",
-										color: " #da22ff",
-									}}
-								/>
-								<TiDelete
-									size={25}
-									style={{
-										color: " #da22ff",
-									}}
-									onClick={() => handleDelete(project.id)}
-								/>
-								<p style={{ width: "50px" }}>{project.name}</p>
-							</S.ProjectItem>
-						))}
-				</S.ProjectList> */
-}
-// const filterProjects = projects.filter(
-// 	(project) => project.userId === currentUser
-// );
-// console.log(filterProjects);
-// console.log(users);

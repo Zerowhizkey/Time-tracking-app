@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useProjects } from "../context/ProjectContext";
 import { v4 as uuid } from "uuid";
-import { TiDelete, TiFolderDelete } from "react-icons/ti";
+import { TiDelete } from "react-icons/ti";
 import * as S from "./Projects.styles";
 
 const Users = () => {

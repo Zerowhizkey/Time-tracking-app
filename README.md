@@ -1,6 +1,11 @@
 ## Deployment
-* WORK IN PROGRESS
-
+- How to run this app:  \
+- Clone this repo.
+- npm install.
+- "scripts": 
+		"npm run dev" : Will run the frontend app.
+		"npm run json:server": Will run the backend app.
+		"npm run start" : Will run the backend and frontend on the same terminal. "You need to change to local ip adress" 
 
 
 # Kunskapskontroll 1: Time-tracking-app
@@ -8,6 +13,8 @@
 ## Choice of styling
 - Styled Components:\
   I've chosen styled components as my styling choice for this assignment. I've tried alot of librarys before like MUI, Chakra, Bootstrap.. And i wanted to try something new that in a way contains something similar to vanilla CSS but with another structure, i also want to focus on seperating the css logic to a seperated file for a cleaner view.
+ - Google Fonts:  \
+  Added Poppin font for a nicer font
 
 ## Choice of packages
 - vite:\

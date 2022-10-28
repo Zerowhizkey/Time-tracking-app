@@ -1,57 +1,6 @@
 {
-  "users": [
-    {
-      "id": "2edb0db8-9d8a-4fd2-a2ed-c58ab57159d3",
-      "name": "Marcus"
-    },
-    {
-      "id": "8c107257-7877-42b1-85a2-160cdaea7e40",
-      "name": "Nils"
-    },
-    {
-      "id": "4ff693db-f2d1-4b0b-b53b-483312492800",
-      "name": "heheh"
-    }
-  ],
-  "projects": [
-    {
-      "id": "06b9bc67-0efc-464f-9014-97edb031e064",
-      "userId": "2edb0db8-9d8a-4fd2-a2ed-c58ab57159d3",
-      "name": "awdsasd",
-      "color": ""
-    },
-    {
-      "id": "c7ee2362-1f77-41b9-b381-d9b50765acdc",
-      "userId": "8c107257-7877-42b1-85a2-160cdaea7e40",
-      "name": "asdasdasd",
-      "color": "#e01a1a"
-    },
-    {
-      "id": "f32fc48d-cdad-461a-9a06-a8487458375f",
-      "userId": "8c107257-7877-42b1-85a2-160cdaea7e40",
-      "name": "ads",
-      "color": "#f21818"
-    },
-    {
-      "id": "993f27be-b05b-4826-b107-fcb07beb9585",
-      "userId": "4ff693db-f2d1-4b0b-b53b-483312492800",
-      "name": "sdfsdf",
-      "color": "#db2424"
-    }
-  ],
-  "tasks": [
-    {
-      "id": "60d6aed1-c04b-42af-86d7-49ad41864595",
-      "projectId": "06b9bc67-0efc-464f-9014-97edb031e064",
-      "title": "rtyryrty"
-    }
-  ],
-  "timelogs": [
-    {
-      "id": "b7059fb9-9f42-4e04-98fb-482c9ba6c4e6",
-      "taskId": "60d6aed1-c04b-42af-86d7-49ad41864595",
-      "timerStart": 1666965693271,
-      "timerStop": 1666965696279
-    }
-  ]
+  "users": [],
+  "projects": [],
+  "tasks": [],
+  "timelogs": []
 }

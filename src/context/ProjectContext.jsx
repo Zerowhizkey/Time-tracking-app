@@ -23,7 +23,6 @@ export const ProjectProvider = ({ children }) => {
 		if (!id) return;
 		const deleted = await api.deleteUser(id);
 		if (!deleted) return;
-		console.log(deleted);
 		setUsers((currentData) => currentData.filter((data) => data.id !== id));
 		setProjects((currentData) =>
 			currentData.filter((data) => data.userId !== id)
@@ -50,7 +49,6 @@ export const ProjectProvider = ({ children }) => {
 			currentData.filter((data) => data.projectId !== id)
 		);
 	};
-	// console.log(tasks)
 
 	const getTask = async () => {
 		const data = await api.getTasks();
@@ -84,7 +82,6 @@ export const ProjectProvider = ({ children }) => {
 		const deleted = await api.deleteTime(id);
 		setTimes((currentData) => currentData.filter((data) => data.id !== id));
 	};
-	// console.log(times);
 
 	const updateTime = async (id, timeData) => {
 		const data = await api.updateTime(id, timeData);

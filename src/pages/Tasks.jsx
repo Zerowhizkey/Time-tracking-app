@@ -19,7 +19,7 @@ const Tasks = () => {
 		};
 		await addTask(taskData);
 		setInput("");
-		setIsOpen(false)
+		setIsOpen(false);
 	};
 
 	const handleClickDelete = async (id) => {
@@ -30,10 +30,6 @@ const Tasks = () => {
 	const handleOption = (e) => {
 		setCurrentProject(e.target.value);
 	};
-
-	// const handleTask = (e) => {
-	// 	setCurrentTask(e.target.value);
-	// };
 
 	const handleInput = (e) => {
 		setInput(e.target.value);
@@ -112,40 +108,3 @@ const Tasks = () => {
 };
 
 export default Tasks;
-
-// if (task.projectId === project.id)
-// {
-// 	console.log(task.projectId);
-// }
-// {
-// 	console.log(project.id);
-// }
-// value={currentProject}
-// value={currentTask}
-// const projId = projects.map((projects) => projects.id);
-// console.log(projId)
-/* height: 100vh; */
-// console.log(projects);
-// console.log(tasks);
-// console.log(currentProject);
-// console.log(currentTask);
-// currentTask,
-// useEffect(() => {
-// 	async function getTask() {
-// 		const { taskData } = await axios.request({
-// 			method: "get",
-// 			url: `http://localhost:3000/tasks`,
-// 		});
-// 		setTask(taskData);
-// 	}
-// 	getTask();
-// }, []);
-// async function addTask(taskData) {
-// 	const response = await axios.request({
-// 		method: "post",
-// 		url: `http://localhost:3000/tasks`,
-// 		taskData: { id: unique_id, projectId: currentProject, title: input },
-// 	});
-// 	await getTask();
-// 	return response.taskData;
-// }

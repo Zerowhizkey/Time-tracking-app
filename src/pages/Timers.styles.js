@@ -13,14 +13,10 @@ export const ItemContainer = styled.div`
 	justify-content: space-around;
 	top: 0;
 	position: sticky;
-	/* background-color: #20212c; */
-	/* margin-left: 25%; */
-	/* margin-right: 25%; */
 `;
 
 export const Header = styled.h4`
 	display: flex;
-	/* width: 100vw; */
 	height: 5vh;
 	margin: 0;
 	background-color: #20212c;
@@ -36,9 +32,6 @@ export const TaskContainer = styled.div`
 	justify-content: center;
 	gap: 0.5em;
 	justify-items: center;
-
-	/* align-items: center; */
-	/* justify-items: center; */
 `;
 export const Title = styled.h3`
 	text-align: center;

@@ -79,17 +79,9 @@ const Timers = () => {
 		return badTime ? elapsed + (Date.now() - badTime.timerStart) : elapsed;
 	}, [times, currentTask]);
 
-	//const showTotal = useMemo(() => {
-	//	const addElapsed = currentTime.taskId === currentTask ? logTime : 0;
-	//	console.log(addElapsed)
-	//	return dayjs.duration(totalTime + addElapsed).format("HH:mm:ss");
-	//}, [currentTime, currentTask, totalTime, logTime]);
-
 	const showTotal = useMemo(() => {
-		console.log("showTotal");
 		return dayjs.duration(totalTime + logTime).format("HH:mm:ss");
 	}, [totalTime, logTime]);
-	// console.log(logTime);
 	return (
 		<>
 			<S.Header>Timer</S.Header>
@@ -162,96 +154,3 @@ const Timers = () => {
 };
 
 export default Timers;
-// {/* <div>
-// {/* {!timer.isPaused() && !timers.isPaused() && ( */}
-
-// <FaPlayCircle onClick={handlePlay}></FaPlayCircle>
-// <FaPauseCircle
-// 	style={{ padding: "10px", margin: "10px" }}
-// 	onClick={() => handlePause({ timerStop: timeStart })}
-// ></FaPauseCircle>
-
-// <ImCross
-// 	style={{ padding: "10px", margin: "10px" }}
-// 	onClick={handleClickDelete}
-// ></ImCross>
-// </div> */}
-{
-	/* <div style={{ display: "flex", justifyContent: "space-around" }}>
-					<div>
-						<p>total</p>
-					</div>
-					<div>
-						<p>today</p>
-					</div>
-				</div> */
-}
-// const Container = styled.div`
-// 	display: grid;
-// `;
-
-// const ItemContainer = styled.div`
-// 	display: grid;
-// `;
-
-// const Header = styled.div`
-// 	background-color: lightgray;
-// 	text-align: center;
-// `;
-// const totalTime = times.filter((time) => time.taskId === currentTask);
-
-// const total = totalTime.map((total) => {
-// 	if (!total.timerStop) return;
-// 	const dateStart = dayjs(total.timerStart, "dd-hh-mm-ss");
-// 	const dateEnd = dayjs(total.timerStop, "dd-hh-mm-ss");
-// 	const timeDiff = dateEnd.diff(dateStart, "second");
-// 	// console.log(timeDiff, "this is totala");
-// 	return timeDiff;
-// 	// console.log(total)
-// });
-// console.log(totalTime);
-
-// useEffect(() => {
-// 	getTime()
-{
-	/* {currentTime && <p>{dayjs.duration(logTime).format("HH:mm:ss")}</p>} */
-}
-// }, []);
-// console.log(timers);
-// console.log(currentTask);
-// console.log(currentTime);
-// console.log(times)
-// timers.stop();
-// calcTotal();
-// setCurrentTime(null);
-// getTime();
-// timers.start();
-// timers.resume();
-// timers.pause();
-// const [tsn, setTsn] = useState(Date.now());
-// const date = dayjs(tsn).format("YYYY-MM-DD");
-// const timeStart = dayjs(Date.now()).format("dd-hh-mm-ss");
-// const timeRef = useRef(new Timer());
-// const timers = timeRef.current;
-// start: date,
-// const handlePlay = async () => {
-// 	timer.current.resume();
-
-// 	console.log(timer.isRunning());
-// };
-
-// const handlePause = async (timeData) => {
-// 	timer.current.pause();
-
-// 	console.log(timer.isPaused());
-// 	await updateTime(currentTime.id, timeData);
-// };
-
-{
-	/* <p style={{ marginTop: "0" }}>
-							{activeTask.title} {showTimeLog}
-						</p> */
-}
-// const showTimeLog = useMemo(() => {
-// 	return dayjs.duration(logTime).format("HH:mm:ss");
-// }, [logTime]);

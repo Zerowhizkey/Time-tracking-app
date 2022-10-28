@@ -43,26 +43,3 @@ function App() {
 }
 
 export default App;
-// import { getProducts, getTasks, getTimes } from "./api/api";
-// loader: getProducts,
-// {
-// 	index: true,
-// 	element: <Projects />
-// },
-// loader: async () => {
-// 	const products = await getProducts();
-// 	const tasks = await getTasks();
-// 	const times = await getTimes();
-// 	return { products, tasks, times };
-// },
-// loader: getProducts,
-// children: [
-// 	{
-// 		path: "projects",
-// 		element: <Projects />,
-// 	},
-// 	{
-// 		path: "tasks",
-// 		element: <Tasks />,
-// 	},
-// ],

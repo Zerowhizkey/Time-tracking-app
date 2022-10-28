@@ -17,11 +17,9 @@ const Calendar = () => {
 		const date = dayjs(e.target.value).format("YYYY-MM-DD HH-mm");
 		setInputValue(date);
 	};
-	// console.log(inputValue);
 
 	const handleInputTwo = (e) => {
 		const date = dayjs(e.target.value).format("YYYY-MM-DD HH-mm");
-		console.log(date);
 		setInputValueTwo(date);
 	};
 
@@ -38,7 +36,8 @@ const Calendar = () => {
 					const foundTimes = times.filter(
 						(time) =>
 							dayjs(time.timeStart).format("YYYY-MM-DD HH-mm") >= inputValue &&
-							dayjs(time.timeStart).format("YYYY-MM-DD HH-mm") <= inputValueTwo &&
+							dayjs(time.timeStart).format("YYYY-MM-DD HH-mm") <=
+								inputValueTwo &&
 							task.id === time.taskId &&
 							time.timerStop
 					);
@@ -67,39 +66,3 @@ const Calendar = () => {
 };
 
 export default Calendar;
-// const timeStart = times.filter((time) => inputValue === dayjs(time.timeStart).format("YYYY-MM-DD"));
-// const tasksTi = tasks.filter((task) => task.id === timeStart.taskId);
-// console.log(tasksTi);
-{
-	/* {timeStart.map((time) => (
-					<div key={time.id}>
-						<p>{time.taskId}</p>
-						<p>{time.start}</p>
-						<p>{time.timerStart}</p>
-						<p>{time.timerStop}</p>
-					</div>
-				))} */
-}
-{
-	/* <p>{time.start}</p> */
-}
-{
-	/* <p>{time.timerStart}</p> */
-}
-{
-	/* <p>{time.timerStop}</p> */
-}
-// console.log(timeStart.taskId);
-// console.log(inputValue);
-// console.log(times[0].start);
-// console.log(dayjs(inputValue).isSame(dayjs(times[0].start)));
-// om task har timelog.start === inputvalue
-// console.log(foundTimes);
-// console.log(date);
-// dayjs(time.timeStart).format("YYYY-MM-DD") === inputValue
-// <= time.timeStart && inputValueTwo >= time.timeStart &&
-// console.log(inputValue);
-// console.log(inputValueTwo);
-// useEffect(() => {
-// 	getTask(), getTime();
-// }, []);
